@@ -118,12 +118,9 @@ class WebhookController {
         return $this->orderHelper->apiError($result, 'Cannot get order');
       }
       $order = $result->data;
-      watchdog('ulf_pretix', print_r($order, true), [], WATCHDOG_DEBUG);
-      error_log(print_r($order, true));
       $questions = $this->orderHelper->getQuestions($organizerSlug, $eventSlug);
       $order->questions = $questions;
       $orderLines = $this->orderHelper->getOrderLines($order);
-      watchdog('ulf_pretix', print_r($orderLines, true), [], WATCHDOG_DEBUG);
 
       $content = $this->renderOrder($order, $orderLines);
 
