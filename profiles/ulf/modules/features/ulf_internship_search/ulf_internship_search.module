@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * @file
+ * Code for the Ulf Internship Search feature.
+ */
+
+include_once 'ulf_internship_search.features.inc';
