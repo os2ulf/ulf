@@ -1933,6 +1933,143 @@ At opnå kendskab til...
     ),
   );
 
+  // Exported field_instance: 'user-user-field_branche'.
+  $field_instances['user-user-field_branche'] = array(
+    'bundle' => 'user',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_plain',
+        'weight' => 12,
+      ),
+    ),
+    'entity_type' => 'user',
+    'field_name' => 'field_branche',
+    'label' => 'Branche',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => 0,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'options',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'options_buttons',
+      'weight' => 29,
+    ),
+  );
+
+  // Exported field_instance: 'user-user-field_garantipartner'.
+  $field_instances['user-user-field_garantipartner'] = array(
+    'bundle' => 'user',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 15,
+      ),
+    ),
+    'entity_type' => 'user',
+    'field_name' => 'field_garantipartner',
+    'label' => 'Garantipartner',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => 0,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 28,
+    ),
+  );
+
+  // Exported field_instance: 'user-user-field_lokation'.
+  $field_instances['user-user-field_lokation'] = array(
+    'bundle' => 'user',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 14,
+      ),
+    ),
+    'entity_type' => 'user',
+    'field_name' => 'field_lokation',
+    'label' => 'Postnummer',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => 0,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'options',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'options_buttons',
+      'weight' => 31,
+    ),
+  );
+
+  // Exported field_instance: 'user-user-field_tilbudsforpligtelser'.
+  $field_instances['user-user-field_tilbudsforpligtelser'] = array(
+    'bundle' => 'user',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_plain',
+        'weight' => 13,
+      ),
+    ),
+    'entity_type' => 'user',
+    'field_name' => 'field_tilbudsforpligtelser',
+    'label' => 'Muligheder',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => 0,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'options',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'options_buttons',
+      'weight' => 30,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('<p class="is-preschool">
@@ -1959,6 +2096,7 @@ At opnå kendskab til...
   t('Beskrivelse til antal');
   t('Beskrivelse til pris');
   t('Beskrivelse til varighed');
+  t('Branche');
   t('Dato');
   t('Efterbehandling');
   t('Email');
@@ -1969,12 +2107,15 @@ At opnå kendskab til...
   t('Faciliteter');
   t('Forberedelse');
   t('Formål');
+  t('Garantipartner');
   t('Gratis');
   t('Hvilke faciliteter kan I tilbyde?');
   t('Kun hvis dette er valgt, vil eventet i pretix automatisk blive opdateret med eventindstillinger på denne side. ');
   t('Materiale');
   t('Message form');
+  t('Muligheder');
   t('Passed review');
+  t('Postnummer');
   t('Pretix Widget');
   t('Pretix event url');
   t('Pris');

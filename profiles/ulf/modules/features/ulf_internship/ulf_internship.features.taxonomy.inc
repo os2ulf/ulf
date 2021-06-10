@@ -18,6 +18,14 @@ function ulf_internship_taxonomy_default_vocabularies() {
       'module' => 'taxonomy',
       'weight' => 0,
     ),
+    'competencies' => array(
+      'name' => 'Kompetenceområde',
+      'machine_name' => 'competencies',
+      'description' => '',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+    ),
     'lokation' => array(
       'name' => 'Postnummer',
       'machine_name' => 'lokation',

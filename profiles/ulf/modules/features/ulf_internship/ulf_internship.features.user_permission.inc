@@ -386,15 +386,6 @@ function ulf_internship_user_default_permissions() {
     'module' => 'clone',
   );
 
-  // Exported permission: 'create education content'.
-  $permissions['create education content'] = array(
-    'name' => 'create education content',
-    'roles' => array(
-      'company consultant' => 'company consultant',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'create html_block content'.
   $permissions['create html_block content'] = array(
     'name' => 'create html_block content',
@@ -417,26 +408,6 @@ function ulf_internship_user_default_permissions() {
   // Exported permission: 'create news content'.
   $permissions['create news content'] = array(
     'name' => 'create news content',
-    'roles' => array(
-      'company consultant' => 'company consultant',
-      'editor' => 'editor',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'create news_course_provider content'.
-  $permissions['create news_course_provider content'] = array(
-    'name' => 'create news_course_provider content',
-    'roles' => array(
-      'company consultant' => 'company consultant',
-      'course provider' => 'course provider',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'create page_with_blocks content'.
-  $permissions['create page_with_blocks content'] = array(
-    'name' => 'create page_with_blocks content',
     'roles' => array(
       'company consultant' => 'company consultant',
       'editor' => 'editor',
@@ -494,16 +465,6 @@ function ulf_internship_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'delete any page_with_blocks content'.
-  $permissions['delete any page_with_blocks content'] = array(
-    'name' => 'delete any page_with_blocks content',
-    'roles' => array(
-      'company consultant' => 'company consultant',
-      'editor' => 'editor',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'delete any static_page content'.
   $permissions['delete any static_page content'] = array(
     'name' => 'delete any static_page content',
@@ -534,16 +495,6 @@ function ulf_internship_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'delete own page_with_blocks content'.
-  $permissions['delete own page_with_blocks content'] = array(
-    'name' => 'delete own page_with_blocks content',
-    'roles' => array(
-      'company consultant' => 'company consultant',
-      'editor' => 'editor',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'delete own static_page content'.
   $permissions['delete own static_page content'] = array(
     'name' => 'delete own static_page content',
@@ -560,15 +511,6 @@ function ulf_internship_user_default_permissions() {
     'roles' => array(
       'company consultant' => 'company consultant',
       'editor' => 'editor',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit any education content'.
-  $permissions['edit any education content'] = array(
-    'name' => 'edit any education content',
-    'roles' => array(
-      'company consultant' => 'company consultant',
     ),
     'module' => 'node',
   );
@@ -612,26 +554,6 @@ function ulf_internship_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'edit any news_course_provider content'.
-  $permissions['edit any news_course_provider content'] = array(
-    'name' => 'edit any news_course_provider content',
-    'roles' => array(
-      'company consultant' => 'company consultant',
-      'editor' => 'editor',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit any page_with_blocks content'.
-  $permissions['edit any page_with_blocks content'] = array(
-    'name' => 'edit any page_with_blocks content',
-    'roles' => array(
-      'company consultant' => 'company consultant',
-      'editor' => 'editor',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'edit any static_page content'.
   $permissions['edit any static_page content'] = array(
     'name' => 'edit any static_page content',
@@ -650,15 +572,6 @@ function ulf_internship_user_default_permissions() {
       'editor' => 'editor',
     ),
     'module' => 'metatag',
-  );
-
-  // Exported permission: 'edit own education content'.
-  $permissions['edit own education content'] = array(
-    'name' => 'edit own education content',
-    'roles' => array(
-      'company consultant' => 'company consultant',
-    ),
-    'module' => 'node',
   );
 
   // Exported permission: 'edit own html_block content'.
@@ -683,27 +596,6 @@ function ulf_internship_user_default_permissions() {
   // Exported permission: 'edit own news content'.
   $permissions['edit own news content'] = array(
     'name' => 'edit own news content',
-    'roles' => array(
-      'company consultant' => 'company consultant',
-      'editor' => 'editor',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit own news_course_provider content'.
-  $permissions['edit own news_course_provider content'] = array(
-    'name' => 'edit own news_course_provider content',
-    'roles' => array(
-      'company consultant' => 'company consultant',
-      'course provider' => 'course provider',
-      'editor' => 'editor',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit own page_with_blocks content'.
-  $permissions['edit own page_with_blocks content'] = array(
-    'name' => 'edit own page_with_blocks content',
     'roles' => array(
       'company consultant' => 'company consultant',
       'editor' => 'editor',
