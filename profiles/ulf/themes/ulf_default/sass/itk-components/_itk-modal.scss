@@ -44,8 +44,8 @@
 /* Mixin for defining modal-dialog */
 @mixin modal-dialog($width:420px, $position:center, $speed:.2s) {
   width: $width;
-  z-index: 11;
-
+  z-index: 999;
+:
   position: relative;
 
   background: #fff;
