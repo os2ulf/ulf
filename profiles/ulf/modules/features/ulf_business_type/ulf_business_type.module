@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * @file
+ * Code for the Ulf business type feature.
+ */
+
+include_once 'ulf_business_type.features.inc';
