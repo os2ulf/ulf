@@ -32,7 +32,6 @@ function ulf_internship_search_default_search_api_index() {
       "search_node_indexes" : "98b141acfa9afc452d8549247a9909f6",
       "fields" : {
         "author" : { "type" : "integer", "entity_type" : "user" },
-        "author:field_branche" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "author:field_garantipartner" : { "type" : "boolean" },
         "author:field_lokation" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "author:field_profile_name" : { "type" : "text" },
@@ -40,6 +39,7 @@ function ulf_internship_search_default_search_api_index() {
         "author:url" : { "type" : "uri" },
         "changed" : { "type" : "date" },
         "created" : { "type" : "date" },
+        "field_business_type" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_full_description:value" : { "type" : "text" },
         "field_image:file" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "file" },
         "field_location" : { "type" : "string" },

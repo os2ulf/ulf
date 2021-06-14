@@ -1032,7 +1032,7 @@ function ulf_internship_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 62,
+      'weight' => 16,
     ),
   );
 
@@ -1871,7 +1871,7 @@ At opnå kendskab til...
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 46,
+      'weight' => 13,
     ),
   );
 

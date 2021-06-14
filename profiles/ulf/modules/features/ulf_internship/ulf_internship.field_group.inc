@@ -22,7 +22,7 @@ function ulf_internship_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Vis kontaktformular / Skjul kontaktformular',
-    'weight' => '49',
+    'weight' => '14',
     'children' => array(
       0 => 'field_message_form',
     ),
@@ -151,7 +151,7 @@ function ulf_internship_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Faciliteter',
-    'weight' => '7',
+    'weight' => '6',
     'children' => array(
       0 => 'field_facilities',
       1 => 'field_facilities_info',
@@ -181,7 +181,7 @@ function ulf_internship_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Materialer',
-    'weight' => '8',
+    'weight' => '7',
     'children' => array(
       0 => 'field_educational_material',
     ),
@@ -210,7 +210,7 @@ function ulf_internship_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Billeder/medier',
-    'weight' => '6',
+    'weight' => '5',
     'children' => array(
       0 => 'field_image',
       1 => 'field_video',
@@ -301,7 +301,7 @@ function ulf_internship_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'pretix',
-    'weight' => '51',
+    'weight' => '15',
     'children' => array(
       0 => 'field_pretix_enable',
       1 => 'field_pretix_synchronize',

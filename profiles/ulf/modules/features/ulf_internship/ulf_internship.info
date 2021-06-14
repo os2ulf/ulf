@@ -47,6 +47,7 @@ dependencies[] = taxonomy
 dependencies[] = text
 dependencies[] = toolbar
 dependencies[] = ulf_admin_panel
+dependencies[] = ulf_business_type
 dependencies[] = ulf_course_providers
 dependencies[] = ulf_field_bases
 dependencies[] = ulf_field_collections
