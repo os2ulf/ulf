@@ -22,7 +22,7 @@ function ulf_business_type_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Branche',
-    'weight' => '66',
+    'weight' => '10',
     'children' => array(
       0 => 'field_business_type',
     ),

@@ -14,7 +14,7 @@ function ulf_business_type_field_default_field_bases() {
   // Exported field_base: 'field_business_type'.
   $field_bases['field_business_type'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_business_type',
@@ -39,9 +39,11 @@ function ulf_business_type_field_default_field_bases() {
         'sort' => array(
           'type' => 'none',
         ),
-        'target_bundles' => array(),
+        'target_bundles' => array(
+          'branche' => 'branche',
+        ),
       ),
-      'target_type' => 'taxonomy_vocabulary',
+      'target_type' => 'taxonomy_term',
     ),
     'translatable' => 0,
     'type' => 'entityreference',

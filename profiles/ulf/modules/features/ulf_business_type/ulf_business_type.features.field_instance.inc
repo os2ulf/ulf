@@ -14,11 +14,7 @@ function ulf_business_type_field_default_field_instances() {
   // Exported field_instance: 'node-internship-field_business_type'.
   $field_instances['node-internship-field_business_type'] = array(
     'bundle' => 'internship',
-    'default_value' => array(
-      0 => array(
-        'target_id' => 9,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => 'Typen af denne branche.',
     'display' => array(
@@ -50,6 +46,11 @@ function ulf_business_type_field_default_field_instances() {
     'label' => 'Branche',
     'required' => 0,
     'settings' => array(
+      'behaviors' => array(
+        'taxonomy-index' => array(
+          'status' => TRUE,
+        ),
+      ),
       'user_register_form' => FALSE,
     ),
     'widget' => array(
