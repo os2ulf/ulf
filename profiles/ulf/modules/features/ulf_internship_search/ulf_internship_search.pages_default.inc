@@ -101,7 +101,7 @@ function ulf_internship_search_default_page_manager_pages() {
           'author:field_profile_name' => 'author:field_profile_name',
           'title' => 'title',
           'author' => 0,
-          'internship:field_business_type' => 0,
+          'field_business_type' => 0,
           'author:field_lokation' => 0,
           'author:field_tilbudsforpligtelser' => 0,
           'author:url' => 0,
@@ -120,7 +120,7 @@ function ulf_internship_search_default_page_manager_pages() {
         ),
         'filters' => array(
           'taxonomy' => array(
-            'internship:field_business_type' => 'internship:field_business_type',
+            'field_business_type' => 'field_business_type',
             'author:field_lokation' => 'author:field_lokation',
             'author:field_tilbudsforpligtelser' => 0,
             'field_subjects_primary_school' => 0,
@@ -133,7 +133,7 @@ function ulf_internship_search_default_page_manager_pages() {
       ),
       'filters' => array(
         'type' => array(
-          'internship:field_business_type' => 'and',
+          'field_business_type' => 'and',
           'author:field_lokation' => 'and',
           'author:field_tilbudsforpligtelser' => 'and',
           'field_subjects_primary_school' => 'or',
@@ -150,7 +150,7 @@ function ulf_internship_search_default_page_manager_pages() {
       'intervals' => array(
         'fields' => array(
           'author' => 0,
-          'internship:field_business_type' => 0,
+          'field_business_type' => 0,
           'author:field_lokation' => 0,
           'author:field_profile_name' => 0,
           'author:field_tilbudsforpligtelser' => 0,
@@ -177,7 +177,7 @@ function ulf_internship_search_default_page_manager_pages() {
       'highlight' => array(
         'fields' => array(
           'author' => 0,
-          'internship:field_business_type' => 0,
+          'field_business_type' => 0,
           'author:field_lokation' => 0,
           'author:field_profile_name' => 0,
           'author:field_tilbudsforpligtelser' => 0,
