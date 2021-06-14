@@ -28,10 +28,16 @@ function ulf_internship_default_fe_block_settings() {
         'theme' => 'ulf_admin',
         'weight' => 0,
       ),
-      'ulf_hjoerring' => array(
+      'ulf_default' => array(
         'region' => '',
         'status' => 0,
-        'theme' => 'ulf_hjoerring',
+        'theme' => 'ulf_default',
+        'weight' => 0,
+      ),
+      'ulf_esbjerg' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'ulf_esbjerg',
         'weight' => 0,
       ),
     ),
