@@ -388,3 +388,16 @@ function ulf_workflow_entity_update($entity, $type) {
     _ulf_workflow_mail_field_collection_changes($entity);
   }
 }
+
+/**
+ * Implements hook_form_alter().
+ */
+function ulf_workflow_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id === 'course_node_form') {
+    if ($form['#node']->scheduler['unpublish_on'] < time()) {
+      // The field unpublish_on is in the past.
+      // Show no default value for that field, so we're able to save the node.
+      $form['scheduler_settings']['unpublish_on']['#default_value'] = NULL;
+    }
+  }
+}
