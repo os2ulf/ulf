@@ -11,3 +11,5 @@ docker-compose.yml
 tmp
 /sites/sites.local.php
 /sites/all/modules/devel
+/profiles/ulf/themes/ulf_default/.sass-cache/
+/profiles/ulf/themes/ulf_default/.sass-cache/*
