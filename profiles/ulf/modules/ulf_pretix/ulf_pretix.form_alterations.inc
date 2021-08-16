@@ -22,6 +22,11 @@ function ulf_pretix_form_user_profile_form_alter(&$form, &$form_state) {
   $form['field_pretix_default_event_slug']['#access'] = user_access('administer ulf pretix user settings');
 
   $user = $form['#user'];
+
+  if (!user_access('administer ulf pretix user settings', $user)) {
+    return $form;
+  }
+
   if (isset($user->uid)) {
     $url = EventHelper::create()->getPretixTemplateEventUrl($user);
     if (NULL !== $url) {
