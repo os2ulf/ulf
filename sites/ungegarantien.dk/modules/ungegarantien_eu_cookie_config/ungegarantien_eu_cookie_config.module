@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * @file
+ * Code for the ungegarantien_eu_cookie_config feature.
+ */
+
+include_once 'ungegarantien_eu_cookie_config.features.inc';
