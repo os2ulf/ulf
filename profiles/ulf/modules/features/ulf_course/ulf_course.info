@@ -19,7 +19,6 @@ dependencies[] = options
 dependencies[] = strongarm
 dependencies[] = taxonomy
 dependencies[] = text
-dependencies[] = transportpulje_form
 dependencies[] = ulf_base
 dependencies[] = ulf_course_educators
 dependencies[] = ulf_field_bases
