@@ -337,7 +337,7 @@ function ulf_base_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'jquery_update_jquery_migrate_enable';
-  $strongarm->value = 0;
+  $strongarm->value = 1;
   $export['jquery_update_jquery_migrate_enable'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -481,13 +481,15 @@ example.org';
   $strongarm->name = 'linkchecker_filter_blacklist';
   $strongarm->value = array(
     'filter_autop' => 'filter_autop',
+    'filter_html' => 0,
     'ckeditor_link_filter' => 0,
+    'gmap_macro' => 0,
     'filter_url' => 0,
     'transliteration' => 0,
     'filter_htmlcorrector' => 0,
-    'filter_html_escape' => 0,
-    'filter_html' => 0,
+    'filter_tokens' => 0,
     'video_embed_field' => 0,
+    'filter_html_escape' => 0,
   );
   $export['linkchecker_filter_blacklist'] = $strongarm;
 
