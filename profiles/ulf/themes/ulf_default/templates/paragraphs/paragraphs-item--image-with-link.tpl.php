@@ -27,9 +27,9 @@
  */
 ?>
 <div class="<?php print $classes; ?>">
-<!--  --><?php //print render($content); ?>
+  <?php //print render($content); ?>
   <?php if (isset($content['field_paragraph_button'])): ?>
-  <a href="<?php print $content['paragraph_link'] ?>">
+  <a href="<?php print $content['field_paragraph_button']['#items'][0]['url']; ?>"<?php if (isset($content['field_paragraph_button']['#items'][0]['attributes']['target'])) { print ' target="' . $content['field_paragraph_button']['#items'][0]['attributes']['target'] . '"'; } ?>>
   <?php endif; ?>
 
     <div class="image-with-link__wrapper">
@@ -39,7 +39,11 @@
         </div>
       <?php endif; ?>
 
-      <?php if (isset($content['field_paragraph_title'])): ?>
+      <?php if (isset($content['field_image_with_link_title'])): ?>
+        <div class="image-with-link__content" <?php print $attributes; ?>>
+          <h2><?php print nl2br($content['field_image_with_link_title']['#items'][0]['value']); ?></h2>
+        </div>
+      <?php elseif (isset($content['field_paragraph_title'])): ?>
         <div class="image-with-link__content" <?php print $attributes; ?>>
           <?php print render($content['field_paragraph_title']); ?>
         </div>
