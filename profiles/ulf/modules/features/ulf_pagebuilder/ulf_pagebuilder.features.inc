@@ -137,6 +137,11 @@ function ulf_pagebuilder_paragraphs_info() {
       'bundle' => 'link_list',
       'locked' => '1',
     ),
+    'news_list' => array(
+      'name' => 'Nyhedsliste',
+      'bundle' => 'news_list',
+      'locked' => '1',
+    ),
     'one_column' => array(
       'name' => 'En kolonne',
       'bundle' => 'one_column',
