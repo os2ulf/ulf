@@ -1005,7 +1005,7 @@ function ulf_default_preprocess_entity(&$variables) {
         break;
       case 'news_list':
         $view = views_get_view('ulf_frontpage_news');
-        $variables['news_list'] = $view->render('panel_pane_1');
+        $variables['news_list'] = $view->preview('panel_pane_1');
         break;
     }
 

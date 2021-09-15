@@ -27,10 +27,8 @@
  */
 ?>
 <div class="<?php print $classes; ?>">
-  <div class="row">
-    <?php print render($content); ?>
   <div class="news-list">
+    <?php print render($content); ?>
     <?php print $news_list ?>
-  </div>
   </div>
 </div>
