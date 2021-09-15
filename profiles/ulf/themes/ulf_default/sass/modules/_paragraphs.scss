@@ -401,7 +401,8 @@
 .paragraphs-item-text-with-video,
 .paragraphs-item-link-list,
 .paragraphs-item-download-list,
-.paragraphs-item-appetizer {
+.paragraphs-item-appetizer,
+.paragraphs-item-news-list {
   &--has-border {
     border: 1px solid;
   }
@@ -455,8 +456,15 @@
 
 }
 
-/* News list */
-.news-list {
-  display: flex;
-  flex-wrap: wrap;
+
+.paragraphs-item-news-list {
+  h2 {
+    margin-bottom: 0.5em;
+  }
+
+  /* News list */
+  .news-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
