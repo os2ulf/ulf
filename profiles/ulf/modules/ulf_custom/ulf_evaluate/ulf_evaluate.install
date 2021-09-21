@@ -1,0 +1,132 @@
+<?php
+/**
+ * Implements hook_install().
+ */
+function ulf_evaluate_install() {
+
+  drupal_set_installed_schema_version('ulf_evaluate', '0');
+
+}
+
+/**
+ * Update function for creating fivestar fields and changing comment settings on "education" node type.
+ */
+function ulf_evaluate_update_7801() {
+
+  $types = node_type_get_types();
+  $node_type_name = 'education';
+
+  if (array_key_exists($node_type_name, $types)) {
+
+    variable_set('comment_anonymous_' . $node_type_name, 0);
+    variable_set('comment_default_mode_' . $node_type_name, 0);
+    variable_set('comment_default_per_page_' . $node_type_name, 50);
+    variable_set('comment_' . $node_type_name, 2);
+    variable_set('comment_form_location_' . $node_type_name, 1);
+    variable_set('comment_preview_' . $node_type_name, 0);
+    variable_set('comment_subject_field_' . $node_type_name, 0);
+
+    $permissions = array('access comments', 'post comments', 'skip comment approval');
+    foreach(array('anonymous user', 'authenticated user') as $role_name) {
+      $role = user_role_load_by_name($role_name);
+      user_role_grant_permissions($role->rid, $permissions);
+    }
+
+    $permissions = array('administer comments');
+    foreach(array('editor', 'company consultant') as $role_name) {
+      $role = user_role_load_by_name($role_name);
+      user_role_grant_permissions($role->rid, $permissions);
+    }
+
+    if (module_exists('fivestar')) {
+      $field = array(
+        'field_name' => 'field_fivestar_rating',
+        'type' => 'fivestar',
+        'cardinality' => 1,
+        'settings' => array(
+          'axis' => 'vote',
+        ),
+      );
+      field_create_field($field);
+
+      $instance = array(
+        'entity_type' => 'node',
+        'field_name' => 'field_fivestar_rating',
+        'label' => t('Rating'),
+        'bundle' => 'education',
+        'widget' => array(
+          'type' => 'stars',
+          'settings' => array(
+            'widget' => array(
+              'fivestar_widget' => 'profiles/ulf/modules/ulf_custom/ulf_evaluate/widgets/ungegarantien/ungegarantien.css',
+            ),
+          ),
+        ),
+        'settings' => array(
+          'axis' => 'vote',
+          'stars' => '6',
+        ),
+      );
+      field_create_instance($instance);
+
+      $instance = array(
+        'entity_type' => 'comment',
+        'field_name' => 'field_fivestar_rating',
+        'label' => t('Rating'),
+        'bundle' => 'comment_node_education',
+        'widget' => array(
+          'type' => 'stars',
+          'settings' => array(
+            'widget' => array(
+              'fivestar_widget' => 'profiles/ulf/modules/ulf_custom/ulf_evaluate/widgets/ungegarantien/ungegarantien.css',
+            ),
+          ),
+        ),
+        'settings' => array(
+          'axis' => 'vote',
+          'stars' => '6',
+          'target' => 'parent_node'
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'hidden',
+            'settings' => array(
+              'widget' => array(
+                'fivestar_widget' => 'profiles/ulf/modules/ulf_custom/ulf_evaluate/widgets/ungegarantien/ungegarantien.css',
+              ),
+              'text' => 'none',
+            )
+          )
+        )
+      );
+      field_create_instance($instance);
+    }
+  }
+  return t('Fivestar rating fields added to "education" node type & comment. Education comment settings changed');
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function ulf_evaluate_uninstall() {
+  delete_custom_fields();
+  variable_del('comment_education');
+  variable_del('comment_preview_education');
+  variable_del('comment_subject_field_education');
+  field_purge_batch(500);
+}
+
+/**
+ * Delete custom fields
+ */
+function delete_custom_fields() {
+  field_delete_field('field_fivestar_rating');
+  $instances = field_info_instances('node', 'education');
+  foreach ($instances as $instance_name => $fieldinstance) {
+    field_delete_instance($fieldinstance);
+  }
+  $instances = field_info_instances('comment', 'comment_node_education');
+  foreach ($instances as $instance_name => $fieldinstance) {
+    field_delete_instance($fieldinstance);
+  }
+}
