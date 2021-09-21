@@ -1,0 +1,115 @@
+/**
+ *
+ * Comment module.
+ *
+ * Contains styles related to comments
+ *
+ */
+
+
+/* Styles
+================================================================================================================== */
+.comment-wrapper {
+  .title {
+    margin-bottom: 25px;
+  }
+
+  .filter-wrapper,
+  .comment-form .form-type-item {
+    display: none;
+  }
+}
+
+.page-comment .comment-form {
+  .filter-wrapper,
+  .form-type-item {
+    display: none;
+  }
+}
+
+.logged-in {
+  .comment-wrapper {
+    .form-type-textarea label {
+      display: none;
+    }
+  }
+
+  .page-comment .comment-form {
+    .form-type-textarea label {
+      display: none;
+    }
+
+  }
+}
+
+.comment {
+  margin: 0 0 20px;
+  border: 1px solid #b3b3b3;
+  padding: 16px;
+  display: block;
+
+  @include breakpoint(1000px) {
+    margin: 0 0 30px;
+  }
+
+  .new {
+    font-weight: bold;
+  }
+
+  .block--field-text {
+    margin-bottom: 0;
+
+    &:first-child {
+      margin-bottom: 30px;
+    }
+  }
+
+  h3,
+  .submitted .permalink,
+  .block--field-label,
+  .fivestar-average-stars .description {
+    display: none;
+  }
+
+  .fivestar-average-stars .form-item {
+    padding: 0;
+  }
+
+  .submitted {
+    display: block;
+    margin: 0 0 30px;
+  }
+
+  .fivestar-ungegarantien {
+    display: block;
+      margin: 0 0 20px;
+
+    @include breakpoint(45em) {
+      margin: 0;
+    }
+  }
+
+  .submitted {
+    color: #b3b3b3;
+  }
+
+  .content,
+  .links {
+    display: block;
+    width: 100%;
+    margin: 0;
+  }
+
+  .links {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 0;
+    text-align: right;
+
+    li {
+      display: inline-block;
+      margin-left: 10px;
+    }
+  }
+
+}
