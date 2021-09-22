@@ -140,6 +140,7 @@ function ulf_evaluate_uninstall() {
   variable_del('comment_education');
   variable_del('comment_preview_education');
   variable_del('comment_subject_field_education');
+  drupal_set_installed_schema_version('ulf_evaluate', '0');
   field_purge_batch(500);
 }
 
