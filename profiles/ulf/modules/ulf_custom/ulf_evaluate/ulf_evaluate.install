@@ -39,6 +39,7 @@ function ulf_evaluate_update_7801() {
     }
 
     if (module_exists('fivestar')) {
+
       $field = array(
         'field_name' => 'field_fivestar_rating',
         'type' => 'fivestar',
@@ -66,6 +67,29 @@ function ulf_evaluate_update_7801() {
           'axis' => 'vote',
           'stars' => '6',
         ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'settings' => array(
+              'widget' => array(
+                'fivestar_widget' => 'profiles/ulf/modules/ulf_custom/ulf_evaluate/widgets/ungegarantien/ungegarantien.css',
+              ),
+              'style' => 'average',
+              'text' => 'average',
+            )
+          ),
+          'full' => array(
+            'label' => 'above',
+            'settings' => array(
+              'widget' => array(
+                'fivestar_widget' => 'profiles/ulf/modules/ulf_custom/ulf_evaluate/widgets/ungegarantien/ungegarantien.css',
+              ),
+              'style' => 'average',
+              'text' => 'average',
+              'expose' => 1
+            )
+          )
+        ),
       );
       field_create_instance($instance);
 
@@ -85,7 +109,8 @@ function ulf_evaluate_update_7801() {
         'settings' => array(
           'axis' => 'vote',
           'stars' => '6',
-          'target' => 'parent_node'
+          'target' => 'parent_node',
+          'allow_clear' => 1
         ),
         'display' => array(
           'default' => array(
@@ -95,9 +120,11 @@ function ulf_evaluate_update_7801() {
                 'fivestar_widget' => 'profiles/ulf/modules/ulf_custom/ulf_evaluate/widgets/ungegarantien/ungegarantien.css',
               ),
               'text' => 'none',
+              'expose' => 1
             )
           )
-        )
+        ),
+        'required' => 1
       );
       field_create_instance($instance);
     }
