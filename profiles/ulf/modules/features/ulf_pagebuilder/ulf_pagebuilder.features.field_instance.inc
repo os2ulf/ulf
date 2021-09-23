@@ -1972,7 +1972,7 @@ node/*/revisions/view/*/*',
     'entity_type' => 'paragraphs_item',
     'field_name' => 'field_paragraph_title',
     'label' => 'Titel',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'text_processing' => 0,
       'user_register_form' => FALSE,
