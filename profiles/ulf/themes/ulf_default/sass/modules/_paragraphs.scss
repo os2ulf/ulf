@@ -36,8 +36,8 @@
       box-sizing: border-box;
       padding: 0 1.3em 1.3em;
       @include breakpoint(45em) {
-        padding: 0 1.3em;
-        flex: 1;
+        padding: 1.3em;
+        flex: 0 0 auto;
       }
       .block--field-text {
         height: 100%;
@@ -55,12 +55,20 @@
 
   &--has-background, {
     .column-wrapper {
-      padding: 2.6em 0;
+      padding: 1.3em 0;
+
+      @include breakpoint(62em) {
+        padding: 2.6em 0;
+      }
     }
 
     + .entity-paragraphs-item {
       .column-wrapper {
-        padding-top: 2.6em;
+        padding-top: 1.3em;
+
+        @include breakpoint(62em) {
+          padding-top: 2.6em;
+        }
       }
     }
 
@@ -68,7 +76,11 @@
 
   &:first-child {
     .column-wrapper {
-      padding-top: 2.6em;
+      padding-top: 1.3em;
+
+      @include breakpoint(62em) {
+        padding-top: 2.6em;
+      }
     }
   }
 }
@@ -104,6 +116,10 @@
     width: 100%;
 
     @include breakpoint(45em) {
+      width: 50%;
+    }
+
+    @include breakpoint(62em) {
       width: 25%;
     }
   }
@@ -393,6 +409,11 @@
     h2 {
       margin: 10px 15px;
       color: #ffffff;
+      hyphens: auto;
+
+      .paragraphs-item-four-columns & {
+        font-size: 17px;
+      }
     }
   }
 }
@@ -414,7 +435,11 @@
     margin: 0;
 
     .column-wrapper {
-      padding-bottom: 2.6em;
+      padding-bottom: 1.3em;
+
+      @include breakpoint(62em) {
+        padding-bottom: 2.6em;
+      }
     }
   }
 

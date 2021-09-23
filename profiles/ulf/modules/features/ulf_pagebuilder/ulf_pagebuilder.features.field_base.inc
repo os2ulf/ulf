@@ -33,6 +33,9 @@ function ulf_pagebuilder_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_first_column',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'paragraphs',
@@ -48,34 +51,15 @@ function ulf_pagebuilder_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_fourth_column',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'paragraphs',
     'settings' => array(),
     'translatable' => 0,
     'type' => 'paragraphs',
-  );
-
-  // Exported field_base: 'field_image_with_link_title'.
-  $field_bases['field_image_with_link_title'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_image_with_link_title',
-    'field_permissions' => array(
-      'type' => 0,
-    ),
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'text',
-    'settings' => array(),
-    'translatable' => 0,
-    'type' => 'text_long',
   );
 
   // Exported field_base: 'field_internal_name'.
@@ -260,9 +244,6 @@ function ulf_pagebuilder_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_paragraph_button',
-    'field_permissions' => array(
-      'type' => 0,
-    ),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'link',
@@ -537,9 +518,6 @@ function ulf_pagebuilder_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_paragraph_title',
-    'field_permissions' => array(
-      'type' => 0,
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -576,6 +554,9 @@ function ulf_pagebuilder_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_second_column',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'paragraphs',
@@ -638,6 +619,9 @@ function ulf_pagebuilder_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_third_column',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'paragraphs',
