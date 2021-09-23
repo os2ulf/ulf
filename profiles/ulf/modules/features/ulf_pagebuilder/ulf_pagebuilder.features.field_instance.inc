@@ -850,7 +850,7 @@ function ulf_pagebuilder_field_default_field_instances() {
     'settings' => array(
       'description_field' => 1,
       'file_directory' => '',
-      'file_extensions' => 'txt docx xlsx pptx pdf',
+      'file_extensions' => 'txt docx xlsx pptx pdf png jpg jpeg',
       'max_filesize' => '',
       'user_register_form' => FALSE,
     ),
