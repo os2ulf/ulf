@@ -1683,6 +1683,52 @@ function ulf_pagebuilder_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'paragraphs_item-image_with_link-field_image_with_link_title'.
+  $field_instances['paragraphs_item-image_with_link-field_image_with_link_title'] = array(
+    'bundle' => 'image_with_link',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_image_with_link_title',
+    'label' => 'Titel',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'maxlength_js' => '',
+        'maxlength_js_enforce' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'maxlength_js_truncate_html' => 0,
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance:
   // 'paragraphs_item-image_with_link-field_paragraph_bg_color'.
   $field_instances['paragraphs_item-image_with_link-field_paragraph_bg_color'] = array(
     'bundle' => 'image_with_link',
@@ -1695,13 +1741,13 @@ function ulf_pagebuilder_field_default_field_instances() {
         'module' => 'color_field',
         'settings' => array(),
         'type' => 'color_field_default_formatter',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'paragraphs_editor_preview' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 4,
       ),
     ),
     'entity_type' => 'paragraphs_item',
@@ -1716,7 +1762,7 @@ function ulf_pagebuilder_field_default_field_instances() {
       'module' => 'color_field',
       'settings' => array(),
       'type' => 'color_field_spectrum_widget',
-      'weight' => 8,
+      'weight' => 4,
     ),
   );
 
@@ -1733,13 +1779,13 @@ function ulf_pagebuilder_field_default_field_instances() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_plain',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'paragraphs_editor_preview' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 2,
+        'weight' => 3,
       ),
     ),
     'entity_type' => 'paragraphs_item',
@@ -1753,7 +1799,7 @@ function ulf_pagebuilder_field_default_field_instances() {
         'configurable_class' => 0,
         'configurable_title' => 0,
         'rel' => '',
-        'target' => 'default',
+        'target' => 'user',
         'title' => '',
       ),
       'display' => array(
@@ -1811,7 +1857,7 @@ node/*/revisions/view/*/*',
         'urls_search' => 'start',
       ),
       'type' => 'advanced_link',
-      'weight' => 6,
+      'weight' => 3,
     ),
   );
 
@@ -1830,13 +1876,13 @@ node/*/revisions/view/*/*',
           'image_style' => 'pagebuilder',
         ),
         'type' => 'image',
-        'weight' => 1,
+        'weight' => 2,
       ),
       'paragraphs_editor_preview' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 1,
+        'weight' => 2,
       ),
     ),
     'entity_type' => 'paragraphs_item',
@@ -1896,7 +1942,7 @@ node/*/revisions/view/*/*',
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 4,
+      'weight' => 2,
     ),
   );
 
@@ -1926,7 +1972,7 @@ node/*/revisions/view/*/*',
     'entity_type' => 'paragraphs_item',
     'field_name' => 'field_paragraph_title',
     'label' => 'Titel',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'text_processing' => 0,
       'user_register_form' => FALSE,
@@ -1940,7 +1986,7 @@ node/*/revisions/view/*/*',
         'size' => 100,
       ),
       'type' => 'text_textfield',
-      'weight' => 2,
+      'weight' => 0,
     ),
   );
 
