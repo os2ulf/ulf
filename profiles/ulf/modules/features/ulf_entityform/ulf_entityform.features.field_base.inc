@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * ulf_entityform.features.field_base.inc
@@ -10,40 +11,67 @@
 function ulf_entityform_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_message_parent_node'.
-  $field_bases['field_message_parent_node'] = array(
+  // Exported field_base: 'field_antal_boern'.
+  $field_bases['field_antal_boern'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_message_parent_node',
+    'field_name' => 'field_antal_boern',
     'indexes' => array(
-      'target_id' => array(
-        0 => 'target_id',
+      'format' => array(
+        0 => 'format',
       ),
     ),
     'locked' => 0,
-    'module' => 'entityreference',
+    'module' => 'text',
     'settings' => array(
-      'handler' => 'base',
-      'handler_settings' => array(
-        'behaviors' => array(
-          'views-select-list' => array(
-            'status' => 0,
-          ),
-        ),
-        'sort' => array(
-          'type' => 'none',
-        ),
-        'target_bundles' => array(
-          'course' => 'course',
-          'course_educators' => 'course_educators',
-        ),
-      ),
-      'target_type' => 'node',
+      'max_length' => 255,
     ),
     'translatable' => 0,
-    'type' => 'entityreference',
+    'type' => 'text',
+  );
+
+  // Exported field_base: 'field_dato_for_besoeg'.
+  $field_bases['field_dato_for_besoeg'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_dato_for_besoeg',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
+  // Exported field_base: 'field_skole_institution'.
+  $field_bases['field_skole_institution'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_skole_institution',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
   );
 
   return $field_bases;

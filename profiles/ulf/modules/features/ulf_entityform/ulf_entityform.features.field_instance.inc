@@ -11,6 +11,79 @@
 function ulf_entityform_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'entityform-end_user_message-field_antal_boern'.
+  $field_instances['entityform-end_user_message-field_antal_boern'] = array(
+    'bundle' => 'end_user_message',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 6,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_antal_boern',
+    'label' => 'Antal børn',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'maxlength_js' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'entityform-end_user_message-field_dato_for_besoeg'.
+  $field_instances['entityform-end_user_message-field_dato_for_besoeg'] = array(
+    'bundle' => 'end_user_message',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 5,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_dato_for_besoeg',
+    'label' => 'Dato for besøg',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'maxlength_js' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 3,
+    ),
+  );
+
   // Exported field_instance: 'entityform-end_user_message-field_message_body'.
   $field_instances['entityform-end_user_message-field_message_body'] = array(
     'bundle' => 'end_user_message',
@@ -45,7 +118,7 @@ Hvis du vil booke et forløb, så angiv venligst så mange informationer som mul
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 33,
+      'weight' => 6,
     ),
   );
 
@@ -76,7 +149,7 @@ Hvis du vil booke et forløb, så angiv venligst så mange informationer som mul
       'module' => 'html5_tools',
       'settings' => array(),
       'type' => 'emailwidget',
-      'weight' => 32,
+      'weight' => 5,
     ),
   );
 
@@ -111,7 +184,7 @@ Hvis du vil booke et forløb, så angiv venligst så mange informationer som mul
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 31,
+      'weight' => 1,
     ),
   );
 
@@ -146,7 +219,44 @@ Hvis du vil booke et forløb, så angiv venligst så mange informationer som mul
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 34,
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'entityform-end_user_message-field_skole_institution'.
+  $field_instances['entityform-end_user_message-field_skole_institution'] = array(
+    'bundle' => 'end_user_message',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 4,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_skole_institution',
+    'label' => 'Skole/institution',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'maxlength_js' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 2,
     ),
   );
 
@@ -156,10 +266,13 @@ Hvis du vil booke et forløb, så angiv venligst så mange informationer som mul
 Hvis du vil booke et forløb, så angiv venligst så mange informationer som muligt - f.eks. skole eller institution, klassetrin eller alder, antal børn, forslag til dato, dit tlf. nr. og andre informationer, der kan være gavnlige for udbyderen.');
   t('Angiv din email adresse');
   t('Angiv dit fulde navn');
+  t('Antal børn');
   t('Besked');
+  t('Dato for besøg');
   t('Email');
   t('Message Parent node');
   t('Navn');
+  t('Skole/institution');
 
   return $field_instances;
 }

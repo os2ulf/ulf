@@ -240,7 +240,7 @@ function ulf_entityform_field_default_field_instances_alter(&$fields) {
     'bundle' => 'basisform',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Angiv din besked. 
+    'description' => 'Angiv din besked.
 Hvis du vil booke et forløb, så angiv venligst så mange informationer som muligt - f.eks. skole eller institution, klassetrin eller alder, antal børn, forslag til dato, dit tlf. nr. og andre informationer, der kan være gavnlige for udbyderen.',
     'display' => array(
       'default' => array(
