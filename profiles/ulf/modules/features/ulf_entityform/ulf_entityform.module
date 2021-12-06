@@ -65,14 +65,12 @@ function ulf_entityform_entityform_type_insert($entityform_type) {
   $entity_form_type = $entityform_type->type . '_entityform_edit_form';
   $query = db_query('SELECT form_id FROM {captcha_points} WHERE form_id = :formtype', array(':formtype' => $entity_form_type));
   $result = $query->fetchAll();
-  foreach ($result as $item) {
-    if (!empty($item)) {
-      db_insert('captcha_points')
-      ->fields(array(
-        'form_id' => $entity_form_type,
-        'captcha_type' => 'default',
-      ))
-      ->execute();
-    }
+  if (empty($result)) {
+    db_insert('captcha_points')
+    ->fields(array(
+      'form_id' => $entity_form_type,
+      'captcha_type' => 'default',
+    ))
+    ->execute();
   }
 }
