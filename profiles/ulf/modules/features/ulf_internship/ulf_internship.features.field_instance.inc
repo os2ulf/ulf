@@ -32,6 +32,13 @@ function ulf_internship_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 3,
       ),
+      'print' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 7,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -82,6 +89,13 @@ function ulf_internship_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 4,
+      ),
+      'print' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 8,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -138,6 +152,15 @@ function ulf_internship_field_default_field_instances() {
         'type' => 'field_collection_fields',
         'weight' => 10,
       ),
+      'print' => array(
+        'label' => 'hidden',
+        'module' => 'field_collection',
+        'settings' => array(
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_fields',
+        'weight' => 3,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -192,6 +215,18 @@ function ulf_internship_field_default_field_instances() {
         'type' => 'number_integer',
         'weight' => 7,
       ),
+      'print' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 1,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -239,6 +274,13 @@ function ulf_internship_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 8,
+      ),
+      'print' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -301,6 +343,18 @@ function ulf_internship_field_default_field_instances() {
         'type' => 'number_decimal',
         'weight' => 15,
       ),
+      'print' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => 1,
+          'scale' => 2,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 15,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -348,6 +402,13 @@ function ulf_internship_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 16,
+      ),
+      'print' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 17,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -400,6 +461,13 @@ function ulf_internship_field_default_field_instances() {
         'type' => 'list_default',
         'weight' => 9,
       ),
+      'print' => array(
+        'label' => 'hidden',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -450,6 +518,15 @@ function ulf_internship_field_default_field_instances() {
         'type' => 'field_collection_fields',
         'weight' => 6,
       ),
+      'print' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_fields',
+        'weight' => 12,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -493,6 +570,13 @@ function ulf_internship_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 25,
+      ),
+      'print' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 24,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -545,6 +629,13 @@ function ulf_internship_field_default_field_instances() {
         'type' => 'list_default',
         'weight' => 11,
       ),
+      'print' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 10,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -588,6 +679,13 @@ function ulf_internship_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 12,
+      ),
+      'print' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 11,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -643,6 +741,12 @@ function ulf_internship_field_default_field_instances() {
         'type' => 'list_default',
         'weight' => 18,
       ),
+      'print' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 28,
+      ),
       'teaser' => array(
         'label' => 'above',
         'module' => 'list',
@@ -689,6 +793,13 @@ function ulf_internship_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 2,
+      ),
+      'print' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -747,6 +858,16 @@ function ulf_internship_field_default_field_instances() {
         ),
         'type' => 'image',
         'weight' => 0,
+      ),
+      'print' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => 'node_display',
+        ),
+        'type' => 'image',
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -857,6 +978,21 @@ function ulf_internship_field_default_field_instances() {
         'type' => 'date_default',
         'weight' => 22,
       ),
+      'print' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'custom_date_format' => '',
+          'format_type' => 'ulf_default',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+          'show_remaining_days' => 0,
+        ),
+        'type' => 'date_default',
+        'weight' => 19,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -906,6 +1042,12 @@ function ulf_internship_field_default_field_instances() {
         'weight' => 30,
       ),
       'full' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 30,
+      ),
+      'print' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -963,6 +1105,17 @@ function ulf_internship_field_default_field_instances() {
         'type' => 'entityreference_entity_view',
         'weight' => 19,
       ),
+      'print' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'links' => 0,
+          'use_content_language' => 1,
+          'view_mode' => 'default',
+        ),
+        'type' => 'entityreference_entity_view',
+        'weight' => 18,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1011,6 +1164,12 @@ function ulf_internship_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 35,
       ),
+      'print' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 35,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1051,6 +1210,13 @@ function ulf_internship_field_default_field_instances() {
         'weight' => 13,
       ),
       'full' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 13,
+      ),
+      'print' => array(
         'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
@@ -1108,6 +1274,13 @@ function ulf_internship_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 5,
       ),
+      'print' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 9,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1157,6 +1330,12 @@ function ulf_internship_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 26,
       ),
+      'print' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 25,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1194,6 +1373,12 @@ function ulf_internship_field_default_field_instances() {
         'weight' => 34,
       ),
       'full' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 34,
+      ),
+      'print' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -1246,6 +1431,12 @@ function ulf_internship_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 32,
       ),
+      'print' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 32,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1290,6 +1481,12 @@ function ulf_internship_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 27,
       ),
+      'print' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 26,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1328,6 +1525,12 @@ function ulf_internship_field_default_field_instances() {
         'weight' => 33,
       ),
       'full' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 33,
+      ),
+      'print' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -1383,6 +1586,12 @@ function ulf_internship_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 29,
       ),
+      'print' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 29,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1431,6 +1640,12 @@ function ulf_internship_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 28,
       ),
+      'print' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 27,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1476,6 +1691,13 @@ function ulf_internship_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 17,
+      ),
+      'print' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 16,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1538,6 +1760,13 @@ At opnå kendskab til...
         'type' => 'text_default',
         'weight' => 1,
       ),
+      'print' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 6,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1588,6 +1817,13 @@ At opnå kendskab til...
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 23,
+      ),
+      'print' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 22,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1640,6 +1876,13 @@ At opnå kendskab til...
         'type' => 'text_default',
         'weight' => 20,
       ),
+      'print' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_plain',
+        'weight' => 21,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1688,6 +1931,15 @@ At opnå kendskab til...
         ),
         'type' => 'link_default',
         'weight' => 21,
+      ),
+      'print' => array(
+        'label' => 'above',
+        'module' => 'link',
+        'settings' => array(
+          'custom_title' => '',
+        ),
+        'type' => 'link_default',
+        'weight' => 20,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1754,6 +2006,13 @@ At opnå kendskab til...
         'type' => 'text_default',
         'weight' => 24,
       ),
+      'print' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 23,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1802,6 +2061,13 @@ At opnå kendskab til...
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'print' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 36,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1845,6 +2111,12 @@ At opnå kendskab til...
         'weight' => 31,
       ),
       'full' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 31,
+      ),
+      'print' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -1895,6 +2167,17 @@ At opnå kendskab til...
       ),
       'full' => array(
         'label' => 'hidden',
+        'module' => 'video_embed_field',
+        'settings' => array(
+          'description' => 1,
+          'description_position' => 'bottom',
+          'video_style' => 'normal',
+        ),
+        'type' => 'video_embed_field',
+        'weight' => 14,
+      ),
+      'print' => array(
+        'label' => 'above',
         'module' => 'video_embed_field',
         'settings' => array(
           'description' => 1,
