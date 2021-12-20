@@ -280,6 +280,7 @@ function ulf_internship_user_default_permissions() {
     'name' => 'administer ulf pretix user settings',
     'roles' => array(
       'company consultant' => 'company consultant',
+      'course provider' => 'course provider',
       'editor' => 'editor',
     ),
     'module' => 'ulf_pretix',
