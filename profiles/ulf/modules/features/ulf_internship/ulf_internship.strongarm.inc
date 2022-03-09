@@ -51,7 +51,7 @@ function ulf_internship_strongarm() {
         'custom_settings' => FALSE,
       ),
       'print' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
       'token' => array(
         'custom_settings' => FALSE,
@@ -66,10 +66,10 @@ function ulf_internship_strongarm() {
           'weight' => '1',
         ),
         'path' => array(
-          'weight' => '8',
+          'weight' => '9',
         ),
         'redirect' => array(
-          'weight' => '9',
+          'weight' => '10',
         ),
         'metatags' => array(
           'weight' => '12',
@@ -124,6 +124,41 @@ function ulf_internship_strongarm() {
   $strongarm->name = 'node_submitted_internship';
   $strongarm->value = 0;
   $export['node_submitted_internship'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_internship_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_internship_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_taxonomy_term_branche_pattern';
+  $strongarm->value = '';
+  $export['pathauto_taxonomy_term_branche_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_taxonomy_term_competencies_pattern';
+  $strongarm->value = '';
+  $export['pathauto_taxonomy_term_competencies_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_taxonomy_term_lokation_pattern';
+  $strongarm->value = '';
+  $export['pathauto_taxonomy_term_lokation_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_taxonomy_term_tilbudsforpligtelser_pattern';
+  $strongarm->value = '';
+  $export['pathauto_taxonomy_term_tilbudsforpligtelser_pattern'] = $strongarm;
 
   return $export;
 }

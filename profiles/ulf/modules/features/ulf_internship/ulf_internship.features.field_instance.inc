@@ -942,6 +942,53 @@ function ulf_internship_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-internship-field_interesseomraader'.
+  $field_instances['node-internship-field_interesseomraader'] = array(
+    'bundle' => 'internship',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_plain',
+        'weight' => 38,
+      ),
+      'full' => array(
+        'label' => 'hidden',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_plain',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_interesseomraader',
+    'label' => 'Interesseområder',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'taxonomy',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'taxonomy_autocomplete',
+      'weight' => 60,
+    ),
+  );
+
   // Exported field_instance: 'node-internship-field_last_signup_date'.
   $field_instances['node-internship-field_last_signup_date'] = array(
     'bundle' => 'internship',
@@ -2393,6 +2440,7 @@ At opnå kendskab til...
   t('Garantipartner');
   t('Gratis');
   t('Hvilke faciliteter kan I tilbyde?');
+  t('Interesseområder');
   t('Kun hvis dette er valgt, vil eventet i pretix automatisk blive opdateret med eventindstillinger på denne side. ');
   t('Materiale');
   t('Message form');

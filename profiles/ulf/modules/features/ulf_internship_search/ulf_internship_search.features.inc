@@ -29,7 +29,7 @@ function ulf_internship_search_default_search_api_index() {
       "datasource" : { "bundles" : [ "internship" ] },
       "index_directly" : 0,
       "cron_limit" : "50",
-      "search_node_indexes" : "98b141acfa9afc452d8549247a9909f6",
+      "search_node_indexes" : "65f9284ed834ed7865ed5331f9e4aa90",
       "fields" : {
         "author" : { "type" : "integer", "entity_type" : "user" },
         "author:field_garantipartner" : { "type" : "boolean" },
@@ -42,6 +42,7 @@ function ulf_internship_search_default_search_api_index() {
         "field_business_type" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_full_description:value" : { "type" : "text" },
         "field_image:file" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "file" },
+        "field_interesseomraader" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_location" : { "type" : "string" },
         "field_price" : { "type" : "decimal" },
         "field_subjects_primary_school" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },

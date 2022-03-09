@@ -26,6 +26,14 @@ function ulf_internship_taxonomy_default_vocabularies() {
       'module' => 'taxonomy',
       'weight' => 0,
     ),
+    'interesseomraader' => array(
+      'name' => 'Interesseområder',
+      'machine_name' => 'interesseomraader',
+      'description' => '',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+    ),
     'lokation' => array(
       'name' => 'Postnummer',
       'machine_name' => 'lokation',

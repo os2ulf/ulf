@@ -82,7 +82,7 @@
     @include flexbox;
     @include flex-wrap(wrap);
     @include flex-direction(row);
-    @include justify-content(center);
+    @include justify-content(flex-start);
     @include align-content(stretch);
   }
 
@@ -369,6 +369,7 @@
     width: 100%;
     padding: 0 1em;
     background: rgba(255,255,255,0.85);
+    box-sizing: border-box;
 
     .search--exercise {
       position: relative;
