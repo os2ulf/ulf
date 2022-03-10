@@ -66,13 +66,13 @@ function ulf_internship_strongarm() {
           'weight' => '1',
         ),
         'path' => array(
-          'weight' => '9',
-        ),
-        'redirect' => array(
           'weight' => '10',
         ),
+        'redirect' => array(
+          'weight' => '11',
+        ),
         'metatags' => array(
-          'weight' => '12',
+          'weight' => '13',
         ),
       ),
       'display' => array(),

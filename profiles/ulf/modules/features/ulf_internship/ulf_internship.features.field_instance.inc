@@ -947,7 +947,7 @@ function ulf_internship_field_default_field_instances() {
     'bundle' => 'internship',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Adskil flere interesseområder med komma.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -985,7 +985,7 @@ function ulf_internship_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 60,
+      'weight' => 9,
     ),
   );
 
@@ -1238,7 +1238,7 @@ function ulf_internship_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 16,
+      'weight' => 17,
     ),
   );
 
@@ -2190,7 +2190,7 @@ At opnå kendskab til...
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 13,
+      'weight' => 14,
     ),
   );
 
@@ -2415,6 +2415,7 @@ At opnå kendskab til...
 </p>');
   t('<p>OBS! Det er jeres ansvar at sikre, at der er styr på rettigheder og tilladelser, når I sender billeder til os.</p>
 <p>Hvis flere billeder er uploadet vil det øverste billede blive anvendt. Rækkefølgen på billeder kan styres ved at trække i krydset i venstre side.</p>');
+  t('Adskil flere interesseområder med komma.');
   t('Aktiviteter');
   t('Angiv URLen på en Youtube eller Vimeo video');
   t('Angiv beløbet efterfulgt af afregningsenhed eller vælg \'gratis\'');
