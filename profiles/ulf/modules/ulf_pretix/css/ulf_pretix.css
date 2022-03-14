@@ -40,7 +40,7 @@
   order: 2;
 }
 .pretix-widget-item-availability-col {
-  width: 60px !important;
+  width: auto !important;
   text-align: left !important;
   float: none !important;
   order: 1;
@@ -55,6 +55,3 @@
   padding-right: 0 !important;
 }
 
-.pretix-widget .pretix-widget-item-info-col{
-  padding: 0 35px !important;
-}

@@ -280,7 +280,6 @@ function ulf_internship_user_default_permissions() {
     'name' => 'administer ulf pretix user settings',
     'roles' => array(
       'company consultant' => 'company consultant',
-      'course provider' => 'course provider',
       'editor' => 'editor',
     ),
     'module' => 'ulf_pretix',
@@ -332,7 +331,6 @@ function ulf_internship_user_default_permissions() {
     'name' => 'assign company consultant role',
     'roles' => array(
       'company consultant' => 'company consultant',
-      'editor' => 'editor',
     ),
     'module' => 'role_delegation',
   );
@@ -342,7 +340,6 @@ function ulf_internship_user_default_permissions() {
     'name' => 'assign company role',
     'roles' => array(
       'company consultant' => 'company consultant',
-      'editor' => 'editor',
     ),
     'module' => 'role_delegation',
   );

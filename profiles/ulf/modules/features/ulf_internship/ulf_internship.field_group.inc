@@ -22,7 +22,7 @@ function ulf_internship_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Vis kontaktformular / Skjul kontaktformular',
-    'weight' => '14',
+    'weight' => '15',
     'children' => array(
       0 => 'field_message_form',
     ),
@@ -240,7 +240,7 @@ function ulf_internship_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Lokation',
-    'weight' => '11',
+    'weight' => '12',
     'children' => array(
       0 => 'field_map_placement',
       1 => 'field_place',
@@ -301,7 +301,7 @@ function ulf_internship_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'pretix',
-    'weight' => '15',
+    'weight' => '16',
     'children' => array(
       0 => 'field_pretix_enable',
       1 => 'field_pretix_synchronize',

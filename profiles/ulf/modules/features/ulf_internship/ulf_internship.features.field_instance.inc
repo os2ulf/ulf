@@ -942,6 +942,53 @@ function ulf_internship_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-internship-field_interesseomraader'.
+  $field_instances['node-internship-field_interesseomraader'] = array(
+    'bundle' => 'internship',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Adskil flere interesseområder med komma.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_plain',
+        'weight' => 38,
+      ),
+      'full' => array(
+        'label' => 'hidden',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_plain',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_interesseomraader',
+    'label' => 'Interesseområder',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'taxonomy',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'taxonomy_autocomplete',
+      'weight' => 9,
+    ),
+  );
+
   // Exported field_instance: 'node-internship-field_last_signup_date'.
   $field_instances['node-internship-field_last_signup_date'] = array(
     'bundle' => 'internship',
@@ -1191,7 +1238,7 @@ function ulf_internship_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 16,
+      'weight' => 17,
     ),
   );
 
@@ -2143,7 +2190,7 @@ At opnå kendskab til...
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 13,
+      'weight' => 14,
     ),
   );
 
@@ -2368,6 +2415,7 @@ At opnå kendskab til...
 </p>');
   t('<p>OBS! Det er jeres ansvar at sikre, at der er styr på rettigheder og tilladelser, når I sender billeder til os.</p>
 <p>Hvis flere billeder er uploadet vil det øverste billede blive anvendt. Rækkefølgen på billeder kan styres ved at trække i krydset i venstre side.</p>');
+  t('Adskil flere interesseområder med komma.');
   t('Aktiviteter');
   t('Angiv URLen på en Youtube eller Vimeo video');
   t('Angiv beløbet efterfulgt af afregningsenhed eller vælg \'gratis\'');
@@ -2393,6 +2441,7 @@ At opnå kendskab til...
   t('Garantipartner');
   t('Gratis');
   t('Hvilke faciliteter kan I tilbyde?');
+  t('Interesseområder');
   t('Kun hvis dette er valgt, vil eventet i pretix automatisk blive opdateret med eventindstillinger på denne side. ');
   t('Materiale');
   t('Message form');
