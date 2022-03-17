@@ -21,7 +21,6 @@ dependencies[] = options
 dependencies[] = paragraphs
 dependencies[] = strongarm
 dependencies[] = text
-dependencies[] = ulf_pagebuilder
 dependencies[] = video_embed_dreambroker
 dependencies[] = video_embed_field
 features[ctools][] = field_group:field_group:1
