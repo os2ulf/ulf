@@ -11,6 +11,152 @@
 function ulf_pagebuilder_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance:
+  // 'entityform-kontaktformular-field_contact_form_company'.
+  $field_instances['entityform-kontaktformular-field_contact_form_company'] = array(
+    'bundle' => 'kontaktformular',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_contact_form_company',
+    'label' => 'Virksomhed',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'maxlength_js' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 33,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'entityform-kontaktformular-field_contact_form_email'.
+  $field_instances['entityform-kontaktformular-field_contact_form_email'] = array(
+    'bundle' => 'kontaktformular',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_contact_form_email',
+    'label' => 'E-mail',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'html5_tools',
+      'settings' => array(),
+      'type' => 'emailwidget',
+      'weight' => 32,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'entityform-kontaktformular-field_contact_form_message'.
+  $field_instances['entityform-kontaktformular-field_contact_form_message'] = array(
+    'bundle' => 'kontaktformular',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 3,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_contact_form_message',
+    'label' => 'Besked',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'maxlength_js' => '',
+        'maxlength_js_enforce' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'maxlength_js_truncate_html' => 0,
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 34,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'entityform-kontaktformular-field_contact_form_name'.
+  $field_instances['entityform-kontaktformular-field_contact_form_name'] = array(
+    'bundle' => 'kontaktformular',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_contact_form_name',
+    'label' => 'Navn',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'maxlength_js' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 31,
+    ),
+  );
+
   // Exported field_instance: 'node-page_with_blocks-field_sections'.
   $field_instances['node-page_with_blocks-field_sections'] = array(
     'bundle' => 'page_with_blocks',
@@ -45,7 +191,10 @@ function ulf_pagebuilder_field_default_field_instances() {
         'download_list' => -1,
         'four_columns' => 'four_columns',
         'hero' => 'hero',
+        'image_with_link' => -1,
+        'kontakt_formular' => -1,
         'link_list' => -1,
+        'news_list' => -1,
         'one_column' => 'one_column',
         'spacer' => -1,
         'text_with_image' => -1,
@@ -58,7 +207,10 @@ function ulf_pagebuilder_field_default_field_instances() {
         'download_list' => -15,
         'four_columns' => -19,
         'hero' => -18,
+        'image_with_link' => 6,
+        'kontakt_formular' => 7,
         'link_list' => -14,
+        'news_list' => 9,
         'one_column' => -22,
         'spacer' => -12,
         'text_with_image' => -13,
@@ -67,6 +219,7 @@ function ulf_pagebuilder_field_default_field_instances() {
         'two_column' => -21,
       ),
       'default_edit_mode' => 'preview',
+      'default_edit_mode_override' => 1,
       'title' => 'Blok',
       'title_multiple' => 'Blokke',
       'user_register_form' => FALSE,
@@ -2511,6 +2664,7 @@ node/*/revisions/view/*/*',
         'four_columns' => -1,
         'hero' => -1,
         'image_with_link' => 'image_with_link',
+        'kontakt_formular' => 'kontakt_formular',
         'link_list' => 'link_list',
         'news_list' => 'news_list',
         'one_column' => -1,
@@ -2526,6 +2680,7 @@ node/*/revisions/view/*/*',
         'four_columns' => 6,
         'hero' => 7,
         'image_with_link' => 26,
+        'kontakt_formular' => 41,
         'link_list' => 8,
         'news_list' => 34,
         'one_column' => 2,
@@ -2536,6 +2691,7 @@ node/*/revisions/view/*/*',
         'two_column' => -4,
       ),
       'default_edit_mode' => 'preview',
+      'default_edit_mode_override' => 1,
       'title' => 'Element',
       'title_multiple' => 'Elementer',
       'user_register_form' => FALSE,
@@ -3996,7 +4152,9 @@ node/*/revisions/view/*/*',
         'four_columns' => -1,
         'hero' => -1,
         'image_with_link' => 'image_with_link',
+        'kontakt_formular' => 'kontakt_formular',
         'link_list' => 'link_list',
+        'news_list' => -1,
         'one_column' => -1,
         'spacer' => -1,
         'text_with_image' => 'text_with_image',
@@ -4010,7 +4168,9 @@ node/*/revisions/view/*/*',
         'four_columns' => 7,
         'hero' => 8,
         'image_with_link' => 26,
+        'kontakt_formular' => 36,
         'link_list' => 9,
+        'news_list' => 38,
         'one_column' => 2,
         'spacer' => 29,
         'text_with_image' => 20,
@@ -4019,6 +4179,7 @@ node/*/revisions/view/*/*',
         'two_column' => 3,
       ),
       'default_edit_mode' => 'preview',
+      'default_edit_mode_override' => 1,
       'title' => 'Element',
       'title_multiple' => 'Elementer',
       'user_register_form' => FALSE,
@@ -4146,7 +4307,9 @@ node/*/revisions/view/*/*',
         'four_columns' => -1,
         'hero' => -1,
         'image_with_link' => 'image_with_link',
+        'kontakt_formular' => 'kontakt_formular',
         'link_list' => 'link_list',
+        'news_list' => -1,
         'one_column' => -1,
         'spacer' => -1,
         'text_with_image' => 'text_with_image',
@@ -4160,7 +4323,9 @@ node/*/revisions/view/*/*',
         'four_columns' => 7,
         'hero' => 8,
         'image_with_link' => 26,
+        'kontakt_formular' => 36,
         'link_list' => 9,
+        'news_list' => 38,
         'one_column' => 2,
         'spacer' => 29,
         'text_with_image' => 20,
@@ -4169,6 +4334,7 @@ node/*/revisions/view/*/*',
         'two_column' => 3,
       ),
       'default_edit_mode' => 'preview',
+      'default_edit_mode_override' => 1,
       'title' => 'Element',
       'title_multiple' => 'Elementer',
       'user_register_form' => FALSE,
@@ -4190,11 +4356,13 @@ node/*/revisions/view/*/*',
   t('Anden kolonne');
   t('Baggrundsbillede');
   t('Baggrundsfarve');
+  t('Besked');
   t('Billede');
   t('Blokke');
   t('Brødtekst');
   t('Det er meget vigtigt, at siden kun har en hovedoverskrift. Hvis der bruges flere heroelementer på en side, skal kun en af dem have denne mulighed aktiveret.');
   t('Downloads');
+  t('E-mail');
   t('Fjerde kolonne');
   t('Første kolonne');
   t('Hovedoverskrft');
@@ -4205,6 +4373,7 @@ node/*/revisions/view/*/*',
   t('Kolonne');
   t('Link');
   t('Links');
+  t('Navn');
   t('Rammefarve');
   t('Sublinje');
   t('Tekstboksfarve');
@@ -4212,6 +4381,7 @@ node/*/revisions/view/*/*',
   t('Titel');
   t('Tredje kolonne');
   t('Video');
+  t('Virksomhed');
   t('Vis knap');
 
   return $field_instances;

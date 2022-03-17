@@ -493,3 +493,15 @@
     flex-wrap: wrap;
   }
 }
+
+.paragraphs-item-kontakt-formular {
+  h2,
+  .description {
+    text-align: center;
+    margin-bottom: 0.75em;
+  }
+
+  textarea {
+    resize: none;
+  }
+}
