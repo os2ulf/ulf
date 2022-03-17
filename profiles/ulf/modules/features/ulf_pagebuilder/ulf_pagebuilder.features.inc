@@ -183,6 +183,13 @@ function ulf_pagebuilder_paragraphs_info() {
       'description' => '',
       'locked' => '1',
     ),
+    'kontakt_formular' => array(
+      'name' => 'Kontakt formular',
+      'bundle' => 'kontakt_formular',
+      'label' => 'Kontakt formular',
+      'description' => '',
+      'locked' => '1',
+    ),
     'link_list' => array(
       'name' => 'Liste af links',
       'bundle' => 'link_list',

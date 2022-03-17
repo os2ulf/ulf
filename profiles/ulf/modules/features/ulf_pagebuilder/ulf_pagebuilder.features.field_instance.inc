@@ -2143,6 +2143,138 @@ node/*/revisions/view/*/*',
     ),
   );
 
+  // Exported field_instance:
+  // 'paragraphs_item-kontakt_formular-field_contact_form_description'.
+  $field_instances['paragraphs_item-kontakt_formular-field_contact_form_description'] = array(
+    'bundle' => 'kontakt_formular',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_contact_form_description',
+    'label' => 'Beskrivelse',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'maxlength_js' => '',
+        'maxlength_js_enforce' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'maxlength_js_truncate_html' => 0,
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-kontakt_formular-field_contact_form_title'.
+  $field_instances['paragraphs_item-kontakt_formular-field_contact_form_title'] = array(
+    'bundle' => 'kontakt_formular',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_contact_form_title',
+    'label' => 'Overskrift',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'maxlength_js' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 0,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-kontakt_formular-field_kontakt_formular'.
+  $field_instances['paragraphs_item-kontakt_formular-field_kontakt_formular'] = array(
+    'bundle' => 'kontakt_formular',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'entityreference',
+        'settings' => array(
+          'links' => TRUE,
+          'use_content_language' => TRUE,
+          'view_mode' => 'default',
+        ),
+        'type' => 'entityreference_entity_view',
+        'weight' => 2,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_kontakt_formular',
+    'label' => 'Kontakt os',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 2,
+    ),
+  );
+
   // Exported field_instance: 'paragraphs_item-link_list-field_internal_name'.
   $field_instances['paragraphs_item-link_list-field_internal_name'] = array(
     'bundle' => 'link_list',
@@ -4357,6 +4489,7 @@ node/*/revisions/view/*/*',
   t('Baggrundsbillede');
   t('Baggrundsfarve');
   t('Besked');
+  t('Beskrivelse');
   t('Billede');
   t('Blokke');
   t('Brødtekst');
@@ -4371,9 +4504,11 @@ node/*/revisions/view/*/*',
   t('Justering');
   t('Knap');
   t('Kolonne');
+  t('Kontakt os');
   t('Link');
   t('Links');
   t('Navn');
+  t('Overskrift');
   t('Rammefarve');
   t('Sublinje');
   t('Tekstboksfarve');
