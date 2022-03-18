@@ -12,43 +12,6 @@ function ulf_pagebuilder_field_default_field_instances() {
   $field_instances = array();
 
   // Exported field_instance:
-  // 'entityform-kontaktformular-field_contact_form_company'.
-  $field_instances['entityform-kontaktformular-field_contact_form_company'] = array(
-    'bundle' => 'kontaktformular',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 2,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_contact_form_company',
-    'label' => 'Virksomhed',
-    'required' => 0,
-    'settings' => array(
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'maxlength_js' => 0,
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 33,
-    ),
-  );
-
-  // Exported field_instance:
   // 'entityform-kontaktformular-field_contact_form_email'.
   $field_instances['entityform-kontaktformular-field_contact_form_email'] = array(
     'bundle' => 'kontaktformular',
@@ -4516,7 +4479,6 @@ node/*/revisions/view/*/*',
   t('Titel');
   t('Tredje kolonne');
   t('Video');
-  t('Virksomhed');
   t('Vis knap');
 
   return $field_instances;
