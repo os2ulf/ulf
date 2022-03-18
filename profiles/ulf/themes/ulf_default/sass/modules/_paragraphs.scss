@@ -497,8 +497,11 @@
 .paragraphs-item-kontakt-formular {
   h2,
   .contact-form__description {
-    text-align: center;
     margin-bottom: 0.75em;
+
+    .paragraphs-item-one-column & {
+      text-align: center;
+    }
   }
 
   textarea {
