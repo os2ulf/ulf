@@ -57,7 +57,7 @@ function ulf_pagebuilder_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 3,
+        'weight' => 2,
       ),
     ),
     'entity_type' => 'entityform',
@@ -117,6 +117,39 @@ function ulf_pagebuilder_field_default_field_instances() {
       ),
       'type' => 'text_textfield',
       'weight' => 31,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'entityform-kontaktformular-field_contact_form_recipient'.
+  $field_instances['entityform-kontaktformular-field_contact_form_recipient'] = array(
+    'bundle' => 'kontaktformular',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 3,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_contact_form_recipient',
+    'label' => 'Modtager',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'html5_tools',
+      'settings' => array(),
+      'type' => 'emailwidget',
+      'weight' => 35,
     ),
   );
 
@@ -4470,6 +4503,7 @@ node/*/revisions/view/*/*',
   t('Kontakt os');
   t('Link');
   t('Links');
+  t('Modtager');
   t('Navn');
   t('Overskrift');
   t('Rammefarve');
