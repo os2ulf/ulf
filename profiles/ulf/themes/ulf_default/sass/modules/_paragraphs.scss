@@ -158,6 +158,14 @@
       margin: 0;
     }
 
+    .block--field-text {
+      color: #788b93;
+      font-size: 22px;
+      font-family: "Georgia", sans-serif;
+      text-transform: uppercase;
+      margin-bottom: .25em;
+    }
+
     @include breakpoint(45em) {
       width: 50%;
     }
@@ -219,6 +227,7 @@
   @include flexbox;
   @include flex-wrap(wrap);
   @include flex-direction(row);
+  display: block;
   background-color: $gray-lightest;
   height: 100%;
 

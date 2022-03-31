@@ -57,7 +57,7 @@ function ulf_pagebuilder_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 2,
+        'weight' => 3,
       ),
     ),
     'entity_type' => 'entityform',
@@ -1537,7 +1537,7 @@ function ulf_pagebuilder_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
@@ -1613,7 +1613,50 @@ function ulf_pagebuilder_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 4,
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-hero-field_paragraph_hero_overligger'.
+  $field_instances['paragraphs_item-hero-field_paragraph_hero_overligger'] = array(
+    'bundle' => 'hero',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 7,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_paragraph_hero_overligger',
+    'label' => 'Overligger',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'maxlength_js' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
     ),
   );
 
@@ -1626,7 +1669,7 @@ function ulf_pagebuilder_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -1658,7 +1701,7 @@ function ulf_pagebuilder_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -1670,7 +1713,7 @@ function ulf_pagebuilder_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -1700,7 +1743,7 @@ function ulf_pagebuilder_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 1,
+      'weight' => 2,
     ),
   );
 
@@ -1717,7 +1760,7 @@ function ulf_pagebuilder_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
@@ -1744,7 +1787,7 @@ function ulf_pagebuilder_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 
@@ -1761,7 +1804,7 @@ function ulf_pagebuilder_field_default_field_instances() {
     'description' => 'Det er meget vigtigt, at siden kun har en hovedoverskrift. Hvis der bruges flere heroelementer på en side, skal kun en af dem have denne mulighed aktiveret.',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
@@ -1788,7 +1831,7 @@ function ulf_pagebuilder_field_default_field_instances() {
         'display_label' => 0,
       ),
       'type' => 'options_onoff',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
@@ -1800,7 +1843,7 @@ function ulf_pagebuilder_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
@@ -1827,7 +1870,7 @@ function ulf_pagebuilder_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
@@ -4505,6 +4548,7 @@ node/*/revisions/view/*/*',
   t('Links');
   t('Modtager');
   t('Navn');
+  t('Overligger');
   t('Overskrift');
   t('Rammefarve');
   t('Sublinje');

@@ -30,6 +30,7 @@
   <div class="hero-wrapper">
 
     <div <?php print $content_attributes; ?>>
+        <?php print render($content['field_paragraph_hero_overligger']); ?>
         <?php print render($content['field_paragraph_hero_title']); ?>
         <?php print render($content['field_paragraph_hero_subline']); ?>
     </div>
