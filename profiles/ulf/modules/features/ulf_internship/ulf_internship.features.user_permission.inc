@@ -87,6 +87,7 @@ function ulf_internship_user_default_permissions() {
   $permissions['access toolbar'] = array(
     'name' => 'access toolbar',
     'roles' => array(
+      'company' => 'company',
       'company consultant' => 'company consultant',
       'course provider' => 'course provider',
       'editor' => 'editor',
@@ -98,6 +99,7 @@ function ulf_internship_user_default_permissions() {
   $permissions['access workbench'] = array(
     'name' => 'access workbench',
     'roles' => array(
+      'company' => 'company',
       'company consultant' => 'company consultant',
       'course provider' => 'course provider',
       'editor' => 'editor',
@@ -400,6 +402,7 @@ function ulf_internship_user_default_permissions() {
   $permissions['create internship content'] = array(
     'name' => 'create internship content',
     'roles' => array(
+      'company' => 'company',
       'company consultant' => 'company consultant',
     ),
     'module' => 'node',
@@ -489,6 +492,7 @@ function ulf_internship_user_default_permissions() {
   $permissions['delete own news content'] = array(
     'name' => 'delete own news content',
     'roles' => array(
+      'company' => 'company',
       'company consultant' => 'company consultant',
       'editor' => 'editor',
     ),
@@ -588,6 +592,7 @@ function ulf_internship_user_default_permissions() {
   $permissions['edit own internship content'] = array(
     'name' => 'edit own internship content',
     'roles' => array(
+      'company' => 'company',
       'company consultant' => 'company consultant',
     ),
     'module' => 'node',
@@ -597,6 +602,7 @@ function ulf_internship_user_default_permissions() {
   $permissions['edit own news content'] = array(
     'name' => 'edit own news content',
     'roles' => array(
+      'company' => 'company',
       'company consultant' => 'company consultant',
       'editor' => 'editor',
     ),
@@ -669,6 +675,7 @@ function ulf_internship_user_default_permissions() {
   $permissions['revert revisions'] = array(
     'name' => 'revert revisions',
     'roles' => array(
+      'company' => 'company',
       'company consultant' => 'company consultant',
       'editor' => 'editor',
     ),
@@ -742,6 +749,7 @@ function ulf_internship_user_default_permissions() {
   $permissions['use panels dashboard'] = array(
     'name' => 'use panels dashboard',
     'roles' => array(
+      'company' => 'company',
       'company consultant' => 'company consultant',
       'editor' => 'editor',
     ),
@@ -783,6 +791,7 @@ function ulf_internship_user_default_permissions() {
   $permissions['use workbench_moderation my drafts tab'] = array(
     'name' => 'use workbench_moderation my drafts tab',
     'roles' => array(
+      'company' => 'company',
       'company consultant' => 'company consultant',
       'course provider' => 'course provider',
       'editor' => 'editor',
@@ -794,6 +803,7 @@ function ulf_internship_user_default_permissions() {
   $permissions['use workbench_moderation needs review tab'] = array(
     'name' => 'use workbench_moderation needs review tab',
     'roles' => array(
+      'company' => 'company',
       'company consultant' => 'company consultant',
       'editor' => 'editor',
     ),
@@ -804,6 +814,7 @@ function ulf_internship_user_default_permissions() {
   $permissions['view all unpublished content'] = array(
     'name' => 'view all unpublished content',
     'roles' => array(
+      'company' => 'company',
       'company consultant' => 'company consultant',
       'editor' => 'editor',
     ),
@@ -846,6 +857,7 @@ function ulf_internship_user_default_permissions() {
   $permissions['view own unpublished content'] = array(
     'name' => 'view own unpublished content',
     'roles' => array(
+      'company' => 'company',
       'company consultant' => 'company consultant',
       'course provider' => 'course provider',
       'editor' => 'editor',
@@ -877,6 +889,7 @@ function ulf_internship_user_default_permissions() {
   $permissions['view revisions'] = array(
     'name' => 'view revisions',
     'roles' => array(
+      'company' => 'company',
       'company consultant' => 'company consultant',
       'course provider' => 'course provider',
       'editor' => 'editor',
@@ -898,6 +911,7 @@ function ulf_internship_user_default_permissions() {
   $permissions['view the administration theme'] = array(
     'name' => 'view the administration theme',
     'roles' => array(
+      'company' => 'company',
       'company consultant' => 'company consultant',
       'course provider' => 'course provider',
       'developer' => 'developer',
