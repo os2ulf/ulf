@@ -27,12 +27,17 @@
  */
 ?>
 <div class="<?php print $classes; ?>"<?php print $attributes; ?>>
-  <div class="hero-wrapper">
-
-    <div <?php print $content_attributes; ?>>
-        <?php print render($content['field_paragraph_hero_overligger']); ?>
-        <?php print render($content['field_paragraph_hero_title']); ?>
-        <?php print render($content['field_paragraph_hero_subline']); ?>
+  <?php if (isset($content['field_contact_form_title'][0])): ?>
+    <h2 class="contact-form__title"><?php print $content['field_contact_form_title'][0]['#markup']; ?></h2>
+  <?php endif; ?>
+  <?php if (isset($content['field_contact_form_description'][0])): ?>
+    <div class="contact-form__description">
+      <?php print $content['field_contact_form_description'][0]['#markup']; ?>
     </div>
-  </div>
+  <?php endif; ?>
+  <?php if (isset($content['field_kontakt_formular'][0])): ?>
+    <div class="contact-form">
+      <?php print render($content['field_kontakt_formular']); ?>
+    </div>
+  <?php endif; ?>
 </div>

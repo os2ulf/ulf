@@ -148,14 +148,23 @@
 
     h1, h2 {
       color: $white;
-      font-size: 2.2em;
+      font-size: 24px;
       font-weight: normal;
+      margin-bottom: 5px;
     }
 
     .subline {
       color: $white;
       font-size: 1.5em;
       margin: 0;
+    }
+
+    .block--field-text {
+      color: #788b93;
+      font-size: 20px;
+      font-family: "Lato", sans-serif;
+      text-transform: uppercase;
+      margin-bottom: 10px;
     }
 
     @include breakpoint(45em) {
@@ -219,6 +228,7 @@
   @include flexbox;
   @include flex-wrap(wrap);
   @include flex-direction(row);
+  display: block;
   background-color: $gray-lightest;
   height: 100%;
 
@@ -491,5 +501,44 @@
   .news-list {
     display: flex;
     flex-wrap: wrap;
+  }
+}
+
+.paragraphs-item-kontakt-formular {
+  h2,
+  .contact-form__description {
+    margin-bottom: 0.75em;
+
+    .paragraphs-item-one-column & {
+      text-align: center;
+    }
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  form {
+    margin: 0 -12px;
+
+    .form-wrapper {
+      float: left;
+      padding: 0 12px;
+      box-sizing: border-box;
+      width: 100%;
+
+      @include breakpoint(45em) {
+        width: 50%;
+      }
+
+      &.field-name-field-contact-form-company,
+      &.field-widget-text-textarea {
+        width: 100%;
+      }
+    }
+
+    .url-textfield {
+      display: none;
+    }
   }
 }

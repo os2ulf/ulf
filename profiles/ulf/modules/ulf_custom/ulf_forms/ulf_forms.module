@@ -106,6 +106,16 @@ function ulf_forms_form_alter(&$form, $form_state, $form_id) {
       $form['#suffix'] = '</div>';
       $form['actions']['submit']['#attributes']['class'][] = 'form-module--user-submit';
       break;
+
+    case 'kontaktformular_entityform_edit_form':
+      $contact_form_recipient = variable_get('email_contact_form_recipient', '');
+      $workflow_recipient = variable_get('email_workflow_recipient', '');
+      if (!empty($contact_form_recipient)) {
+        $form['field_contact_form_recipient']['und'][0]['value']['#default_value'] = $contact_form_recipient;
+      } elseif (!empty($workflow_recipient)) {
+        $form['field_contact_form_recipient']['und'][0]['value']['#default_value'] = $workflow_recipient;
+      }
+      break;
   }
 
 }

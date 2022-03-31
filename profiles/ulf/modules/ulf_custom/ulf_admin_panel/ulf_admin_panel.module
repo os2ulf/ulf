@@ -69,6 +69,13 @@ function _ulf_admin_panel_form($form) {
     '#default_value' => variable_get('email_workflow_additional_recipients', ''),
   );
 
+  $form['ulf_email_settings']['email_contact_form_recipient'] = array(
+    '#title' => t('Contact form notifications recipient'),
+    '#type' => 'emailfield',
+    '#default_value' => variable_get('email_contact_form_recipient', ''),
+    '#description' => t('The email address used to receive admin notifications when contact form has been submitted.'),
+  );
+
   $form['images'] = array(
     '#type' => 'fieldset',
     '#title' => t('Images'),
