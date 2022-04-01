@@ -148,9 +148,9 @@
 
     h1, h2 {
       color: $white;
-      font-size: 24px;
+      font-size: 24px !important;
       font-weight: normal;
-      margin-bottom: 5px;
+      margin-bottom: 10px;
     }
 
     .subline {
