@@ -766,8 +766,9 @@ function ulf_internship_user_default_permissions() {
   $permissions['use text format editor'] = array(
     'name' => 'use text format editor',
     'roles' => array(
+      'company' => 'company',
       'company consultant' => 'company consultant',
-      'course provider' => 'course provider',
+      'developer' => 'developer',
       'editor' => 'editor',
     ),
     'module' => 'filter',
@@ -777,7 +778,9 @@ function ulf_internship_user_default_permissions() {
   $permissions['use text format full_html'] = array(
     'name' => 'use text format full_html',
     'roles' => array(
+      'company' => 'company',
       'company consultant' => 'company consultant',
+      'developer' => 'developer',
       'editor' => 'editor',
     ),
     'module' => 'filter',
