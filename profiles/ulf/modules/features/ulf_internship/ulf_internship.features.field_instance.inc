@@ -2317,7 +2317,7 @@ At opnå kendskab til...
     ),
     'entity_type' => 'user',
     'field_name' => 'field_garantipartner',
-    'label' => 'List virksomhed på søgning',
+    'label' => 'Garantipartner',
     'required' => 0,
     'settings' => array(
       'user_register_form' => 0,
@@ -2438,11 +2438,11 @@ At opnå kendskab til...
   t('Faciliteter');
   t('Forberedelse');
   t('Formål');
+  t('Garantipartner');
   t('Gratis');
   t('Hvilke faciliteter kan I tilbyde?');
   t('Interesseområder');
   t('Kun hvis dette er valgt, vil eventet i pretix automatisk blive opdateret med eventindstillinger på denne side. ');
-  t('List virksomhed på søgning');
   t('Materiale');
   t('Message form');
   t('Muligheder');

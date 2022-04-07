@@ -82,8 +82,10 @@ function _ulf_course_providers_cleanup_form(&$form) {
  *   The form we modify.
  */
 function _ulf_course_providers_cleanup_register_form(&$form) {
-  $form['field_profile_description'][LANGUAGE_NONE]['0']['format']['#access'] = FALSE;
-
+  global $user;
+  if (in_array('course provider', array_values($user->roles))) {
+    $form['field_profile_description'][LANGUAGE_NONE]['0']['format']['#access'] = FALSE;
+  }
 }
 
 /**
@@ -93,6 +95,12 @@ function _ulf_course_providers_cleanup_register_form(&$form) {
  * @return mixed
  */
 function _ulf_course_providers_user_form_after_build($form) {
+
+  global $user;
+  if (!in_array('course provider', array_values($user->roles))) {
+    return $form;
+  }
+
   if (isset($form['field_profile_description'])) {
     $form['field_profile_description'][LANGUAGE_NONE]['0']['format']['#access'] = FALSE;
   }
