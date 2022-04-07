@@ -124,16 +124,16 @@ function ulf_workflow_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Sidefod: Global: Resumé af resultat */
+  /* Footer: Global: Result summary */
   $handler->display->display_options['footer']['result']['id'] = 'result';
   $handler->display->display_options['footer']['result']['table'] = 'views';
   $handler->display->display_options['footer']['result']['field'] = 'result';
   $handler->display->display_options['footer']['result']['content'] = 'Viser @start - @end af @total';
-  /* Forbindelse: Indhold: Content author */
+  /* Relationship: Content: Content author */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
-  /* Felt: Masse-handlinger: Indhold */
+  /* Field: Bulk operations: Content */
   $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
@@ -200,63 +200,58 @@ function ulf_workflow_views_default_views() {
       'label' => '',
     ),
   );
-  /* Felt: Indhold: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Felt: Indhold: Type */
+  /* Field: Content: Type */
   $handler->display->display_options['fields']['type']['id'] = 'type';
   $handler->display->display_options['fields']['type']['table'] = 'node';
   $handler->display->display_options['fields']['type']['field'] = 'type';
-  /* Felt: Indhold: Overordnet målgruppe */
-  $handler->display->display_options['fields']['field_target_group']['id'] = 'field_target_group';
-  $handler->display->display_options['fields']['field_target_group']['table'] = 'field_data_field_target_group';
-  $handler->display->display_options['fields']['field_target_group']['field'] = 'field_target_group';
-  $handler->display->display_options['fields']['field_target_group']['type'] = 'taxonomy_term_reference_plain';
-  /* Felt: Bruger: Navn */
+  /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'uid';
   $handler->display->display_options['fields']['name']['label'] = 'Forfatter';
-  /* Felt: Indhold: Published status */
+  /* Field: Content: Published status */
   $handler->display->display_options['fields']['status']['id'] = 'status';
   $handler->display->display_options['fields']['status']['table'] = 'node';
   $handler->display->display_options['fields']['status']['field'] = 'status';
   $handler->display->display_options['fields']['status']['label'] = 'Status';
   $handler->display->display_options['fields']['status']['type'] = 'published-notpublished';
   $handler->display->display_options['fields']['status']['not'] = 0;
-  /* Felt: Indhold: Opdateringsdato */
+  /* Field: Content: Updated date */
   $handler->display->display_options['fields']['changed']['id'] = 'changed';
   $handler->display->display_options['fields']['changed']['table'] = 'node';
   $handler->display->display_options['fields']['changed']['field'] = 'changed';
   $handler->display->display_options['fields']['changed']['label'] = 'Opdateret';
   $handler->display->display_options['fields']['changed']['date_format'] = 'short';
   $handler->display->display_options['fields']['changed']['second_date_format'] = 'html5_tools_iso8601';
-  /* Felt: Indhold: Kopiér link */
+  /* Field: Content: Clone link */
   $handler->display->display_options['fields']['clone_node']['id'] = 'clone_node';
   $handler->display->display_options['fields']['clone_node']['table'] = 'node';
   $handler->display->display_options['fields']['clone_node']['field'] = 'clone_node';
   $handler->display->display_options['fields']['clone_node']['exclude'] = TRUE;
-  /* Felt: Indhold: Link to edit content */
+  /* Field: Content: Link to edit content */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['exclude'] = TRUE;
-  /* Felt: Global: Tilpasset tekst */
+  /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = 'Handlinger';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '[edit_node] [clone_node] ';
-  /* Sorteringskriterie: Indhold: Opdateringsdato */
+  /* Sort criterion: Content: Updated date */
   $handler->display->display_options['sorts']['changed']['id'] = 'changed';
   $handler->display->display_options['sorts']['changed']['table'] = 'node';
   $handler->display->display_options['sorts']['changed']['field'] = 'changed';
   $handler->display->display_options['sorts']['changed']['order'] = 'DESC';
-  /* Kontekstuelt filter: Indhold: Forfatter uid */
+  /* Contextual filter: Content: Author uid */
   $handler->display->display_options['arguments']['uid']['id'] = 'uid';
   $handler->display->display_options['arguments']['uid']['table'] = 'node';
   $handler->display->display_options['arguments']['uid']['field'] = 'uid';
@@ -266,7 +261,7 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['arguments']['uid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['uid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['uid']['summary_options']['items_per_page'] = '25';
-  /* Filterkriterie: Indhold: Published status */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -284,7 +279,7 @@ function ulf_workflow_views_default_views() {
     18 => 0,
     19 => 0,
   );
-  /* Filterkriterie: Indhold: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -301,7 +296,7 @@ function ulf_workflow_views_default_views() {
     18 => 0,
     19 => 0,
   );
-  /* Filterkriterie: Global: Kombinér felter filter */
+  /* Filter criterion: Global: Combine fields filter */
   $handler->display->display_options['filters']['combine']['id'] = 'combine';
   $handler->display->display_options['filters']['combine']['table'] = 'views';
   $handler->display->display_options['filters']['combine']['field'] = 'combine';
@@ -324,7 +319,7 @@ function ulf_workflow_views_default_views() {
     'title' => 'title',
     'name' => 'name',
   );
-  /* Filterkriterie: Indhold: Trashed (field_trashed) */
+  /* Filter criterion: Content: Trashed (field_trashed) */
   $handler->display->display_options['filters']['field_trashed_value']['id'] = 'field_trashed_value';
   $handler->display->display_options['filters']['field_trashed_value']['table'] = 'field_data_field_trashed';
   $handler->display->display_options['filters']['field_trashed_value']['field'] = 'field_trashed_value';
@@ -349,47 +344,46 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Papirkurv';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Indhold: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Felt: Indhold: Type */
+  /* Field: Content: Type */
   $handler->display->display_options['fields']['type']['id'] = 'type';
   $handler->display->display_options['fields']['type']['table'] = 'node';
   $handler->display->display_options['fields']['type']['field'] = 'type';
-  /* Felt: Indhold: Overordnet målgruppe */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_target_group']['id'] = 'field_target_group';
   $handler->display->display_options['fields']['field_target_group']['table'] = 'field_data_field_target_group';
   $handler->display->display_options['fields']['field_target_group']['field'] = 'field_target_group';
-  $handler->display->display_options['fields']['field_target_group']['type'] = 'taxonomy_term_reference_plain';
-  /* Felt: Bruger: Navn */
+  /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'uid';
   $handler->display->display_options['fields']['name']['label'] = 'Forfatter';
-  /* Felt: Indhold: Published status */
+  /* Field: Content: Published status */
   $handler->display->display_options['fields']['status']['id'] = 'status';
   $handler->display->display_options['fields']['status']['table'] = 'node';
   $handler->display->display_options['fields']['status']['field'] = 'status';
   $handler->display->display_options['fields']['status']['label'] = 'Status';
   $handler->display->display_options['fields']['status']['type'] = 'published-notpublished';
   $handler->display->display_options['fields']['status']['not'] = 0;
-  /* Felt: Indhold: Opdateringsdato */
+  /* Field: Content: Updated date */
   $handler->display->display_options['fields']['changed']['id'] = 'changed';
   $handler->display->display_options['fields']['changed']['table'] = 'node';
   $handler->display->display_options['fields']['changed']['field'] = 'changed';
   $handler->display->display_options['fields']['changed']['label'] = 'Opdateret';
   $handler->display->display_options['fields']['changed']['date_format'] = 'short';
   $handler->display->display_options['fields']['changed']['second_date_format'] = 'html5_tools_iso8601';
-  /* Felt: Indhold: Link to edit content */
+  /* Field: Content: Link to edit content */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['exclude'] = TRUE;
-  /* Felt: Global: Tilpasset tekst */
+  /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -398,7 +392,7 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filterkriterie: Indhold: Published status */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -416,7 +410,7 @@ function ulf_workflow_views_default_views() {
     18 => 0,
     19 => 0,
   );
-  /* Filterkriterie: Indhold: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -433,7 +427,7 @@ function ulf_workflow_views_default_views() {
     18 => 0,
     19 => 0,
   );
-  /* Filterkriterie: Global: Kombinér felter filter */
+  /* Filter criterion: Global: Combine fields filter */
   $handler->display->display_options['filters']['combine']['id'] = 'combine';
   $handler->display->display_options['filters']['combine']['table'] = 'views';
   $handler->display->display_options['filters']['combine']['field'] = 'combine';
@@ -456,7 +450,7 @@ function ulf_workflow_views_default_views() {
     'title' => 'title',
     'name' => 'name',
   );
-  /* Filterkriterie: Indhold: Trashed (field_trashed) */
+  /* Filter criterion: Content: Trashed (field_trashed) */
   $handler->display->display_options['filters']['field_trashed_value']['id'] = 'field_trashed_value';
   $handler->display->display_options['filters']['field_trashed_value']['table'] = 'field_data_field_trashed';
   $handler->display->display_options['filters']['field_trashed_value']['field'] = 'field_trashed_value';
@@ -477,52 +471,45 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Papirkurv';
   $handler->display->display_options['defaults']['access'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'role';
-  $handler->display->display_options['access']['role'] = array(
-    18 => '18',
-  );
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['access']['perm'] = 'view own unpublished content';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Indhold: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Felt: Indhold: Type */
+  /* Field: Content: Type */
   $handler->display->display_options['fields']['type']['id'] = 'type';
   $handler->display->display_options['fields']['type']['table'] = 'node';
   $handler->display->display_options['fields']['type']['field'] = 'type';
-  /* Felt: Indhold: Overordnet målgruppe */
-  $handler->display->display_options['fields']['field_target_group']['id'] = 'field_target_group';
-  $handler->display->display_options['fields']['field_target_group']['table'] = 'field_data_field_target_group';
-  $handler->display->display_options['fields']['field_target_group']['field'] = 'field_target_group';
-  $handler->display->display_options['fields']['field_target_group']['type'] = 'taxonomy_term_reference_plain';
-  /* Felt: Bruger: Navn */
+  /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'uid';
   $handler->display->display_options['fields']['name']['label'] = 'Forfatter';
-  /* Felt: Indhold: Published status */
+  /* Field: Content: Published status */
   $handler->display->display_options['fields']['status']['id'] = 'status';
   $handler->display->display_options['fields']['status']['table'] = 'node';
   $handler->display->display_options['fields']['status']['field'] = 'status';
   $handler->display->display_options['fields']['status']['label'] = 'Status';
   $handler->display->display_options['fields']['status']['type'] = 'published-notpublished';
   $handler->display->display_options['fields']['status']['not'] = 0;
-  /* Felt: Indhold: Opdateringsdato */
+  /* Field: Content: Updated date */
   $handler->display->display_options['fields']['changed']['id'] = 'changed';
   $handler->display->display_options['fields']['changed']['table'] = 'node';
   $handler->display->display_options['fields']['changed']['field'] = 'changed';
   $handler->display->display_options['fields']['changed']['label'] = 'Opdateret';
   $handler->display->display_options['fields']['changed']['date_format'] = 'short';
   $handler->display->display_options['fields']['changed']['second_date_format'] = 'html5_tools_iso8601';
-  /* Felt: Indhold: Link to edit content */
+  /* Field: Content: Link to edit content */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['exclude'] = TRUE;
-  /* Felt: Global: Tilpasset tekst */
+  /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -530,7 +517,7 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '[edit_node]';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filterkriterie: Indhold: Trashed (field_trashed) */
+  /* Filter criterion: Content: Trashed (field_trashed) */
   $handler->display->display_options['filters']['field_trashed_value']['id'] = 'field_trashed_value';
   $handler->display->display_options['filters']['field_trashed_value']['table'] = 'field_data_field_trashed';
   $handler->display->display_options['filters']['field_trashed_value']['field'] = 'field_trashed_value';
@@ -562,16 +549,15 @@ function ulf_workflow_views_default_views() {
     t('næste ›'),
     t('sidste »'),
     t('Viser @start - @end af @total'),
-    t('forfatter'),
-    t('Indhold'),
-    t('- Vælg en handling -'),
-    t('Titel'),
+    t('author'),
+    t('Content'),
+    t('- Choose an operation -'),
+    t('Title'),
     t('Type'),
-    t('Overordnet målgruppe'),
     t('Forfatter'),
     t('Status'),
     t('Opdateret'),
-    t('Kopiér link'),
+    t('Clone link'),
     t('Link to edit content'),
     t('Handlinger'),
     t('[edit_node] [clone_node] '),
@@ -579,9 +565,10 @@ function ulf_workflow_views_default_views() {
     t('Udgivet'),
     t('Søgefilter'),
     t('Søg efter titel eller indholdsleverandør'),
-    t('Content'),
+    t('more'),
     t('Trash'),
     t('Papirkurv'),
+    t('Broken handler field_data_field_target_group.field_target_group'),
     t('[edit_node]'),
     t('Content provider - Trash'),
   );
@@ -705,35 +692,35 @@ function ulf_workflow_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Overskrift: Global: Tekstområde */
+  /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['content'] = 'Shows all content scheduled for publishing or unpublishing';
   $handler->display->display_options['header']['area']['format'] = 'editor';
-  /* Opførsel ved ingen resultater: Global: Tekstområde */
+  /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = 'Du har intet indhold i denne kategori';
   $handler->display->display_options['empty']['area']['format'] = 'plain_text';
-  /* Forbindelse: Indholdsversion: Indhold */
+  /* Relationship: Content revision: Content */
   $handler->display->display_options['relationships']['vid']['id'] = 'vid';
   $handler->display->display_options['relationships']['vid']['table'] = 'node_revision';
   $handler->display->display_options['relationships']['vid']['field'] = 'vid';
-  /* Forbindelse: Indhold: Content author */
+  /* Relationship: Content: Content author */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
   $handler->display->display_options['relationships']['uid']['relationship'] = 'vid';
-  /* Felt: Indhold: Forfatter uid */
+  /* Field: Content: Author uid */
   $handler->display->display_options['fields']['uid']['id'] = 'uid';
   $handler->display->display_options['fields']['uid']['table'] = 'node';
   $handler->display->display_options['fields']['uid']['field'] = 'uid';
   $handler->display->display_options['fields']['uid']['relationship'] = 'vid';
   $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
-  /* Felt: Indhold: Nid */
+  /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
@@ -744,52 +731,51 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['fields']['nid']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['nid']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Felt: Indholdsversion: Titel */
+  /* Field: Content revision: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node_revision';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['relationship'] = 'vid';
   $handler->display->display_options['fields']['title']['link_to_node'] = TRUE;
-  /* Felt: Indhold: Type */
+  /* Field: Content: Type */
   $handler->display->display_options['fields']['type']['id'] = 'type';
   $handler->display->display_options['fields']['type']['table'] = 'node';
   $handler->display->display_options['fields']['type']['field'] = 'type';
   $handler->display->display_options['fields']['type']['relationship'] = 'vid';
   $handler->display->display_options['fields']['type']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['type']['alter']['ellipsis'] = FALSE;
-  /* Felt: Indhold: Overordnet målgruppe */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_target_group']['id'] = 'field_target_group';
   $handler->display->display_options['fields']['field_target_group']['table'] = 'field_data_field_target_group';
   $handler->display->display_options['fields']['field_target_group']['field'] = 'field_target_group';
   $handler->display->display_options['fields']['field_target_group']['relationship'] = 'vid';
-  $handler->display->display_options['fields']['field_target_group']['type'] = 'taxonomy_term_reference_plain';
-  /* Felt: Indholdsversion: Opdateringsdato */
+  /* Field: Content revision: Updated date */
   $handler->display->display_options['fields']['timestamp']['id'] = 'timestamp';
   $handler->display->display_options['fields']['timestamp']['table'] = 'node_revision';
   $handler->display->display_options['fields']['timestamp']['field'] = 'timestamp';
   $handler->display->display_options['fields']['timestamp']['label'] = 'Senest opdateret';
   $handler->display->display_options['fields']['timestamp']['date_format'] = 'time ago';
   $handler->display->display_options['fields']['timestamp']['second_date_format'] = 'html5_tools_iso8601';
-  /* Felt: Indhold: Link to edit content */
+  /* Field: Content: Link to edit content */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['relationship'] = 'vid';
   $handler->display->display_options['fields']['edit_node']['label'] = 'Redigér';
-  /* Felt: Indhold: Kopiér link */
+  /* Field: Content: Clone link */
   $handler->display->display_options['fields']['clone_node']['id'] = 'clone_node';
   $handler->display->display_options['fields']['clone_node']['table'] = 'node';
   $handler->display->display_options['fields']['clone_node']['field'] = 'clone_node';
   $handler->display->display_options['fields']['clone_node']['relationship'] = 'vid';
   $handler->display->display_options['fields']['clone_node']['label'] = '';
   $handler->display->display_options['fields']['clone_node']['element_label_colon'] = FALSE;
-  /* Sorteringskriterie: Indhold: Opdateringsdato */
+  /* Sort criterion: Content: Updated date */
   $handler->display->display_options['sorts']['changed']['id'] = 'changed';
   $handler->display->display_options['sorts']['changed']['table'] = 'node';
   $handler->display->display_options['sorts']['changed']['field'] = 'changed';
   $handler->display->display_options['sorts']['changed']['relationship'] = 'vid';
   $handler->display->display_options['sorts']['changed']['order'] = 'DESC';
-  /* Kontekstuelt filter: Bruger: Uid */
+  /* Contextual filter: User: Uid */
   $handler->display->display_options['arguments']['uid']['id'] = 'uid';
   $handler->display->display_options['arguments']['uid']['table'] = 'users';
   $handler->display->display_options['arguments']['uid']['field'] = 'uid';
@@ -800,7 +786,7 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['arguments']['uid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['uid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['uid']['summary_options']['items_per_page'] = '25';
-  /* Filterkriterie: Indhold: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -808,14 +794,16 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'course_educators' => 'course_educators',
     'course' => 'course',
+    'internship' => 'internship',
+    'education' => 'education',
   );
-  /* Filterkriterie: Indhold: Published status */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['relationship'] = 'vid';
   $handler->display->display_options['filters']['status']['value'] = '0';
-  /* Filterkriterie: Global: Kombinér felter filter */
+  /* Filter criterion: Global: Combine fields filter */
   $handler->display->display_options['filters']['combine']['id'] = 'combine';
   $handler->display->display_options['filters']['combine']['table'] = 'views';
   $handler->display->display_options['filters']['combine']['field'] = 'combine';
@@ -837,7 +825,7 @@ function ulf_workflow_views_default_views() {
     'title' => 'title',
     'field_profile_name' => 'field_profile_name',
   );
-  /* Filterkriterie: Planlægning: Udgiv den */
+  /* Filter criterion: Scheduler: Publish on */
   $handler->display->display_options['filters']['publish_on']['id'] = 'publish_on';
   $handler->display->display_options['filters']['publish_on']['table'] = 'scheduler';
   $handler->display->display_options['filters']['publish_on']['field'] = 'publish_on';
@@ -851,39 +839,39 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['defaults']['access'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['defaults']['header'] = FALSE;
-  /* Overskrift: Global: Tekstområde */
+  /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['content'] = 'Viser alt indhold der venter på revision og endnu ikke har en publiseret version';
   $handler->display->display_options['header']['area']['format'] = 'editor';
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Sidefod: Global: Resumé af resultat */
+  /* Footer: Global: Result summary */
   $handler->display->display_options['footer']['result']['id'] = 'result';
   $handler->display->display_options['footer']['result']['table'] = 'views';
   $handler->display->display_options['footer']['result']['field'] = 'result';
   $handler->display->display_options['footer']['result']['content'] = 'Viser @start - @end af @total';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Indhold: Forfatter uid */
+  /* Field: Content: Author uid */
   $handler->display->display_options['fields']['uid']['id'] = 'uid';
   $handler->display->display_options['fields']['uid']['table'] = 'node';
   $handler->display->display_options['fields']['uid']['field'] = 'uid';
   $handler->display->display_options['fields']['uid']['relationship'] = 'vid';
   $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
-  /* Felt: Indhold: Nid */
+  /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['relationship'] = 'vid';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
-  /* Felt: Indholdsversion: Titel */
+  /* Field: Content revision: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node_revision';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['relationship'] = 'vid';
   $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['path'] = '/node/[nid]/current-revision';
-  /* Felt: Bruger: Navn */
+  /* Field: User: Navn */
   $handler->display->display_options['fields']['field_profile_name']['id'] = 'field_profile_name';
   $handler->display->display_options['fields']['field_profile_name']['table'] = 'field_data_field_profile_name';
   $handler->display->display_options['fields']['field_profile_name']['field'] = 'field_profile_name';
@@ -891,20 +879,19 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['fields']['field_profile_name']['label'] = 'Afsender';
   $handler->display->display_options['fields']['field_profile_name']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_profile_name']['alter']['path'] = '/user/[uid]';
-  /* Felt: Indhold: Type */
+  /* Field: Content: Type */
   $handler->display->display_options['fields']['type']['id'] = 'type';
   $handler->display->display_options['fields']['type']['table'] = 'node';
   $handler->display->display_options['fields']['type']['field'] = 'type';
   $handler->display->display_options['fields']['type']['relationship'] = 'vid';
   $handler->display->display_options['fields']['type']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['type']['alter']['ellipsis'] = FALSE;
-  /* Felt: Indhold: Overordnet målgruppe */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_target_group']['id'] = 'field_target_group';
   $handler->display->display_options['fields']['field_target_group']['table'] = 'field_data_field_target_group';
   $handler->display->display_options['fields']['field_target_group']['field'] = 'field_target_group';
   $handler->display->display_options['fields']['field_target_group']['relationship'] = 'vid';
-  $handler->display->display_options['fields']['field_target_group']['type'] = 'taxonomy_term_reference_plain';
-  /* Felt: Indholdsversion: Opdateringsdato */
+  /* Field: Content revision: Updated date */
   $handler->display->display_options['fields']['timestamp']['id'] = 'timestamp';
   $handler->display->display_options['fields']['timestamp']['table'] = 'node_revision';
   $handler->display->display_options['fields']['timestamp']['field'] = 'timestamp';
@@ -912,19 +899,19 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['fields']['timestamp']['label'] = 'Senest opdateret';
   $handler->display->display_options['fields']['timestamp']['date_format'] = 'time ago';
   $handler->display->display_options['fields']['timestamp']['second_date_format'] = 'html5_tools_iso8601';
-  /* Felt: Indhold: Latest log message */
+  /* Field: Content: Latest log message */
   $handler->display->display_options['fields']['latest_log_message']['id'] = 'latest_log_message';
   $handler->display->display_options['fields']['latest_log_message']['table'] = 'node';
   $handler->display->display_options['fields']['latest_log_message']['field'] = 'latest_log_message';
   $handler->display->display_options['fields']['latest_log_message']['relationship'] = 'vid';
   $handler->display->display_options['fields']['latest_log_message']['label'] = 'Seneste kommentar';
-  /* Felt: Indhold: Link to edit content */
+  /* Field: Content: Link to edit content */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['relationship'] = 'vid';
   $handler->display->display_options['fields']['edit_node']['label'] = 'Redigér';
-  /* Felt: Indhold: Kopiér link */
+  /* Field: Content: Clone link */
   $handler->display->display_options['fields']['clone_node']['id'] = 'clone_node';
   $handler->display->display_options['fields']['clone_node']['table'] = 'node';
   $handler->display->display_options['fields']['clone_node']['field'] = 'clone_node';
@@ -939,7 +926,7 @@ function ulf_workflow_views_default_views() {
     2 => 'AND',
   );
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filterkriterie: Workbench Moderation: Status */
+  /* Filter criterion: Workbench Moderation: State */
   $handler->display->display_options['filters']['state']['id'] = 'state';
   $handler->display->display_options['filters']['state']['table'] = 'workbench_moderation_node_history';
   $handler->display->display_options['filters']['state']['field'] = 'state';
@@ -948,14 +935,14 @@ function ulf_workflow_views_default_views() {
     'needs_review' => 'needs_review',
   );
   $handler->display->display_options['filters']['state']['group'] = 1;
-  /* Filterkriterie: Workbench Moderation: Aktuelle */
+  /* Filter criterion: Workbench Moderation: Current */
   $handler->display->display_options['filters']['is_current_1']['id'] = 'is_current_1';
   $handler->display->display_options['filters']['is_current_1']['table'] = 'workbench_moderation_node_history';
   $handler->display->display_options['filters']['is_current_1']['field'] = 'is_current';
   $handler->display->display_options['filters']['is_current_1']['relationship'] = 'vid';
   $handler->display->display_options['filters']['is_current_1']['value'] = '1';
   $handler->display->display_options['filters']['is_current_1']['group'] = 1;
-  /* Filterkriterie: Global: Kombinér felter filter */
+  /* Filter criterion: Global: Combine fields filter */
   $handler->display->display_options['filters']['combine']['id'] = 'combine';
   $handler->display->display_options['filters']['combine']['table'] = 'views';
   $handler->display->display_options['filters']['combine']['field'] = 'combine';
@@ -977,13 +964,13 @@ function ulf_workflow_views_default_views() {
     'title' => 'title',
     'field_profile_name' => 'field_profile_name',
   );
-  /* Filterkriterie: Indhold: Published status */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['relationship'] = 'vid';
   $handler->display->display_options['filters']['status']['value'] = '0';
-  /* Filterkriterie: Indhold: Trashed (field_trashed) */
+  /* Filter criterion: Content: Trashed (field_trashed) */
   $handler->display->display_options['filters']['field_trashed_value']['id'] = 'field_trashed_value';
   $handler->display->display_options['filters']['field_trashed_value']['table'] = 'field_data_field_trashed';
   $handler->display->display_options['filters']['field_trashed_value']['field'] = 'field_trashed_value';
@@ -992,7 +979,7 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['filters']['field_trashed_value']['value'] = array(
     1 => '1',
   );
-  /* Filterkriterie: Indhold: Passed review (field_passed_review) */
+  /* Filter criterion: Content: Passed review (field_passed_review) */
   $handler->display->display_options['filters']['field_passed_review_value']['id'] = 'field_passed_review_value';
   $handler->display->display_options['filters']['field_passed_review_value']['table'] = 'field_data_field_passed_review';
   $handler->display->display_options['filters']['field_passed_review_value']['field'] = 'field_passed_review_value';
@@ -1010,26 +997,26 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['defaults']['access'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['defaults']['header'] = FALSE;
-  /* Overskrift: Global: Tekstområde */
+  /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['content'] = 'Viser alle upubliserede udkast';
   $handler->display->display_options['header']['area']['format'] = 'editor';
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Sidefod: Global: Resumé af resultat */
+  /* Footer: Global: Result summary */
   $handler->display->display_options['footer']['result']['id'] = 'result';
   $handler->display->display_options['footer']['result']['table'] = 'views';
   $handler->display->display_options['footer']['result']['field'] = 'result';
   $handler->display->display_options['footer']['result']['content'] = 'Viser @start - @end af @total';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Indhold: Forfatter uid */
+  /* Field: Content: Author uid */
   $handler->display->display_options['fields']['uid']['id'] = 'uid';
   $handler->display->display_options['fields']['uid']['table'] = 'node';
   $handler->display->display_options['fields']['uid']['field'] = 'uid';
   $handler->display->display_options['fields']['uid']['relationship'] = 'vid';
   $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
-  /* Felt: Indhold: Nid */
+  /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
@@ -1040,13 +1027,13 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['fields']['nid']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['nid']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Felt: Indholdsversion: Titel */
+  /* Field: Content revision: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node_revision';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['relationship'] = 'vid';
   $handler->display->display_options['fields']['title']['link_to_node'] = TRUE;
-  /* Felt: Bruger: Navn */
+  /* Field: User: Navn */
   $handler->display->display_options['fields']['field_profile_name']['id'] = 'field_profile_name';
   $handler->display->display_options['fields']['field_profile_name']['table'] = 'field_data_field_profile_name';
   $handler->display->display_options['fields']['field_profile_name']['field'] = 'field_profile_name';
@@ -1054,20 +1041,19 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['fields']['field_profile_name']['label'] = 'Afsender';
   $handler->display->display_options['fields']['field_profile_name']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_profile_name']['alter']['path'] = '/user/[uid]';
-  /* Felt: Indhold: Type */
+  /* Field: Content: Type */
   $handler->display->display_options['fields']['type']['id'] = 'type';
   $handler->display->display_options['fields']['type']['table'] = 'node';
   $handler->display->display_options['fields']['type']['field'] = 'type';
   $handler->display->display_options['fields']['type']['relationship'] = 'vid';
   $handler->display->display_options['fields']['type']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['type']['alter']['ellipsis'] = FALSE;
-  /* Felt: Indhold: Overordnet målgruppe */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_target_group']['id'] = 'field_target_group';
   $handler->display->display_options['fields']['field_target_group']['table'] = 'field_data_field_target_group';
   $handler->display->display_options['fields']['field_target_group']['field'] = 'field_target_group';
   $handler->display->display_options['fields']['field_target_group']['relationship'] = 'vid';
-  $handler->display->display_options['fields']['field_target_group']['type'] = 'taxonomy_term_reference_plain';
-  /* Felt: Indholdsversion: Opdateringsdato */
+  /* Field: Content revision: Updated date */
   $handler->display->display_options['fields']['timestamp']['id'] = 'timestamp';
   $handler->display->display_options['fields']['timestamp']['table'] = 'node_revision';
   $handler->display->display_options['fields']['timestamp']['field'] = 'timestamp';
@@ -1075,13 +1061,13 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['fields']['timestamp']['label'] = 'Senest opdateret';
   $handler->display->display_options['fields']['timestamp']['date_format'] = 'time ago';
   $handler->display->display_options['fields']['timestamp']['second_date_format'] = 'html5_tools_iso8601';
-  /* Felt: Indhold: Link to edit content */
+  /* Field: Content: Link to edit content */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['relationship'] = 'vid';
   $handler->display->display_options['fields']['edit_node']['label'] = 'Redigér';
-  /* Felt: Indhold: Kopiér link */
+  /* Field: Content: Clone link */
   $handler->display->display_options['fields']['clone_node']['id'] = 'clone_node';
   $handler->display->display_options['fields']['clone_node']['table'] = 'node';
   $handler->display->display_options['fields']['clone_node']['field'] = 'clone_node';
@@ -1091,13 +1077,13 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filterkriterie: Indhold: Published status */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['relationship'] = 'vid';
   $handler->display->display_options['filters']['status']['value'] = '0';
-  /* Filterkriterie: Global: Kombinér felter filter */
+  /* Filter criterion: Global: Combine fields filter */
   $handler->display->display_options['filters']['combine_1']['id'] = 'combine_1';
   $handler->display->display_options['filters']['combine_1']['table'] = 'views';
   $handler->display->display_options['filters']['combine_1']['field'] = 'combine';
@@ -1119,19 +1105,19 @@ function ulf_workflow_views_default_views() {
     'title' => 'title',
     'field_profile_name' => 'field_profile_name',
   );
-  /* Filterkriterie: Workbench Moderation: Aktuelle */
+  /* Filter criterion: Workbench Moderation: Current */
   $handler->display->display_options['filters']['is_current']['id'] = 'is_current';
   $handler->display->display_options['filters']['is_current']['table'] = 'workbench_moderation_node_history';
   $handler->display->display_options['filters']['is_current']['field'] = 'is_current';
   $handler->display->display_options['filters']['is_current']['value'] = '1';
-  /* Filterkriterie: Workbench Moderation: Status */
+  /* Filter criterion: Workbench Moderation: State */
   $handler->display->display_options['filters']['state']['id'] = 'state';
   $handler->display->display_options['filters']['state']['table'] = 'workbench_moderation_node_history';
   $handler->display->display_options['filters']['state']['field'] = 'state';
   $handler->display->display_options['filters']['state']['value'] = array(
     'draft' => 'draft',
   );
-  /* Filterkriterie: Indhold: Trashed (field_trashed) */
+  /* Filter criterion: Content: Trashed (field_trashed) */
   $handler->display->display_options['filters']['field_trashed_value']['id'] = 'field_trashed_value';
   $handler->display->display_options['filters']['field_trashed_value']['table'] = 'field_data_field_trashed';
   $handler->display->display_options['filters']['field_trashed_value']['field'] = 'field_trashed_value';
@@ -1149,26 +1135,26 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['defaults']['access'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['defaults']['header'] = FALSE;
-  /* Overskrift: Global: Tekstområde */
+  /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['content'] = 'Viser alle publiserede kurser og forløb';
   $handler->display->display_options['header']['area']['format'] = 'editor';
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Sidefod: Global: Resumé af resultat */
+  /* Footer: Global: Result summary */
   $handler->display->display_options['footer']['result']['id'] = 'result';
   $handler->display->display_options['footer']['result']['table'] = 'views';
   $handler->display->display_options['footer']['result']['field'] = 'result';
   $handler->display->display_options['footer']['result']['content'] = 'Viser @start - @end af @total';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Indhold: Forfatter uid */
+  /* Field: Content: Author uid */
   $handler->display->display_options['fields']['uid']['id'] = 'uid';
   $handler->display->display_options['fields']['uid']['table'] = 'node';
   $handler->display->display_options['fields']['uid']['field'] = 'uid';
   $handler->display->display_options['fields']['uid']['relationship'] = 'vid';
   $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
-  /* Felt: Indhold: Nid */
+  /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
@@ -1179,13 +1165,13 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['fields']['nid']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['nid']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Felt: Indholdsversion: Titel */
+  /* Field: Content revision: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node_revision';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['relationship'] = 'vid';
   $handler->display->display_options['fields']['title']['link_to_node'] = TRUE;
-  /* Felt: Bruger: Navn */
+  /* Field: User: Navn */
   $handler->display->display_options['fields']['field_profile_name']['id'] = 'field_profile_name';
   $handler->display->display_options['fields']['field_profile_name']['table'] = 'field_data_field_profile_name';
   $handler->display->display_options['fields']['field_profile_name']['field'] = 'field_profile_name';
@@ -1193,20 +1179,19 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['fields']['field_profile_name']['label'] = 'Afsender';
   $handler->display->display_options['fields']['field_profile_name']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_profile_name']['alter']['path'] = '/user/[uid]';
-  /* Felt: Indhold: Type */
+  /* Field: Content: Type */
   $handler->display->display_options['fields']['type']['id'] = 'type';
   $handler->display->display_options['fields']['type']['table'] = 'node';
   $handler->display->display_options['fields']['type']['field'] = 'type';
   $handler->display->display_options['fields']['type']['relationship'] = 'vid';
   $handler->display->display_options['fields']['type']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['type']['alter']['ellipsis'] = FALSE;
-  /* Felt: Indhold: Overordnet målgruppe */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_target_group']['id'] = 'field_target_group';
   $handler->display->display_options['fields']['field_target_group']['table'] = 'field_data_field_target_group';
   $handler->display->display_options['fields']['field_target_group']['field'] = 'field_target_group';
   $handler->display->display_options['fields']['field_target_group']['relationship'] = 'vid';
-  $handler->display->display_options['fields']['field_target_group']['type'] = 'taxonomy_term_reference_plain';
-  /* Felt: Indholdsversion: Opdateringsdato */
+  /* Field: Content revision: Updated date */
   $handler->display->display_options['fields']['timestamp']['id'] = 'timestamp';
   $handler->display->display_options['fields']['timestamp']['table'] = 'node_revision';
   $handler->display->display_options['fields']['timestamp']['field'] = 'timestamp';
@@ -1214,13 +1199,13 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['fields']['timestamp']['label'] = 'Senest opdateret';
   $handler->display->display_options['fields']['timestamp']['date_format'] = 'time ago';
   $handler->display->display_options['fields']['timestamp']['second_date_format'] = 'html5_tools_iso8601';
-  /* Felt: Indhold: Link to edit content */
+  /* Field: Content: Link to edit content */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['relationship'] = 'vid';
   $handler->display->display_options['fields']['edit_node']['label'] = 'Redigér';
-  /* Felt: Indhold: Kopiér link */
+  /* Field: Content: Clone link */
   $handler->display->display_options['fields']['clone_node']['id'] = 'clone_node';
   $handler->display->display_options['fields']['clone_node']['table'] = 'node';
   $handler->display->display_options['fields']['clone_node']['field'] = 'clone_node';
@@ -1230,13 +1215,13 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filterkriterie: Indhold: Published status */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['relationship'] = 'vid';
   $handler->display->display_options['filters']['status']['value'] = '1';
-  /* Filterkriterie: Global: Kombinér felter filter */
+  /* Filter criterion: Global: Combine fields filter */
   $handler->display->display_options['filters']['combine_1']['id'] = 'combine_1';
   $handler->display->display_options['filters']['combine_1']['table'] = 'views';
   $handler->display->display_options['filters']['combine_1']['field'] = 'combine';
@@ -1258,7 +1243,7 @@ function ulf_workflow_views_default_views() {
     'title' => 'title',
     'field_profile_name' => 'field_profile_name',
   );
-  /* Filterkriterie: Indhold: Trashed (field_trashed) */
+  /* Filter criterion: Content: Trashed (field_trashed) */
   $handler->display->display_options['filters']['field_trashed_value']['id'] = 'field_trashed_value';
   $handler->display->display_options['filters']['field_trashed_value']['table'] = 'field_data_field_trashed';
   $handler->display->display_options['filters']['field_trashed_value']['field'] = 'field_trashed_value';
@@ -1276,39 +1261,39 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['defaults']['access'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['defaults']['header'] = FALSE;
-  /* Overskrift: Global: Tekstområde */
+  /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['content'] = 'Shows all content awaiting revision that has a published version already';
   $handler->display->display_options['header']['area']['format'] = 'editor';
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Sidefod: Global: Resumé af resultat */
+  /* Footer: Global: Result summary */
   $handler->display->display_options['footer']['result']['id'] = 'result';
   $handler->display->display_options['footer']['result']['table'] = 'views';
   $handler->display->display_options['footer']['result']['field'] = 'result';
   $handler->display->display_options['footer']['result']['content'] = 'Viser @start - @end af @total';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Indhold: Forfatter uid */
+  /* Field: Content: Author uid */
   $handler->display->display_options['fields']['uid']['id'] = 'uid';
   $handler->display->display_options['fields']['uid']['table'] = 'node';
   $handler->display->display_options['fields']['uid']['field'] = 'uid';
   $handler->display->display_options['fields']['uid']['relationship'] = 'vid';
   $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
-  /* Felt: Indhold: Nid */
+  /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['relationship'] = 'vid';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
-  /* Felt: Indholdsversion: Titel */
+  /* Field: Content revision: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node_revision';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['relationship'] = 'vid';
   $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['path'] = '/node/[nid]/current-revision';
-  /* Felt: Bruger: Navn */
+  /* Field: User: Navn */
   $handler->display->display_options['fields']['field_profile_name']['id'] = 'field_profile_name';
   $handler->display->display_options['fields']['field_profile_name']['table'] = 'field_data_field_profile_name';
   $handler->display->display_options['fields']['field_profile_name']['field'] = 'field_profile_name';
@@ -1316,20 +1301,19 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['fields']['field_profile_name']['label'] = 'Afsender';
   $handler->display->display_options['fields']['field_profile_name']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_profile_name']['alter']['path'] = '/user/[uid]';
-  /* Felt: Indhold: Type */
+  /* Field: Content: Type */
   $handler->display->display_options['fields']['type']['id'] = 'type';
   $handler->display->display_options['fields']['type']['table'] = 'node';
   $handler->display->display_options['fields']['type']['field'] = 'type';
   $handler->display->display_options['fields']['type']['relationship'] = 'vid';
   $handler->display->display_options['fields']['type']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['type']['alter']['ellipsis'] = FALSE;
-  /* Felt: Indhold: Overordnet målgruppe */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_target_group']['id'] = 'field_target_group';
   $handler->display->display_options['fields']['field_target_group']['table'] = 'field_data_field_target_group';
   $handler->display->display_options['fields']['field_target_group']['field'] = 'field_target_group';
   $handler->display->display_options['fields']['field_target_group']['relationship'] = 'vid';
-  $handler->display->display_options['fields']['field_target_group']['type'] = 'taxonomy_term_reference_plain';
-  /* Felt: Indholdsversion: Opdateringsdato */
+  /* Field: Content revision: Updated date */
   $handler->display->display_options['fields']['timestamp']['id'] = 'timestamp';
   $handler->display->display_options['fields']['timestamp']['table'] = 'node_revision';
   $handler->display->display_options['fields']['timestamp']['field'] = 'timestamp';
@@ -1337,19 +1321,19 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['fields']['timestamp']['label'] = 'Senest opdateret';
   $handler->display->display_options['fields']['timestamp']['date_format'] = 'time ago';
   $handler->display->display_options['fields']['timestamp']['second_date_format'] = 'html5_tools_iso8601';
-  /* Felt: Indhold: Latest log message */
+  /* Field: Content: Latest log message */
   $handler->display->display_options['fields']['latest_log_message']['id'] = 'latest_log_message';
   $handler->display->display_options['fields']['latest_log_message']['table'] = 'node';
   $handler->display->display_options['fields']['latest_log_message']['field'] = 'latest_log_message';
   $handler->display->display_options['fields']['latest_log_message']['relationship'] = 'vid';
   $handler->display->display_options['fields']['latest_log_message']['label'] = 'Seneste kommentar';
-  /* Felt: Indhold: Link to edit content */
+  /* Field: Content: Link to edit content */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['relationship'] = 'vid';
   $handler->display->display_options['fields']['edit_node']['label'] = 'Redigér';
-  /* Felt: Indhold: Kopiér link */
+  /* Field: Content: Clone link */
   $handler->display->display_options['fields']['clone_node']['id'] = 'clone_node';
   $handler->display->display_options['fields']['clone_node']['table'] = 'node';
   $handler->display->display_options['fields']['clone_node']['field'] = 'clone_node';
@@ -1364,7 +1348,7 @@ function ulf_workflow_views_default_views() {
     2 => 'AND',
   );
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filterkriterie: Workbench Moderation: Status */
+  /* Filter criterion: Workbench Moderation: State */
   $handler->display->display_options['filters']['state']['id'] = 'state';
   $handler->display->display_options['filters']['state']['table'] = 'workbench_moderation_node_history';
   $handler->display->display_options['filters']['state']['field'] = 'state';
@@ -1373,14 +1357,14 @@ function ulf_workflow_views_default_views() {
     'needs_review' => 'needs_review',
   );
   $handler->display->display_options['filters']['state']['group'] = 1;
-  /* Filterkriterie: Workbench Moderation: Aktuelle */
+  /* Filter criterion: Workbench Moderation: Current */
   $handler->display->display_options['filters']['is_current_1']['id'] = 'is_current_1';
   $handler->display->display_options['filters']['is_current_1']['table'] = 'workbench_moderation_node_history';
   $handler->display->display_options['filters']['is_current_1']['field'] = 'is_current';
   $handler->display->display_options['filters']['is_current_1']['relationship'] = 'vid';
   $handler->display->display_options['filters']['is_current_1']['value'] = '1';
   $handler->display->display_options['filters']['is_current_1']['group'] = 1;
-  /* Filterkriterie: Global: Kombinér felter filter */
+  /* Filter criterion: Global: Combine fields filter */
   $handler->display->display_options['filters']['combine']['id'] = 'combine';
   $handler->display->display_options['filters']['combine']['table'] = 'views';
   $handler->display->display_options['filters']['combine']['field'] = 'combine';
@@ -1402,13 +1386,13 @@ function ulf_workflow_views_default_views() {
     'title' => 'title',
     'field_profile_name' => 'field_profile_name',
   );
-  /* Filterkriterie: Indhold: Published status */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['relationship'] = 'vid';
   $handler->display->display_options['filters']['status']['value'] = '1';
-  /* Filterkriterie: Indhold: Trashed (field_trashed) */
+  /* Filter criterion: Content: Trashed (field_trashed) */
   $handler->display->display_options['filters']['field_trashed_value']['id'] = 'field_trashed_value';
   $handler->display->display_options['filters']['field_trashed_value']['table'] = 'field_data_field_trashed';
   $handler->display->display_options['filters']['field_trashed_value']['field'] = 'field_trashed_value';
@@ -1517,20 +1501,20 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['header'] = FALSE;
-  /* Overskrift: Global: Tekstområde */
+  /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['content'] = 'Shows all content scheduled for publishing or unpublishing';
   $handler->display->display_options['header']['area']['format'] = 'editor';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Indhold: Forfatter uid */
+  /* Field: Content: Author uid */
   $handler->display->display_options['fields']['uid']['id'] = 'uid';
   $handler->display->display_options['fields']['uid']['table'] = 'node';
   $handler->display->display_options['fields']['uid']['field'] = 'uid';
   $handler->display->display_options['fields']['uid']['relationship'] = 'vid';
   $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
-  /* Felt: Indhold: Nid */
+  /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
@@ -1541,53 +1525,52 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['fields']['nid']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['nid']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Felt: Indholdsversion: Titel */
+  /* Field: Content revision: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node_revision';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['relationship'] = 'vid';
   $handler->display->display_options['fields']['title']['link_to_node'] = TRUE;
-  /* Felt: Indhold: Type */
+  /* Field: Content: Type */
   $handler->display->display_options['fields']['type']['id'] = 'type';
   $handler->display->display_options['fields']['type']['table'] = 'node';
   $handler->display->display_options['fields']['type']['field'] = 'type';
   $handler->display->display_options['fields']['type']['relationship'] = 'vid';
   $handler->display->display_options['fields']['type']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['type']['alter']['ellipsis'] = FALSE;
-  /* Felt: Indhold: Overordnet målgruppe */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_target_group']['id'] = 'field_target_group';
   $handler->display->display_options['fields']['field_target_group']['table'] = 'field_data_field_target_group';
   $handler->display->display_options['fields']['field_target_group']['field'] = 'field_target_group';
   $handler->display->display_options['fields']['field_target_group']['relationship'] = 'vid';
-  $handler->display->display_options['fields']['field_target_group']['type'] = 'taxonomy_term_reference_plain';
-  /* Felt: Planlægning: Udgiv den */
+  /* Field: Scheduler: Publish on */
   $handler->display->display_options['fields']['publish_on']['id'] = 'publish_on';
   $handler->display->display_options['fields']['publish_on']['table'] = 'scheduler';
   $handler->display->display_options['fields']['publish_on']['field'] = 'publish_on';
   $handler->display->display_options['fields']['publish_on']['relationship'] = 'vid';
   $handler->display->display_options['fields']['publish_on']['date_format'] = 'short';
   $handler->display->display_options['fields']['publish_on']['second_date_format'] = 'html5_tools_iso8601';
-  /* Felt: Planlægning: Afpublicér den */
+  /* Field: Scheduler: Unpublish on */
   $handler->display->display_options['fields']['unpublish_on']['id'] = 'unpublish_on';
   $handler->display->display_options['fields']['unpublish_on']['table'] = 'scheduler';
   $handler->display->display_options['fields']['unpublish_on']['field'] = 'unpublish_on';
   $handler->display->display_options['fields']['unpublish_on']['relationship'] = 'vid';
   $handler->display->display_options['fields']['unpublish_on']['date_format'] = 'short';
   $handler->display->display_options['fields']['unpublish_on']['second_date_format'] = 'html5_tools_iso8601';
-  /* Felt: Indholdsversion: Opdateringsdato */
+  /* Field: Content revision: Updated date */
   $handler->display->display_options['fields']['timestamp']['id'] = 'timestamp';
   $handler->display->display_options['fields']['timestamp']['table'] = 'node_revision';
   $handler->display->display_options['fields']['timestamp']['field'] = 'timestamp';
   $handler->display->display_options['fields']['timestamp']['label'] = 'Senest opdateret';
   $handler->display->display_options['fields']['timestamp']['date_format'] = 'time ago';
   $handler->display->display_options['fields']['timestamp']['second_date_format'] = 'html5_tools_iso8601';
-  /* Felt: Indhold: Link to edit content */
+  /* Field: Content: Link to edit content */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['relationship'] = 'vid';
   $handler->display->display_options['fields']['edit_node']['label'] = 'Redigér';
-  /* Felt: Indhold: Kopiér link */
+  /* Field: Content: Clone link */
   $handler->display->display_options['fields']['clone_node']['id'] = 'clone_node';
   $handler->display->display_options['fields']['clone_node']['table'] = 'node';
   $handler->display->display_options['fields']['clone_node']['field'] = 'clone_node';
@@ -1601,28 +1584,28 @@ function ulf_workflow_views_default_views() {
     2 => 'OR',
   );
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filterkriterie: Planlægning: Udgiv den */
+  /* Filter criterion: Scheduler: Publish on */
   $handler->display->display_options['filters']['publish_on']['id'] = 'publish_on';
   $handler->display->display_options['filters']['publish_on']['table'] = 'scheduler';
   $handler->display->display_options['filters']['publish_on']['field'] = 'publish_on';
   $handler->display->display_options['filters']['publish_on']['relationship'] = 'vid';
   $handler->display->display_options['filters']['publish_on']['operator'] = 'not empty';
   $handler->display->display_options['filters']['publish_on']['group'] = 2;
-  /* Filterkriterie: Planlægning: Afpublicér den */
+  /* Filter criterion: Scheduler: Unpublish on */
   $handler->display->display_options['filters']['unpublish_on']['id'] = 'unpublish_on';
   $handler->display->display_options['filters']['unpublish_on']['table'] = 'scheduler';
   $handler->display->display_options['filters']['unpublish_on']['field'] = 'unpublish_on';
   $handler->display->display_options['filters']['unpublish_on']['relationship'] = 'vid';
   $handler->display->display_options['filters']['unpublish_on']['operator'] = 'not empty';
   $handler->display->display_options['filters']['unpublish_on']['group'] = 2;
-  /* Filterkriterie: Planlægning: Afpublicér den */
+  /* Filter criterion: Scheduler: Unpublish on */
   $handler->display->display_options['filters']['unpublish_on_1']['id'] = 'unpublish_on_1';
   $handler->display->display_options['filters']['unpublish_on_1']['table'] = 'scheduler';
   $handler->display->display_options['filters']['unpublish_on_1']['field'] = 'unpublish_on';
   $handler->display->display_options['filters']['unpublish_on_1']['relationship'] = 'vid';
   $handler->display->display_options['filters']['unpublish_on_1']['operator'] = '!=';
   $handler->display->display_options['filters']['unpublish_on_1']['value']['value'] = '2030-01-01 23:59:59';
-  /* Filterkriterie: Indhold: Trashed (field_trashed) */
+  /* Filter criterion: Content: Trashed (field_trashed) */
   $handler->display->display_options['filters']['field_trashed_value']['id'] = 'field_trashed_value';
   $handler->display->display_options['filters']['field_trashed_value']['table'] = 'field_data_field_trashed';
   $handler->display->display_options['filters']['field_trashed_value']['field'] = 'field_trashed_value';
@@ -1713,7 +1696,7 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['header'] = FALSE;
-  /* Overskrift: Global: Tekstområde */
+  /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
@@ -1721,44 +1704,43 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['header']['area']['format'] = 'editor';
   $handler->display->display_options['defaults']['footer'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Forbindelse: Workbench Moderation: Bruger */
+  /* Relationship: Workbench Moderation: User */
   $handler->display->display_options['relationships']['uid_1']['id'] = 'uid_1';
   $handler->display->display_options['relationships']['uid_1']['table'] = 'workbench_moderation_node_history';
   $handler->display->display_options['relationships']['uid_1']['field'] = 'uid';
-  /* Forbindelse: Indholdsversion: Indhold */
+  /* Relationship: Content revision: Content */
   $handler->display->display_options['relationships']['nid']['id'] = 'nid';
   $handler->display->display_options['relationships']['nid']['table'] = 'node_revision';
   $handler->display->display_options['relationships']['nid']['field'] = 'nid';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Indholdsversion: Nid */
+  /* Field: Content revision: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node_revision';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
-  /* Felt: Indholdsversion: Titel */
+  /* Field: Content revision: Title */
   $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
   $handler->display->display_options['fields']['title_1']['table'] = 'node_revision';
   $handler->display->display_options['fields']['title_1']['field'] = 'title';
   $handler->display->display_options['fields']['title_1']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['title_1']['alter']['path'] = '/node/[nid]';
-  /* Felt: Indhold: Type */
+  /* Field: Content: Type */
   $handler->display->display_options['fields']['type']['id'] = 'type';
   $handler->display->display_options['fields']['type']['table'] = 'node';
   $handler->display->display_options['fields']['type']['field'] = 'type';
   $handler->display->display_options['fields']['type']['relationship'] = 'nid';
-  /* Felt: Indhold: Overordnet målgruppe */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_target_group']['id'] = 'field_target_group';
   $handler->display->display_options['fields']['field_target_group']['table'] = 'field_data_field_target_group';
   $handler->display->display_options['fields']['field_target_group']['field'] = 'field_target_group';
   $handler->display->display_options['fields']['field_target_group']['relationship'] = 'nid';
-  $handler->display->display_options['fields']['field_target_group']['type'] = 'taxonomy_term_reference_plain';
-  /* Felt: Indhold: Latest log message */
+  /* Field: Content: Latest log message */
   $handler->display->display_options['fields']['latest_log_message']['id'] = 'latest_log_message';
   $handler->display->display_options['fields']['latest_log_message']['table'] = 'node';
   $handler->display->display_options['fields']['latest_log_message']['field'] = 'latest_log_message';
   $handler->display->display_options['fields']['latest_log_message']['relationship'] = 'nid';
   $handler->display->display_options['fields']['latest_log_message']['label'] = 'Seneste kommentar';
-  /* Felt: Indhold: Opdateringsdato */
+  /* Field: Content: Updated date */
   $handler->display->display_options['fields']['changed']['id'] = 'changed';
   $handler->display->display_options['fields']['changed']['table'] = 'node';
   $handler->display->display_options['fields']['changed']['field'] = 'changed';
@@ -1766,13 +1748,13 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['fields']['changed']['label'] = 'Senest opdateret';
   $handler->display->display_options['fields']['changed']['date_format'] = 'raw time ago';
   $handler->display->display_options['fields']['changed']['second_date_format'] = 'html5_tools_iso8601';
-  /* Felt: Indhold: Link to edit content */
+  /* Field: Content: Link to edit content */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['relationship'] = 'nid';
   $handler->display->display_options['fields']['edit_node']['label'] = 'Redigér';
-  /* Felt: Indhold: Kopiér link */
+  /* Field: Content: Clone link */
   $handler->display->display_options['fields']['clone_node']['id'] = 'clone_node';
   $handler->display->display_options['fields']['clone_node']['table'] = 'node';
   $handler->display->display_options['fields']['clone_node']['field'] = 'clone_node';
@@ -1780,7 +1762,7 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['fields']['clone_node']['label'] = '';
   $handler->display->display_options['fields']['clone_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Kontekstuelt filter: Indhold: Forfatter uid */
+  /* Contextual filter: Content: Author uid */
   $handler->display->display_options['arguments']['uid_1']['id'] = 'uid_1';
   $handler->display->display_options['arguments']['uid_1']['table'] = 'node';
   $handler->display->display_options['arguments']['uid_1']['field'] = 'uid';
@@ -1798,19 +1780,19 @@ function ulf_workflow_views_default_views() {
     2 => 'AND',
   );
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filterkriterie: Workbench Moderation: Aktuelle */
+  /* Filter criterion: Workbench Moderation: Current */
   $handler->display->display_options['filters']['is_current']['id'] = 'is_current';
   $handler->display->display_options['filters']['is_current']['table'] = 'workbench_moderation_node_history';
   $handler->display->display_options['filters']['is_current']['field'] = 'is_current';
   $handler->display->display_options['filters']['is_current']['value'] = '1';
-  /* Filterkriterie: Workbench Moderation: Status */
+  /* Filter criterion: Workbench Moderation: State */
   $handler->display->display_options['filters']['state']['id'] = 'state';
   $handler->display->display_options['filters']['state']['table'] = 'workbench_moderation_node_history';
   $handler->display->display_options['filters']['state']['field'] = 'state';
   $handler->display->display_options['filters']['state']['value'] = array(
     'needs_review' => 'needs_review',
   );
-  /* Filterkriterie: Indhold: Trashed (field_trashed) */
+  /* Filter criterion: Content: Trashed (field_trashed) */
   $handler->display->display_options['filters']['field_trashed_value']['id'] = 'field_trashed_value';
   $handler->display->display_options['filters']['field_trashed_value']['table'] = 'field_data_field_trashed';
   $handler->display->display_options['filters']['field_trashed_value']['field'] = 'field_trashed_value';
@@ -1819,7 +1801,7 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['filters']['field_trashed_value']['value'] = array(
     1 => '1',
   );
-  /* Filterkriterie: Indhold: Passed review (field_passed_review) */
+  /* Filter criterion: Content: Passed review (field_passed_review) */
   $handler->display->display_options['filters']['field_passed_review_value']['id'] = 'field_passed_review_value';
   $handler->display->display_options['filters']['field_passed_review_value']['table'] = 'field_data_field_passed_review';
   $handler->display->display_options['filters']['field_passed_review_value']['field'] = 'field_passed_review_value';
@@ -1904,7 +1886,7 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['header'] = FALSE;
-  /* Overskrift: Global: Tekstområde */
+  /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
@@ -1912,17 +1894,17 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['header']['area']['format'] = 'editor';
   $handler->display->display_options['defaults']['footer'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Forbindelse: Indholdsversion: Indhold */
+  /* Relationship: Content revision: Content */
   $handler->display->display_options['relationships']['vid']['id'] = 'vid';
   $handler->display->display_options['relationships']['vid']['table'] = 'node_revision';
   $handler->display->display_options['relationships']['vid']['field'] = 'vid';
-  /* Forbindelse: Indhold: Content author */
+  /* Relationship: Content: Content author */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
   $handler->display->display_options['relationships']['uid']['relationship'] = 'vid';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Kontekstuelt filter: Bruger: Uid */
+  /* Contextual filter: User: Uid */
   $handler->display->display_options['arguments']['uid']['id'] = 'uid';
   $handler->display->display_options['arguments']['uid']['table'] = 'users';
   $handler->display->display_options['arguments']['uid']['field'] = 'uid';
@@ -1935,13 +1917,13 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['arguments']['uid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filterkriterie: Indhold: Published status */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['relationship'] = 'vid';
   $handler->display->display_options['filters']['status']['value'] = '0';
-  /* Filterkriterie: Indhold: Trashed (field_trashed) */
+  /* Filter criterion: Content: Trashed (field_trashed) */
   $handler->display->display_options['filters']['field_trashed_value']['id'] = 'field_trashed_value';
   $handler->display->display_options['filters']['field_trashed_value']['table'] = 'field_data_field_trashed';
   $handler->display->display_options['filters']['field_trashed_value']['field'] = 'field_trashed_value';
@@ -1950,7 +1932,7 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['filters']['field_trashed_value']['value'] = array(
     1 => '1',
   );
-  /* Filterkriterie: Workbench Moderation: Status */
+  /* Filter criterion: Workbench Moderation: State */
   $handler->display->display_options['filters']['state']['id'] = 'state';
   $handler->display->display_options['filters']['state']['table'] = 'workbench_moderation_node_history';
   $handler->display->display_options['filters']['state']['field'] = 'state';
@@ -1958,7 +1940,7 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['filters']['state']['value'] = array(
     'needs_review' => 'needs_review',
   );
-  /* Filterkriterie: Indhold: Passed review (field_passed_review) */
+  /* Filter criterion: Content: Passed review (field_passed_review) */
   $handler->display->display_options['filters']['field_passed_review_value']['id'] = 'field_passed_review_value';
   $handler->display->display_options['filters']['field_passed_review_value']['table'] = 'field_data_field_passed_review';
   $handler->display->display_options['filters']['field_passed_review_value']['field'] = 'field_passed_review_value';
@@ -2037,7 +2019,7 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['header'] = FALSE;
-  /* Overskrift: Global: Tekstområde */
+  /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
@@ -2045,31 +2027,30 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['header']['area']['format'] = 'editor';
   $handler->display->display_options['defaults']['footer'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Indholdsversion: Nid */
+  /* Field: Content revision: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node_revision';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
-  /* Felt: Indholdsversion: Titel */
+  /* Field: Content revision: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node_revision';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['relationship'] = 'vid';
   $handler->display->display_options['fields']['title']['link_to_node'] = TRUE;
-  /* Felt: Indhold: Type */
+  /* Field: Content: Type */
   $handler->display->display_options['fields']['type']['id'] = 'type';
   $handler->display->display_options['fields']['type']['table'] = 'node';
   $handler->display->display_options['fields']['type']['field'] = 'type';
   $handler->display->display_options['fields']['type']['relationship'] = 'vid';
   $handler->display->display_options['fields']['type']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['type']['alter']['ellipsis'] = FALSE;
-  /* Felt: Indhold: Overordnet målgruppe */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_target_group']['id'] = 'field_target_group';
   $handler->display->display_options['fields']['field_target_group']['table'] = 'field_data_field_target_group';
   $handler->display->display_options['fields']['field_target_group']['field'] = 'field_target_group';
   $handler->display->display_options['fields']['field_target_group']['relationship'] = 'vid';
-  $handler->display->display_options['fields']['field_target_group']['type'] = 'taxonomy_term_reference_plain';
-  /* Felt: Indholdsversion: Opdateringsdato */
+  /* Field: Content revision: Updated date */
   $handler->display->display_options['fields']['timestamp']['id'] = 'timestamp';
   $handler->display->display_options['fields']['timestamp']['table'] = 'node_revision';
   $handler->display->display_options['fields']['timestamp']['field'] = 'timestamp';
@@ -2077,13 +2058,13 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['fields']['timestamp']['label'] = 'Senest opdateret';
   $handler->display->display_options['fields']['timestamp']['date_format'] = 'time ago';
   $handler->display->display_options['fields']['timestamp']['second_date_format'] = 'html5_tools_iso8601';
-  /* Felt: Indhold: Link to edit content */
+  /* Field: Content: Link to edit content */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['relationship'] = 'vid';
   $handler->display->display_options['fields']['edit_node']['label'] = 'Redigér';
-  /* Felt: Indhold: Kopiér link */
+  /* Field: Content: Clone link */
   $handler->display->display_options['fields']['clone_node']['id'] = 'clone_node';
   $handler->display->display_options['fields']['clone_node']['table'] = 'node';
   $handler->display->display_options['fields']['clone_node']['field'] = 'clone_node';
@@ -2092,13 +2073,13 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['fields']['clone_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filterkriterie: Indhold: Published status */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['relationship'] = 'vid';
   $handler->display->display_options['filters']['status']['value'] = '1';
-  /* Filterkriterie: Indhold: Trashed (field_trashed) */
+  /* Filter criterion: Content: Trashed (field_trashed) */
   $handler->display->display_options['filters']['field_trashed_value']['id'] = 'field_trashed_value';
   $handler->display->display_options['filters']['field_trashed_value']['table'] = 'field_data_field_trashed';
   $handler->display->display_options['filters']['field_trashed_value']['field'] = 'field_trashed_value';
@@ -2200,13 +2181,13 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Indhold: Forfatter uid */
+  /* Field: Content: Author uid */
   $handler->display->display_options['fields']['uid']['id'] = 'uid';
   $handler->display->display_options['fields']['uid']['table'] = 'node';
   $handler->display->display_options['fields']['uid']['field'] = 'uid';
   $handler->display->display_options['fields']['uid']['relationship'] = 'vid';
   $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
-  /* Felt: Indhold: Nid */
+  /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
@@ -2217,53 +2198,52 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['fields']['nid']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['nid']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Felt: Indholdsversion: Titel */
+  /* Field: Content revision: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node_revision';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['relationship'] = 'vid';
   $handler->display->display_options['fields']['title']['link_to_node'] = TRUE;
-  /* Felt: Indhold: Type */
+  /* Field: Content: Type */
   $handler->display->display_options['fields']['type']['id'] = 'type';
   $handler->display->display_options['fields']['type']['table'] = 'node';
   $handler->display->display_options['fields']['type']['field'] = 'type';
   $handler->display->display_options['fields']['type']['relationship'] = 'vid';
   $handler->display->display_options['fields']['type']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['type']['alter']['ellipsis'] = FALSE;
-  /* Felt: Indhold: Overordnet målgruppe */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_target_group']['id'] = 'field_target_group';
   $handler->display->display_options['fields']['field_target_group']['table'] = 'field_data_field_target_group';
   $handler->display->display_options['fields']['field_target_group']['field'] = 'field_target_group';
   $handler->display->display_options['fields']['field_target_group']['relationship'] = 'vid';
-  $handler->display->display_options['fields']['field_target_group']['type'] = 'taxonomy_term_reference_plain';
-  /* Felt: Planlægning: Udgiv den */
+  /* Field: Scheduler: Publish on */
   $handler->display->display_options['fields']['publish_on']['id'] = 'publish_on';
   $handler->display->display_options['fields']['publish_on']['table'] = 'scheduler';
   $handler->display->display_options['fields']['publish_on']['field'] = 'publish_on';
   $handler->display->display_options['fields']['publish_on']['relationship'] = 'vid';
   $handler->display->display_options['fields']['publish_on']['date_format'] = 'short';
   $handler->display->display_options['fields']['publish_on']['second_date_format'] = 'html5_tools_iso8601';
-  /* Felt: Planlægning: Afpublicér den */
+  /* Field: Scheduler: Unpublish on */
   $handler->display->display_options['fields']['unpublish_on']['id'] = 'unpublish_on';
   $handler->display->display_options['fields']['unpublish_on']['table'] = 'scheduler';
   $handler->display->display_options['fields']['unpublish_on']['field'] = 'unpublish_on';
   $handler->display->display_options['fields']['unpublish_on']['relationship'] = 'vid';
   $handler->display->display_options['fields']['unpublish_on']['date_format'] = 'short';
   $handler->display->display_options['fields']['unpublish_on']['second_date_format'] = 'html5_tools_iso8601';
-  /* Felt: Indholdsversion: Opdateringsdato */
+  /* Field: Content revision: Updated date */
   $handler->display->display_options['fields']['timestamp']['id'] = 'timestamp';
   $handler->display->display_options['fields']['timestamp']['table'] = 'node_revision';
   $handler->display->display_options['fields']['timestamp']['field'] = 'timestamp';
   $handler->display->display_options['fields']['timestamp']['label'] = 'Senest opdateret';
   $handler->display->display_options['fields']['timestamp']['date_format'] = 'time ago';
   $handler->display->display_options['fields']['timestamp']['second_date_format'] = 'html5_tools_iso8601';
-  /* Felt: Indhold: Link to edit content */
+  /* Field: Content: Link to edit content */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['relationship'] = 'vid';
   $handler->display->display_options['fields']['edit_node']['label'] = 'Redigér';
-  /* Felt: Indhold: Kopiér link */
+  /* Field: Content: Clone link */
   $handler->display->display_options['fields']['clone_node']['id'] = 'clone_node';
   $handler->display->display_options['fields']['clone_node']['table'] = 'node';
   $handler->display->display_options['fields']['clone_node']['field'] = 'clone_node';
@@ -2277,7 +2257,7 @@ function ulf_workflow_views_default_views() {
     3 => 'OR',
   );
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filterkriterie: Planlægning: Afpublicér den */
+  /* Filter criterion: Scheduler: Unpublish on */
   $handler->display->display_options['filters']['unpublish_on']['id'] = 'unpublish_on';
   $handler->display->display_options['filters']['unpublish_on']['table'] = 'scheduler';
   $handler->display->display_options['filters']['unpublish_on']['field'] = 'unpublish_on';
@@ -2285,28 +2265,28 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['filters']['unpublish_on']['operator'] = '!=';
   $handler->display->display_options['filters']['unpublish_on']['value']['value'] = '2030-01-01 23:59:59';
   $handler->display->display_options['filters']['unpublish_on']['group'] = 1;
-  /* Filterkriterie: Planlægning: Afpublicér den */
+  /* Filter criterion: Scheduler: Unpublish on */
   $handler->display->display_options['filters']['unpublish_on_1']['id'] = 'unpublish_on_1';
   $handler->display->display_options['filters']['unpublish_on_1']['table'] = 'scheduler';
   $handler->display->display_options['filters']['unpublish_on_1']['field'] = 'unpublish_on';
   $handler->display->display_options['filters']['unpublish_on_1']['relationship'] = 'vid';
   $handler->display->display_options['filters']['unpublish_on_1']['operator'] = 'not empty';
   $handler->display->display_options['filters']['unpublish_on_1']['group'] = 2;
-  /* Filterkriterie: Planlægning: Udgiv den */
+  /* Filter criterion: Scheduler: Publish on */
   $handler->display->display_options['filters']['publish_on']['id'] = 'publish_on';
   $handler->display->display_options['filters']['publish_on']['table'] = 'scheduler';
   $handler->display->display_options['filters']['publish_on']['field'] = 'publish_on';
   $handler->display->display_options['filters']['publish_on']['relationship'] = 'vid';
   $handler->display->display_options['filters']['publish_on']['operator'] = 'not empty';
   $handler->display->display_options['filters']['publish_on']['group'] = 2;
-  /* Filterkriterie: Indhold: Published status */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['relationship'] = 'vid';
   $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['filters']['status']['group'] = 3;
-  /* Filterkriterie: Indhold: Passed review (field_passed_review) */
+  /* Filter criterion: Content: Passed review (field_passed_review) */
   $handler->display->display_options['filters']['field_passed_review_value']['id'] = 'field_passed_review_value';
   $handler->display->display_options['filters']['field_passed_review_value']['table'] = 'field_data_field_passed_review';
   $handler->display->display_options['filters']['field_passed_review_value']['field'] = 'field_passed_review_value';
@@ -2315,7 +2295,7 @@ function ulf_workflow_views_default_views() {
     1 => '1',
   );
   $handler->display->display_options['filters']['field_passed_review_value']['group'] = 3;
-  /* Filterkriterie: Indhold: Trashed (field_trashed) */
+  /* Filter criterion: Content: Trashed (field_trashed) */
   $handler->display->display_options['filters']['field_trashed_value']['id'] = 'field_trashed_value';
   $handler->display->display_options['filters']['field_trashed_value']['table'] = 'field_data_field_trashed';
   $handler->display->display_options['filters']['field_trashed_value']['field'] = 'field_trashed_value';
@@ -2336,13 +2316,13 @@ function ulf_workflow_views_default_views() {
     18 => '18',
   );
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Indhold: Forfatter uid */
+  /* Field: Content: Author uid */
   $handler->display->display_options['fields']['uid']['id'] = 'uid';
   $handler->display->display_options['fields']['uid']['table'] = 'node';
   $handler->display->display_options['fields']['uid']['field'] = 'uid';
   $handler->display->display_options['fields']['uid']['relationship'] = 'vid';
   $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
-  /* Felt: Indhold: Nid */
+  /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
@@ -2353,46 +2333,45 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['fields']['nid']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['nid']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Felt: Indholdsversion: Titel */
+  /* Field: Content revision: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node_revision';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['relationship'] = 'vid';
   $handler->display->display_options['fields']['title']['link_to_node'] = TRUE;
-  /* Felt: Indhold: Type */
+  /* Field: Content: Type */
   $handler->display->display_options['fields']['type']['id'] = 'type';
   $handler->display->display_options['fields']['type']['table'] = 'node';
   $handler->display->display_options['fields']['type']['field'] = 'type';
   $handler->display->display_options['fields']['type']['relationship'] = 'vid';
   $handler->display->display_options['fields']['type']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['type']['alter']['ellipsis'] = FALSE;
-  /* Felt: Indhold: Overordnet målgruppe */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_target_group']['id'] = 'field_target_group';
   $handler->display->display_options['fields']['field_target_group']['table'] = 'field_data_field_target_group';
   $handler->display->display_options['fields']['field_target_group']['field'] = 'field_target_group';
   $handler->display->display_options['fields']['field_target_group']['relationship'] = 'vid';
-  $handler->display->display_options['fields']['field_target_group']['type'] = 'taxonomy_term_reference_plain';
-  /* Felt: Planlægning: Udgiv den */
+  /* Field: Scheduler: Publish on */
   $handler->display->display_options['fields']['publish_on']['id'] = 'publish_on';
   $handler->display->display_options['fields']['publish_on']['table'] = 'scheduler';
   $handler->display->display_options['fields']['publish_on']['field'] = 'publish_on';
   $handler->display->display_options['fields']['publish_on']['relationship'] = 'vid';
   $handler->display->display_options['fields']['publish_on']['date_format'] = 'short';
   $handler->display->display_options['fields']['publish_on']['second_date_format'] = 'html5_tools_iso8601';
-  /* Felt: Indholdsversion: Opdateringsdato */
+  /* Field: Content revision: Updated date */
   $handler->display->display_options['fields']['timestamp']['id'] = 'timestamp';
   $handler->display->display_options['fields']['timestamp']['table'] = 'node_revision';
   $handler->display->display_options['fields']['timestamp']['field'] = 'timestamp';
   $handler->display->display_options['fields']['timestamp']['label'] = 'Senest opdateret';
   $handler->display->display_options['fields']['timestamp']['date_format'] = 'time ago';
   $handler->display->display_options['fields']['timestamp']['second_date_format'] = 'html5_tools_iso8601';
-  /* Felt: Indhold: Link to edit content */
+  /* Field: Content: Link to edit content */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['relationship'] = 'vid';
   $handler->display->display_options['fields']['edit_node']['label'] = 'Redigér';
-  /* Felt: Indhold: Kopiér link */
+  /* Field: Content: Clone link */
   $handler->display->display_options['fields']['clone_node']['id'] = 'clone_node';
   $handler->display->display_options['fields']['clone_node']['table'] = 'node';
   $handler->display->display_options['fields']['clone_node']['field'] = 'clone_node';
@@ -2401,7 +2380,7 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['fields']['clone_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filterkriterie: Indhold: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -2409,23 +2388,25 @@ function ulf_workflow_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'course_educators' => 'course_educators',
     'course' => 'course',
+    'internship' => 'internship',
+    'education' => 'education',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filterkriterie: Indhold: Published status */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['relationship'] = 'vid';
   $handler->display->display_options['filters']['status']['value'] = '0';
   $handler->display->display_options['filters']['status']['group'] = 1;
-  /* Filterkriterie: Planlægning: Udgiv den */
+  /* Filter criterion: Scheduler: Publish on */
   $handler->display->display_options['filters']['publish_on']['id'] = 'publish_on';
   $handler->display->display_options['filters']['publish_on']['table'] = 'scheduler';
   $handler->display->display_options['filters']['publish_on']['field'] = 'publish_on';
   $handler->display->display_options['filters']['publish_on']['relationship'] = 'vid';
   $handler->display->display_options['filters']['publish_on']['operator'] = 'not empty';
   $handler->display->display_options['filters']['publish_on']['group'] = 1;
-  /* Filterkriterie: Indhold: Passed review (field_passed_review) */
+  /* Filter criterion: Content: Passed review (field_passed_review) */
   $handler->display->display_options['filters']['field_passed_review_value']['id'] = 'field_passed_review_value';
   $handler->display->display_options['filters']['field_passed_review_value']['table'] = 'field_data_field_passed_review';
   $handler->display->display_options['filters']['field_passed_review_value']['field'] = 'field_passed_review_value';
@@ -2457,12 +2438,12 @@ function ulf_workflow_views_default_views() {
     t('sidste »'),
     t('Shows all content scheduled for publishing or unpublishing'),
     t('Du har intet indhold i denne kategori'),
-    t('Hent indholdet fra en indholdsversion.'),
-    t('forfatter'),
-    t('Forfatter uid'),
-    t('Titel'),
+    t('Get the actual content from a content revision.'),
+    t('author'),
+    t('Author uid'),
+    t('Title'),
     t('Type'),
-    t('Overordnet målgruppe'),
+    t('Broken handler field_data_field_target_group.field_target_group'),
     t('Senest opdateret'),
     t('Redigér'),
     t('Alle'),
@@ -2470,7 +2451,7 @@ function ulf_workflow_views_default_views() {
     t('Søg efter titel eller indholdsleverandør'),
     t('Editor - Awaiting revision (New content)'),
     t('Afventer revision (Ingen publiseret version)'),
-    t('mere'),
+    t('more'),
     t('Viser alt indhold der venter på revision og endnu ikke har en publiseret version'),
     t('Viser @start - @end af @total'),
     t('Nid'),
@@ -2488,8 +2469,8 @@ function ulf_workflow_views_default_views() {
     t('Shows all content awaiting revision that has a published version already'),
     t('Editor - Scheduled publishing'),
     t('Scheduled publishing'),
-    t('Udgiv den'),
-    t('Afpublicér den'),
+    t('Publish on'),
+    t('Unpublish on'),
     t('Awaiting revision'),
     t('Behandles af redaktionen'),
     t('Viser indhold der afventer redaktionelt review eller indhold du måske skal reagere på før publisering.'),

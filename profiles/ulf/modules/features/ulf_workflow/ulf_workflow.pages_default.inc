@@ -326,15 +326,7 @@ function ulf_workflow_default_page_manager_pages() {
       0 => array(
         'name' => 'perm',
         'settings' => array(
-          'perm' => 'access content overview',
-        ),
-        'context' => 'logged-in-user',
-        'not' => TRUE,
-      ),
-      1 => array(
-        'name' => 'perm',
-        'settings' => array(
-          'perm' => 'create course content',
+          'perm' => 'view own unpublished content',
         ),
         'context' => 'logged-in-user',
         'not' => FALSE,
