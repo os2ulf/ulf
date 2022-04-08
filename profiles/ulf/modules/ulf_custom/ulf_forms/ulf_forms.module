@@ -179,3 +179,35 @@ function ulf_forms_set_intro_text(&$form, $form_state) {
     $form['intro_information']['#markup'] .= $latest_log_message;
   }
 }
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ *
+ * We don't want to display the tab Dashboard on /workbench for some user roles.
+ *
+ * @param $data
+ * @param $router_item
+ * @param $root_path
+ */
+function ulf_forms_menu_local_tasks_alter(&$data, $router_item, $root_path) {
+  global $user;
+
+  $roles_that_can_see_dashboard_tab = [
+    'company',
+    'course provider',
+  ];
+
+  foreach ($user->roles as $role) {
+    if (in_array($role, $roles_that_can_see_dashboard_tab)) {
+      return;
+    }
+  }
+
+  if (isset($data['tabs'][0]['output'])) {
+    foreach ($data['tabs'][0]['output'] as $key => $value) {
+      if ($value['#link']['path'] === 'admin/workbench/dashboard') {
+        unset($data['tabs'][0]['output'][$key]);
+      }
+    }
+  }
+}
