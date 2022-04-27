@@ -228,7 +228,6 @@
   @include flexbox;
   @include flex-wrap(wrap);
   @include flex-direction(row);
-  display: block;
   background-color: $gray-lightest;
   height: 100%;
 
