@@ -54,6 +54,7 @@
             <?php print render($user_profile['field_profile_entry']); ?>
             <?php print render($user_profile['field_video']); ?>
             <?php print render($user_profile['field_profile_contact']); ?>
+            <?php print render($user_profile['field_further_information']); ?>
             <div class="block--pdf">
               <a class="block--pdf-link" target="_blank" href="/printpdf/user/<?php print $elements['#account']->uid; ?>"><?php print t('Print this offer as pdf')?></a>
             </div>

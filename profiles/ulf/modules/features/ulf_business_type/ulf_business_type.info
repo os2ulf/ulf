@@ -1,0 +1,13 @@
+name = Ulf business type
+core = 7.x
+package = Ulf entity definitions
+dependencies[] = entityreference
+dependencies[] = features
+dependencies[] = field_group
+dependencies[] = options
+features[ctools][] = field_group:field_group:1
+features[features_api][] = api:2
+features[field_base][] = field_business_type
+features[field_group][] = group_business_type|node|internship|form
+features[field_instance][] = node-internship-field_business_type
+features_exclude[dependencies][ctools] = ctools

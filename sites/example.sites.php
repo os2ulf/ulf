@@ -53,9 +53,3 @@
  * @see conf_path()
  * @see http://drupal.org/documentation/install/multi-site
  */
-
-//$sites['ulfiaarhus.docker.localhost'] = 'ulfiaarhus.dk';
-//$sites['klcviborg.docker.localhost'] = 'klcviborg.dk';
-//$sites['rum.thisted.docker.localhost'] = 'rum.thisted.dk';
-//$sites['aabenaalborg.docker.localhost'] = 'aabenaalborg.dk';
-//$sites['udoglaer.docker.localhost'] = 'udoglaer.dk';

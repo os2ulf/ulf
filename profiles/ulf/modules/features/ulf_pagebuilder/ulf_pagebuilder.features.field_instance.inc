@@ -11,6 +11,148 @@
 function ulf_pagebuilder_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance:
+  // 'entityform-kontaktformular-field_contact_form_email'.
+  $field_instances['entityform-kontaktformular-field_contact_form_email'] = array(
+    'bundle' => 'kontaktformular',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_contact_form_email',
+    'label' => 'E-mail',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'html5_tools',
+      'settings' => array(),
+      'type' => 'emailwidget',
+      'weight' => 32,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'entityform-kontaktformular-field_contact_form_message'.
+  $field_instances['entityform-kontaktformular-field_contact_form_message'] = array(
+    'bundle' => 'kontaktformular',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 3,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_contact_form_message',
+    'label' => 'Besked',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'maxlength_js' => '',
+        'maxlength_js_enforce' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'maxlength_js_truncate_html' => 0,
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 34,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'entityform-kontaktformular-field_contact_form_name'.
+  $field_instances['entityform-kontaktformular-field_contact_form_name'] = array(
+    'bundle' => 'kontaktformular',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_contact_form_name',
+    'label' => 'Navn',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'maxlength_js' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 31,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'entityform-kontaktformular-field_contact_form_recipient'.
+  $field_instances['entityform-kontaktformular-field_contact_form_recipient'] = array(
+    'bundle' => 'kontaktformular',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 3,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_contact_form_recipient',
+    'label' => 'Modtager',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'html5_tools',
+      'settings' => array(),
+      'type' => 'emailwidget',
+      'weight' => 35,
+    ),
+  );
+
   // Exported field_instance: 'node-page_with_blocks-field_sections'.
   $field_instances['node-page_with_blocks-field_sections'] = array(
     'bundle' => 'page_with_blocks',
@@ -45,7 +187,10 @@ function ulf_pagebuilder_field_default_field_instances() {
         'download_list' => -1,
         'four_columns' => 'four_columns',
         'hero' => 'hero',
+        'image_with_link' => -1,
+        'kontakt_formular' => -1,
         'link_list' => -1,
+        'news_list' => -1,
         'one_column' => 'one_column',
         'spacer' => -1,
         'text_with_image' => -1,
@@ -58,7 +203,10 @@ function ulf_pagebuilder_field_default_field_instances() {
         'download_list' => -15,
         'four_columns' => -19,
         'hero' => -18,
+        'image_with_link' => 6,
+        'kontakt_formular' => 7,
         'link_list' => -14,
+        'news_list' => 9,
         'one_column' => -22,
         'spacer' => -12,
         'text_with_image' => -13,
@@ -67,6 +215,7 @@ function ulf_pagebuilder_field_default_field_instances() {
         'two_column' => -21,
       ),
       'default_edit_mode' => 'preview',
+      'default_edit_mode_override' => 1,
       'title' => 'Blok',
       'title_multiple' => 'Blokke',
       'user_register_form' => FALSE,
@@ -157,7 +306,9 @@ function ulf_pagebuilder_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(),
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
       'type' => 'options_select',
       'weight' => 9,
     ),
@@ -632,7 +783,9 @@ function ulf_pagebuilder_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(),
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
       'type' => 'options_select',
       'weight' => 8,
     ),
@@ -846,7 +999,7 @@ function ulf_pagebuilder_field_default_field_instances() {
     'settings' => array(
       'description_field' => 1,
       'file_directory' => '',
-      'file_extensions' => 'txt docx xlsx pptx pdf',
+      'file_extensions' => 'txt docx xlsx pptx pdf png jpg jpeg',
       'max_filesize' => '',
       'user_register_form' => FALSE,
     ),
@@ -994,8 +1147,11 @@ function ulf_pagebuilder_field_default_field_instances() {
         'download_list' => 'download_list',
         'four_columns' => -1,
         'hero' => -1,
+        'image_with_link' => 'image_with_link',
         'link_list' => 'link_list',
+        'news_list' => -1,
         'one_column' => -1,
+        'spacer' => -1,
         'text_with_image' => 'text_with_image',
         'text_with_video' => -1,
         'three_columns' => -1,
@@ -1006,8 +1162,11 @@ function ulf_pagebuilder_field_default_field_instances() {
         'download_list' => 3,
         'four_columns' => 4,
         'hero' => 5,
+        'image_with_link' => 25,
         'link_list' => 6,
+        'news_list' => 27,
         'one_column' => 7,
+        'spacer' => 29,
         'text_with_image' => 18,
         'text_with_video' => 19,
         'three_columns' => 9,
@@ -1062,8 +1221,11 @@ function ulf_pagebuilder_field_default_field_instances() {
         'download_list' => 'download_list',
         'four_columns' => -1,
         'hero' => -1,
+        'image_with_link' => 'image_with_link',
         'link_list' => 'link_list',
+        'news_list' => -1,
         'one_column' => -1,
+        'spacer' => -1,
         'text_with_image' => 'text_with_image',
         'text_with_video' => -1,
         'three_columns' => -1,
@@ -1074,8 +1236,11 @@ function ulf_pagebuilder_field_default_field_instances() {
         'download_list' => 3,
         'four_columns' => 4,
         'hero' => 5,
+        'image_with_link' => 25,
         'link_list' => 6,
+        'news_list' => 27,
         'one_column' => 7,
+        'spacer' => 29,
         'text_with_image' => 18,
         'text_with_video' => 19,
         'three_columns' => 9,
@@ -1210,8 +1375,11 @@ function ulf_pagebuilder_field_default_field_instances() {
         'download_list' => 'download_list',
         'four_columns' => -1,
         'hero' => -1,
+        'image_with_link' => 'image_with_link',
         'link_list' => 'link_list',
+        'news_list' => -1,
         'one_column' => -1,
+        'spacer' => -1,
         'text_with_image' => 'text_with_image',
         'text_with_video' => -1,
         'three_columns' => -1,
@@ -1222,8 +1390,11 @@ function ulf_pagebuilder_field_default_field_instances() {
         'download_list' => 3,
         'four_columns' => 4,
         'hero' => 5,
+        'image_with_link' => 25,
         'link_list' => 6,
+        'news_list' => 27,
         'one_column' => 7,
+        'spacer' => 29,
         'text_with_image' => 18,
         'text_with_video' => 19,
         'three_columns' => 9,
@@ -1277,8 +1448,11 @@ function ulf_pagebuilder_field_default_field_instances() {
         'download_list' => 'download_list',
         'four_columns' => -1,
         'hero' => -1,
+        'image_with_link' => 'image_with_link',
         'link_list' => 'link_list',
+        'news_list' => -1,
         'one_column' => -1,
+        'spacer' => -1,
         'text_with_image' => 'text_with_image',
         'text_with_video' => -1,
         'three_columns' => -1,
@@ -1289,8 +1463,11 @@ function ulf_pagebuilder_field_default_field_instances() {
         'download_list' => 3,
         'four_columns' => 4,
         'hero' => 5,
+        'image_with_link' => 25,
         'link_list' => 6,
+        'news_list' => 27,
         'one_column' => 7,
+        'spacer' => 29,
         'text_with_image' => 18,
         'text_with_video' => 19,
         'three_columns' => 9,
@@ -1360,7 +1537,7 @@ function ulf_pagebuilder_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
@@ -1436,7 +1613,50 @@ function ulf_pagebuilder_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 4,
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-hero-field_paragraph_hero_overligger'.
+  $field_instances['paragraphs_item-hero-field_paragraph_hero_overligger'] = array(
+    'bundle' => 'hero',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 7,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_paragraph_hero_overligger',
+    'label' => 'Overligger',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'maxlength_js' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
     ),
   );
 
@@ -1449,7 +1669,7 @@ function ulf_pagebuilder_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -1481,7 +1701,7 @@ function ulf_pagebuilder_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -1493,7 +1713,7 @@ function ulf_pagebuilder_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -1523,7 +1743,7 @@ function ulf_pagebuilder_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 1,
+      'weight' => 2,
     ),
   );
 
@@ -1540,7 +1760,7 @@ function ulf_pagebuilder_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
@@ -1567,7 +1787,7 @@ function ulf_pagebuilder_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 
@@ -1584,7 +1804,7 @@ function ulf_pagebuilder_field_default_field_instances() {
     'description' => 'Det er meget vigtigt, at siden kun har en hovedoverskrift. Hvis der bruges flere heroelementer på en side, skal kun en af dem have denne mulighed aktiveret.',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
@@ -1611,7 +1831,7 @@ function ulf_pagebuilder_field_default_field_instances() {
         'display_label' => 0,
       ),
       'type' => 'options_onoff',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
@@ -1623,7 +1843,7 @@ function ulf_pagebuilder_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
@@ -1650,7 +1870,447 @@ function ulf_pagebuilder_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 5,
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-image_with_link-field_image_with_link_title'.
+  $field_instances['paragraphs_item-image_with_link-field_image_with_link_title'] = array(
+    'bundle' => 'image_with_link',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_image_with_link_title',
+    'label' => 'Titel',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'maxlength_js' => '',
+        'maxlength_js_enforce' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'maxlength_js_truncate_html' => 0,
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-image_with_link-field_paragraph_bg_color'.
+  $field_instances['paragraphs_item-image_with_link-field_paragraph_bg_color'] = array(
+    'bundle' => 'image_with_link',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'color_field',
+        'settings' => array(),
+        'type' => 'color_field_default_formatter',
+        'weight' => 4,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_paragraph_bg_color',
+    'label' => 'Baggrundsfarve',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'color_field',
+      'settings' => array(),
+      'type' => 'color_field_spectrum_widget',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-image_with_link-field_paragraph_button'.
+  $field_instances['paragraphs_item-image_with_link-field_paragraph_button'] = array(
+    'bundle' => 'image_with_link',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_plain',
+        'weight' => 2,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_paragraph_button',
+    'label' => 'Link',
+    'required' => 0,
+    'settings' => array(
+      'absolute_url' => 1,
+      'attributes' => array(
+        'class' => '',
+        'configurable_class' => 0,
+        'configurable_title' => 0,
+        'rel' => '',
+        'target' => 'user',
+        'title' => '',
+      ),
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 1,
+      'rel_remove' => 'default',
+      'title' => 'none',
+      'title_allowed_values' => '',
+      'title_label_use_field_label' => 0,
+      'title_maxlength' => 128,
+      'title_value' => '',
+      'url' => 0,
+      'user_register_form' => FALSE,
+      'validate_url' => 1,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'advanced_link',
+      'settings' => array(
+        'default_titles' => '',
+        'urls_allowed' => 'both',
+        'urls_excluded' => 'node/*/clone/*
+field-collection/*/*/edit
+field-collection/*/*/delete
+field-collection/*/add/*/*
+user/*/linkchecker
+linkchecker/*/edit
+node/*/edit
+node/*/delete
+node/*/revisions
+node/*/revisions/*/revert
+node/*/revisions/*/delete
+node/add
+node/add/*
+node/*/nodequeue
+user/*/shortcuts
+admin
+admin/*
+batch
+taxonomy/term/*/edit
+user/*/cancel
+user/*/edit
+user/*/edit/*
+node/*/moderation
+node/*/moderation/*/unpublish
+node/*/moderation/*/change-state/*
+node/*/moderation/view
+node/*/moderation/diff
+node/*/moderation/diff/list
+node/*/moderation/diff/view
+node/*/moderation/diff/view/*/*
+node/*/revisions/view/*/*',
+        'urls_filter' => '',
+        'urls_search' => 'start',
+      ),
+      'type' => 'advanced_link',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-image_with_link-field_paragraph_image'.
+  $field_instances['paragraphs_item-image_with_link-field_paragraph_image'] = array(
+    'bundle' => 'image_with_link',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => 'pagebuilder',
+        ),
+        'type' => 'image',
+        'weight' => 1,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_paragraph_image',
+    'label' => 'Billede',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'image',
+      'settings' => array(
+        'insert' => 0,
+        'insert_absolute' => 0,
+        'insert_class' => '',
+        'insert_default' => 'auto',
+        'insert_styles' => array(
+          'auto' => 'auto',
+          'icon_link' => 0,
+          'image' => 0,
+          'image_facebook_open_graph' => 0,
+          'image_hero' => 0,
+          'image_large' => 0,
+          'image_logo' => 0,
+          'image_medium' => 0,
+          'image_node_display' => 0,
+          'image_pagebuilder' => 0,
+          'image_pagebuilder_image' => 0,
+          'image_teaser_display' => 0,
+          'image_thumbnail' => 0,
+          'link' => 0,
+        ),
+        'insert_width' => '',
+        'manualcrop_crop_info' => 1,
+        'manualcrop_default_crop_area' => 1,
+        'manualcrop_enable' => 0,
+        'manualcrop_filter_insert' => 0,
+        'manualcrop_inline_crop' => 0,
+        'manualcrop_instant_crop' => 0,
+        'manualcrop_instant_preview' => 1,
+        'manualcrop_keyboard' => 1,
+        'manualcrop_maximize_default_crop_area' => 0,
+        'manualcrop_require_cropping' => array(),
+        'manualcrop_styles_list' => array(),
+        'manualcrop_styles_mode' => 'include',
+        'manualcrop_thumblist' => 0,
+        'preview_image_style' => 'medium',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'image_image',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-image_with_link-field_paragraph_title'.
+  $field_instances['paragraphs_item-image_with_link-field_paragraph_title'] = array(
+    'bundle' => 'image_with_link',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_paragraph_title',
+    'label' => 'Titel',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'maxlength_js' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'size' => 100,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-kontakt_formular-field_contact_form_description'.
+  $field_instances['paragraphs_item-kontakt_formular-field_contact_form_description'] = array(
+    'bundle' => 'kontakt_formular',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_contact_form_description',
+    'label' => 'Beskrivelse',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'maxlength_js' => '',
+        'maxlength_js_enforce' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'maxlength_js_truncate_html' => 0,
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-kontakt_formular-field_contact_form_title'.
+  $field_instances['paragraphs_item-kontakt_formular-field_contact_form_title'] = array(
+    'bundle' => 'kontakt_formular',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_contact_form_title',
+    'label' => 'Overskrift',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'maxlength_js' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 0,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-kontakt_formular-field_kontakt_formular'.
+  $field_instances['paragraphs_item-kontakt_formular-field_kontakt_formular'] = array(
+    'bundle' => 'kontakt_formular',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'entityreference',
+        'settings' => array(
+          'links' => TRUE,
+          'use_content_language' => TRUE,
+          'view_mode' => 'default',
+        ),
+        'type' => 'entityreference_entity_view',
+        'weight' => 2,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_kontakt_formular',
+    'label' => 'Kontakt os',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 2,
     ),
   );
 
@@ -1791,7 +2451,9 @@ function ulf_pagebuilder_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(),
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
       'type' => 'options_select',
       'weight' => 8,
     ),
@@ -2055,6 +2717,89 @@ function ulf_pagebuilder_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'paragraphs_item-news_list-field_internal_name'.
+  $field_instances['paragraphs_item-news_list-field_internal_name'] = array(
+    'bundle' => 'news_list',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_internal_name',
+    'label' => 'Internt navn',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'maxlength_js' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 0,
+    ),
+  );
+
+  // Exported field_instance: 'paragraphs_item-news_list-field_paragraph_title'.
+  $field_instances['paragraphs_item-news_list-field_paragraph_title'] = array(
+    'bundle' => 'news_list',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_paragraph_title',
+    'label' => 'Titel',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'maxlength_js' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
+    ),
+  );
+
   // Exported field_instance: 'paragraphs_item-one_column-field_column'.
   $field_instances['paragraphs_item-one_column-field_column'] = array(
     'bundle' => 'one_column',
@@ -2089,7 +2834,10 @@ function ulf_pagebuilder_field_default_field_instances() {
         'download_list' => 'download_list',
         'four_columns' => -1,
         'hero' => -1,
+        'image_with_link' => 'image_with_link',
+        'kontakt_formular' => 'kontakt_formular',
         'link_list' => 'link_list',
+        'news_list' => 'news_list',
         'one_column' => -1,
         'spacer' => 'spacer',
         'text_with_image' => 'text_with_image',
@@ -2102,7 +2850,10 @@ function ulf_pagebuilder_field_default_field_instances() {
         'download_list' => 5,
         'four_columns' => 6,
         'hero' => 7,
+        'image_with_link' => 26,
+        'kontakt_formular' => 41,
         'link_list' => 8,
+        'news_list' => 34,
         'one_column' => 2,
         'spacer' => -22,
         'text_with_image' => 19,
@@ -2111,6 +2862,7 @@ function ulf_pagebuilder_field_default_field_instances() {
         'two_column' => -4,
       ),
       'default_edit_mode' => 'preview',
+      'default_edit_mode_override' => 1,
       'title' => 'Element',
       'title_multiple' => 'Elementer',
       'user_register_form' => FALSE,
@@ -2405,7 +3157,9 @@ function ulf_pagebuilder_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(),
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
       'type' => 'options_select',
       'weight' => 8,
     ),
@@ -2879,7 +3633,9 @@ function ulf_pagebuilder_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(),
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
       'type' => 'options_select',
       'weight' => 8,
     ),
@@ -3271,8 +4027,10 @@ function ulf_pagebuilder_field_default_field_instances() {
         'download_list' => 'download_list',
         'four_columns' => -1,
         'hero' => -1,
+        'image_with_link' => 'image_with_link',
         'link_list' => 'link_list',
         'one_column' => -1,
+        'spacer' => -1,
         'text_with_image' => 'text_with_image',
         'text_with_video' => -1,
         'three_columns' => -1,
@@ -3283,8 +4041,10 @@ function ulf_pagebuilder_field_default_field_instances() {
         'download_list' => 8,
         'four_columns' => 2,
         'hero' => 10,
+        'image_with_link' => 26,
         'link_list' => 11,
         'one_column' => 3,
+        'spacer' => 29,
         'text_with_image' => 19,
         'text_with_video' => 20,
         'three_columns' => 4,
@@ -3419,8 +4179,10 @@ function ulf_pagebuilder_field_default_field_instances() {
         'download_list' => 'download_list',
         'four_columns' => -1,
         'hero' => -1,
+        'image_with_link' => 'image_with_link',
         'link_list' => 'link_list',
         'one_column' => -1,
+        'spacer' => -1,
         'text_with_image' => 'text_with_image',
         'text_with_video' => -1,
         'three_columns' => -1,
@@ -3431,8 +4193,10 @@ function ulf_pagebuilder_field_default_field_instances() {
         'download_list' => 8,
         'four_columns' => 2,
         'hero' => 10,
+        'image_with_link' => 26,
         'link_list' => 11,
         'one_column' => 3,
+        'spacer' => 29,
         'text_with_image' => 19,
         'text_with_video' => 20,
         'three_columns' => 4,
@@ -3487,8 +4251,10 @@ function ulf_pagebuilder_field_default_field_instances() {
         'download_list' => 'download_list',
         'four_columns' => -1,
         'hero' => -1,
+        'image_with_link' => 'image_with_link',
         'link_list' => 'link_list',
         'one_column' => -1,
+        'spacer' => -1,
         'text_with_image' => 'text_with_image',
         'text_with_video' => -1,
         'three_columns' => -1,
@@ -3499,8 +4265,10 @@ function ulf_pagebuilder_field_default_field_instances() {
         'download_list' => 8,
         'four_columns' => 2,
         'hero' => 10,
+        'image_with_link' => 26,
         'link_list' => 11,
         'one_column' => 3,
+        'spacer' => 29,
         'text_with_image' => 19,
         'text_with_video' => 20,
         'three_columns' => 4,
@@ -3554,8 +4322,12 @@ function ulf_pagebuilder_field_default_field_instances() {
         'download_list' => 'download_list',
         'four_columns' => -1,
         'hero' => -1,
+        'image_with_link' => 'image_with_link',
+        'kontakt_formular' => 'kontakt_formular',
         'link_list' => 'link_list',
+        'news_list' => -1,
         'one_column' => -1,
+        'spacer' => -1,
         'text_with_image' => 'text_with_image',
         'text_with_video' => 'text_with_video',
         'three_columns' => -1,
@@ -3566,14 +4338,19 @@ function ulf_pagebuilder_field_default_field_instances() {
         'download_list' => 6,
         'four_columns' => 7,
         'hero' => 8,
+        'image_with_link' => 26,
+        'kontakt_formular' => 36,
         'link_list' => 9,
+        'news_list' => 38,
         'one_column' => 2,
+        'spacer' => 29,
         'text_with_image' => 20,
         'text_with_video' => -20,
         'three_columns' => 12,
         'two_column' => 3,
       ),
       'default_edit_mode' => 'preview',
+      'default_edit_mode_override' => 1,
       'title' => 'Element',
       'title_multiple' => 'Elementer',
       'user_register_form' => FALSE,
@@ -3700,8 +4477,12 @@ function ulf_pagebuilder_field_default_field_instances() {
         'download_list' => 'download_list',
         'four_columns' => -1,
         'hero' => -1,
+        'image_with_link' => 'image_with_link',
+        'kontakt_formular' => 'kontakt_formular',
         'link_list' => 'link_list',
+        'news_list' => -1,
         'one_column' => -1,
+        'spacer' => -1,
         'text_with_image' => 'text_with_image',
         'text_with_video' => 'text_with_video',
         'three_columns' => -1,
@@ -3712,14 +4493,19 @@ function ulf_pagebuilder_field_default_field_instances() {
         'download_list' => 6,
         'four_columns' => 7,
         'hero' => 8,
+        'image_with_link' => 26,
+        'kontakt_formular' => 36,
         'link_list' => 9,
+        'news_list' => 38,
         'one_column' => 2,
+        'spacer' => 29,
         'text_with_image' => 20,
         'text_with_video' => -20,
         'three_columns' => 12,
         'two_column' => 3,
       ),
       'default_edit_mode' => 'preview',
+      'default_edit_mode_override' => 1,
       'title' => 'Element',
       'title_multiple' => 'Elementer',
       'user_register_form' => FALSE,
@@ -3741,11 +4527,14 @@ function ulf_pagebuilder_field_default_field_instances() {
   t('Anden kolonne');
   t('Baggrundsbillede');
   t('Baggrundsfarve');
+  t('Besked');
+  t('Beskrivelse');
   t('Billede');
   t('Blokke');
   t('Brødtekst');
   t('Det er meget vigtigt, at siden kun har en hovedoverskrift. Hvis der bruges flere heroelementer på en side, skal kun en af dem have denne mulighed aktiveret.');
   t('Downloads');
+  t('E-mail');
   t('Fjerde kolonne');
   t('Første kolonne');
   t('Hovedoverskrft');
@@ -3754,7 +4543,13 @@ function ulf_pagebuilder_field_default_field_instances() {
   t('Justering');
   t('Knap');
   t('Kolonne');
+  t('Kontakt os');
+  t('Link');
   t('Links');
+  t('Modtager');
+  t('Navn');
+  t('Overligger');
+  t('Overskrift');
   t('Rammefarve');
   t('Sublinje');
   t('Tekstboksfarve');

@@ -1,10 +1,10 @@
 # Danish translation of Field collection (7.x-1.1)
-# Copyright (c) 2019 by the Danish translation team
+# Copyright (c) 2020 by the Danish translation team
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Field collection (7.x-1.1)\n"
-"POT-Creation-Date: 2019-09-03 19:46+0000\n"
+"POT-Creation-Date: 2020-12-16 01:42+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Language-Team: Danish\n"
 "MIME-Version: 1.0\n"
@@ -50,6 +50,8 @@ msgid "The changes have been saved."
 msgstr "Ændringerne er blevet gemt."
 msgid "Are you sure you want to delete %label?"
 msgstr "Er du sikker på, at du ønsker at slette %label?"
+msgid "%label has been deleted."
+msgstr "%label er blevet slettet."
 msgid "Default value"
 msgstr "Standardværdi"
 msgid "Manage fields"

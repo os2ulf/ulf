@@ -1,10 +1,10 @@
 # Danish translation of Field Group (7.x-1.6)
-# Copyright (c) 2017 by the Danish translation team
+# Copyright (c) 2020 by the Danish translation team
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Field Group (7.x-1.6)\n"
-"POT-Creation-Date: 2017-11-03 23:43+0000\n"
+"POT-Creation-Date: 2020-12-16 04:30+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Language-Team: Danish\n"
 "MIME-Version: 1.0\n"
@@ -230,6 +230,8 @@ msgstr ""
 "sammenklappet"
 msgid "Contact user element"
 msgstr "Kontakt bruger element"
+msgid "HTML5"
+msgstr "HTML5"
 msgid "Header 2"
 msgstr "Header 2"
 msgid "Header 3"

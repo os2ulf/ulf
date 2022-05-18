@@ -709,6 +709,11 @@ class EventHelper extends AbstractHelper {
 
     $data['item_price_overrides'][0]['price'] = $price;
 
+    // Attempts to fix an issue where integration would fail if an empty array or object was passed.
+    if (empty($data['frontpage_text']) || !is_string($data['frontpage_text'])) {
+      $data['frontpage_text'] = NULL;
+    }
+
     // Important: meta_data value must be an object!
     $data['meta_data'] = (object) [];
     $subEventData = [];

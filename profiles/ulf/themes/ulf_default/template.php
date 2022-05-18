@@ -990,6 +990,23 @@ function ulf_default_preprocess_entity(&$variables) {
           = (bool) ($variables['paragraphs_item']->field_paragraph_show_cta[LANGUAGE_NONE][0]['value']
           ?? NULL);
         break;
+      case 'image_with_link':
+        // Handle background image with opacity.
+        $paragraph_bg_color = $variables['paragraphs_item']->field_paragraph_bg_color ?? NULL;
+        $colorName = $paragraph_bg_color[LANGUAGE_NONE][0]['rgb'] ?? NULL;
+        if ($colorName !== NULl) {
+          $colorName = ltrim($colorName, '#');
+          [$r, $g, $b] = array_map('hexdec', str_split($colorName, 2));
+          $background_color = "rgba({$r},{$g},{$b}, 0.7)";
+        }
+        $paragraph_link_field = $variables['paragraphs_item']->field_paragraph_button ?? NULL;
+        $paragraph_link = $paragraph_link_field[LANGUAGE_NONE][0]['original_url'];
+        $variables['content']['paragraph_link'] = $paragraph_link;
+        break;
+      case 'news_list':
+        $view = views_get_view('ulf_frontpage_news');
+        $variables['news_list'] = $view->preview('panel_pane_1');
+        break;
     }
 
     if (module_exists('color_field')) {
@@ -1002,8 +1019,9 @@ function ulf_default_preprocess_entity(&$variables) {
       $paragraph_text_color
         = $variables['paragraphs_item']->field_paragraph_text_color ?? NULL;
       if (!empty($paragraph_bg_color) || !empty($paragraph_border_color)) {
-        $background_color = $paragraph_bg_color[LANGUAGE_NONE][0]['rgb'] ??
-          NULL;
+        if (!isset($background_color)) {
+          $background_color = $paragraph_bg_color[LANGUAGE_NONE][0]['rgb'] ?? NULL;
+        }
         $border_color = $paragraph_border_color[LANGUAGE_NONE][0]['rgb'] ??
           NULL;
         $text_color = $paragraph_text_color[LANGUAGE_NONE][0]['rgb'] ?? NULL;

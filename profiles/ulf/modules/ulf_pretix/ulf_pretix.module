@@ -286,7 +286,7 @@ function pretixWidget(string $widget_css_url, string $widget_js_url, $event_url,
   return [
     'stylesheet' => '<link rel="stylesheet" type="text/css" href="' . $widget_css_url . '">',
     'javascript' => '<script type="text/javascript" src="' . $widget_js_url . '" async></script>',
-    'widget' => '<pretix-widget event="' . $event_url . '"' . $widget_type . '></pretix-widget>',
+    'widget' => '<pretix-widget event="' . $event_url . '"' . $widget_type . ' disable-vouchers></pretix-widget>',
     'noscript' => '<noscript><div class="pretix-widget"><div class="pretix-widget-info-message">'
       . t('<JavaScr></JavaScr>ipt deactivated. Go to <a target="_blank" rel="noopener" href="@event_url">@event_url</a> to buy tickets.', ['@event_url' => $event_url])
       . '</div></div></noscript>',

@@ -271,6 +271,11 @@
             <?php if (module_exists('ulf_world_targets') && isset($world_targets)) : ?>
               <div class="block--field-wrapper">
                 <?php print $world_targets; ?>
+                <?php if (isset($node->field_world_targets_description['und'])): ?>
+                  <div class="world-targets-description">
+                    <?php print $node->field_world_targets_description['und'][0]['value']; ?>
+                  </div>
+                <?php endif; ?>
               </div>
             <?php endif;?>
 

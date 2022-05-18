@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * ulf_cookie_compliance.strongarm.inc

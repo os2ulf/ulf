@@ -93,6 +93,7 @@ function ulf_base_metatag_export_default() {
   // Exported Metatag config instance: node:course.
   $config['node:course'] = array(
     'instance' => 'node:course',
+    'disabled' => FALSE,
     'config' => array(
       'description' => array(
         'value' => '[node:field_full_description-summary]',
@@ -103,6 +104,7 @@ function ulf_base_metatag_export_default() {
   // Exported Metatag config instance: node:course_educators.
   $config['node:course_educators'] = array(
     'instance' => 'node:course_educators',
+    'disabled' => FALSE,
     'config' => array(
       'description' => array(
         'value' => '[node:field_full_description-summary]',

@@ -52,6 +52,16 @@
       width: 50%;
     }
   }
+
+  &.education-rating {
+    .form-item {
+      padding: 0;
+    }
+
+    .fivestar-widget {
+      margin-bottom: 5px;
+    }
+  }
 }
 
 .block--field-label {

@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * @file
+ * Code for the Ulf ude.nu cookie config feature.
+ */
+
+include_once 'ulf_ude_nu_cookie_config.features.inc';

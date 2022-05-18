@@ -1,10 +1,10 @@
 # Danish translation of Entityform (7.x-2.0-rc4)
-# Copyright (c) 2018 by the Danish translation team
+# Copyright (c) 2020 by the Danish translation team
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Entityform (7.x-2.0-rc4)\n"
-"POT-Creation-Date: 2018-11-10 19:02+0000\n"
+"POT-Creation-Date: 2020-12-16 01:33+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Language-Team: Danish\n"
 "MIME-Version: 1.0\n"
@@ -46,6 +46,8 @@ msgid "Email"
 msgstr "E-mail"
 msgid "Parent item"
 msgstr "Overordnet menupunkt"
+msgid "submit"
+msgstr "send"
 msgid "Roles"
 msgstr "Roller"
 msgid "Downloads"

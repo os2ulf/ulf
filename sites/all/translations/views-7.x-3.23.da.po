@@ -1,10 +1,10 @@
-# Danish translation of Views (7.x-3.23)
-# Copyright (c) 2019 by the Danish translation team
+# Danish translation of Views (for Drupal 7) (7.x-3.23)
+# Copyright (c) 2020 by the Danish translation team
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Views (7.x-3.23)\n"
-"POT-Creation-Date: 2019-05-10 19:47+0000\n"
+"Project-Id-Version: Views (for Drupal 7) (7.x-3.23)\n"
+"POT-Creation-Date: 2020-12-20 09:34+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Language-Team: Danish\n"
 "MIME-Version: 1.0\n"
@@ -5273,3 +5273,13 @@ msgid "Enabling and disabling views"
 msgstr "Aktivering og deaktivering af views"
 msgid "Exporting and importing views"
 msgstr "Eksport og import af views"
+msgid "Changed year + month"
+msgstr "Opdateret år + måned"
+msgid "Changed year"
+msgstr "Opdateret år"
+msgid "Changed month"
+msgstr "Opdateret måned"
+msgid "Changed day"
+msgstr "Opdateret day"
+msgid "Changed week"
+msgstr "Opdateret uge"

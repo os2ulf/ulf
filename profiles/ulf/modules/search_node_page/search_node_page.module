@@ -986,7 +986,11 @@ function search_node_page_build_search_box($configuration = array()) {
           $field = substr($field, ($pos + 1));
         }
         $info = field_info_field($field);
-        $vocab = taxonomy_vocabulary_machine_name_load($info['settings']['allowed_values'][0]['vocabulary']);
+        if (isset($info['settings']['target_type']) && $info['settings']['target_type'] == 'taxonomy_term') {
+          $vocab = taxonomy_vocabulary_machine_name_load($info['settings']['handler_settings']['target_bundles']['branche']);
+        } else {
+          $vocab = taxonomy_vocabulary_machine_name_load($info['settings']['allowed_values'][0]['vocabulary']);
+        }
 
         $terms = array();
         foreach (taxonomy_get_tree($vocab->vid) as $term) {
@@ -994,7 +998,6 @@ function search_node_page_build_search_box($configuration = array()) {
             'value' => $term->name,
           );
         }
-
         /**
          * @TODO: Fix type, so it's not hardcoded.
          */

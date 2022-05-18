@@ -37,7 +37,8 @@ angular.module('searchResultApp').controller('UlfResultController', ['CONFIG', '
     $scope.hits = [];
     communicatorService.$on('hits', function onHits(event, data) {
       var phase = this.$root.$$phase;
-      if(CONFIG.provider.index === "54894398a98f973ec6a24936b72d3bf4") {
+      if(CONFIG.provider.index === "54894398a98f973ec6a24936b72d3bf4" ||
+         CONFIG.provider.index === "e8d9bfcd61212f6d4b3c23ff6addd25b") {
         // hacky rewrite to accomodate the different design on
         // the result page for ungegarantien.dk/udbydere
         var alphabet = {};

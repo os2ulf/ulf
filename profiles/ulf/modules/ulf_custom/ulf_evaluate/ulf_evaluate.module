@@ -1,0 +1,19 @@
+<?php
+
+/**
+* Implements hook_fivestar_widgets().
+*/
+function ulf_evaluate_fivestar_widgets() {
+
+  $widgets_directory = drupal_get_path('module', 'ulf_evaluate') . '/widgets';
+  $files = file_scan_directory($widgets_directory, '/\.css$/');
+
+  $widgets = array();
+  foreach ($files as $file) {
+    if (strpos($file->filename, '-rtl.css') === FALSE) {
+      $widgets[$widgets_directory . '/' . $file->name . '/' .$file->filename] = drupal_ucfirst($file->name);
+    }
+  }
+
+  return $widgets;
+}

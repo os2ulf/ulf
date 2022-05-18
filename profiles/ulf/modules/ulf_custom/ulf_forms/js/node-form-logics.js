@@ -319,10 +319,12 @@
       $('.field-name-field-price input').val('');
       $('.field-name-field-moms select').val('_none');
       $('.field-name-field-unit-price select').val('_none');
+      $('.form-item-field-practical-info-buttons-und-show-free-course-request input').prop("checked", false).prop("disabled", true);
     }
     else {
       $('.field-name-field-collection-price').show();
       $('.field-name-field-vary-price').show();
+      $('.form-item-field-practical-info-buttons-und-show-free-course-request input').prop("disabled", false);
     }
   }
 

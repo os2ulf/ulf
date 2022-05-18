@@ -14,12 +14,14 @@ function ulf_course_educators_preprocess_node(&$variables) {
   if ($variables['type'] !== 'course_educators') {
     return;
   }
-
-  if (isset($variables['field_banner'][0])) {
-    $term = $variables['field_banner'][0]['taxonomy_term'];
-    if ($term !== NULL) {
+  if (isset($variables['field_banner']['und'][0])) {
+    $term_id = $variables['field_banner']['und'][0]['tid'];
+    if ($term_id !== NULL) {
+      $term = taxonomy_term_load($term_id);
+      if ($term !== NULL) {
         $variables['ribbon_message'] = $term->name;
         $variables['ribbon_class_names'] = ['warning'];
+      }
     }
   }
 }

@@ -1,0 +1,6 @@
+name = Ulf User Infobox
+description = Show individual infobox for each user roles
+package = Ulf base
+core = 7.x
+version = "7.x-1.0"
+project = "ulf_user_infobox"

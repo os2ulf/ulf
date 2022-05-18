@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * ulf_field_collections.features.field_base.inc
@@ -272,6 +273,7 @@ function ulf_field_collections_field_default_field_bases() {
         'per_course' => 'pr. forløb',
         'per_group' => 'pr. gruppe',
         'per_show' => 'pr. forestilling',
+        'per_day' => 'pr. dag',
         'per_hour' => 'pr. time',
         'per_half_hour' => 'pr. halve time',
       ),

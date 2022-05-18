@@ -106,6 +106,16 @@ function ulf_forms_form_alter(&$form, $form_state, $form_id) {
       $form['#suffix'] = '</div>';
       $form['actions']['submit']['#attributes']['class'][] = 'form-module--user-submit';
       break;
+
+    case 'kontaktformular_entityform_edit_form':
+      $contact_form_recipient = variable_get('email_contact_form_recipient', '');
+      $workflow_recipient = variable_get('email_workflow_recipient', '');
+      if (!empty($contact_form_recipient)) {
+        $form['field_contact_form_recipient']['und'][0]['value']['#default_value'] = $contact_form_recipient;
+      } elseif (!empty($workflow_recipient)) {
+        $form['field_contact_form_recipient']['und'][0]['value']['#default_value'] = $workflow_recipient;
+      }
+      break;
   }
 
 }
@@ -167,5 +177,37 @@ function ulf_forms_set_intro_text(&$form, $form_state) {
   if (!empty($form['vid']['#value'])) {
     $latest_log_message = '<div>' . t('Latest message') . ': ' . ulf_forms_fetch_moderation_log_latest($form['nid']['#value']) . '</div>';
     $form['intro_information']['#markup'] .= $latest_log_message;
+  }
+}
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ *
+ * We don't want to display the tab Dashboard on /workbench for some user roles.
+ *
+ * @param $data
+ * @param $router_item
+ * @param $root_path
+ */
+function ulf_forms_menu_local_tasks_alter(&$data, $router_item, $root_path) {
+  global $user;
+
+  $roles_that_can_see_dashboard_tab = [
+    'company',
+    'course provider',
+  ];
+
+  foreach ($user->roles as $role) {
+    if (in_array($role, $roles_that_can_see_dashboard_tab)) {
+      return;
+    }
+  }
+
+  if (isset($data['tabs'][0]['output'])) {
+    foreach ($data['tabs'][0]['output'] as $key => $value) {
+      if ($value['#link']['path'] === 'admin/workbench/dashboard') {
+        unset($data['tabs'][0]['output'][$key]);
+      }
+    }
   }
 }

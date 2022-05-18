@@ -94,3 +94,24 @@ function ulf_world_targets_preprocess_node(&$variables) {
   }
 
 }
+
+function ulf_world_targets_preprocess_user_profile(&$variables) {
+  $account = $variables['elements']['#account'];
+
+  if (isset($account->field_world_targets)) {
+    $world_targets = $account->field_world_targets[LANGUAGE_NONE] ?? ($account->field_world_targets ?? []);
+
+    if (!empty($world_targets)) {
+      try {
+        $variables['world_targets'] = theme(
+          'world_targets', [
+            'world_targets' => $world_targets,
+          ]
+        );
+      } catch (Exception $e) {
+        watchdog('world_targets', $e->getMessage(), WATCHDOG_WARNING);
+      }
+    }
+  }
+
+}

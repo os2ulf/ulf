@@ -1,14 +1,33 @@
 .world-targets {
-  display: flex;
+  display: block;
   padding: 0 11px 8px 11px;
-  justify-content: left;
+}
+.world-targets-description {
+  padding: 0 15px 10px 15px;
 }
 
 .world-target {
-  max-width: 22%;
-  margin: 0 5px;
+  display: inline-block;
+  margin: 5px 3px;
 }
 
 .world-target a:hover {
   opacity: .6;
+}
+.content--main .world-targets {
+  padding: 25px 0 10px;
+}
+.content--main .world-targets img {
+  max-width: 115px;
+}
+@media screen and (max-width: 767px) {
+  .content--main .world-targets img {
+    max-width: 70px;
+  }
+}
+.content--main .world-targets-description {
+  padding: 0 5px 20px;
+}
+.content--meta .world-targets img {
+  max-width: 70px;
 }

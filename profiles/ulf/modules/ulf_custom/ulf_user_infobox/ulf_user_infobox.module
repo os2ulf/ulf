@@ -1,0 +1,141 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+function ulf_user_infobox_menu() {
+  $items = array();
+
+  $items['admin/infobox'] = array(
+    'title' => 'Ulf User Infobox',
+    'description' => 'Configuration for Ulf User Infobox module',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('ulf_user_infobox_form'),
+    'access arguments' => array('access ulf_user_infobox config'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  $items['ulf_infobox/get/ajax'] = array(
+    'page callback' => 'ulf_user_infobox_ajax_get', // Render HTML.
+    'type' => MENU_CALLBACK,
+    'access arguments' => array('access content'),
+    'delivery callback' => 'ulf_user_infobox_ajax_callback',  // Magic goes here.
+  );
+
+  return $items;
+}
+
+
+/**
+ * Implements hook_permission().
+ */
+function ulf_user_infobox_permission() {
+  return array(
+    'access ulf_user_infobox config' => array(
+      'title' => t('Administer User Infobox configuration'),
+    )
+  );
+}
+/**
+ * Fetch user roles.
+ */
+function ulf_fetch_user_roles() {
+  $query = db_select('role', 'r');
+  $query->fields('r', array('rid', 'name', 'weight'));
+  $query->condition('r.rid','1','!=');
+  $query->condition('r.rid','2','!=');
+  $query->orderby('r.weight','ASC');
+  $result = $query->execute();
+  $user_roles = [];
+  foreach ($result as $value) {
+    $user_roles[] = $value;
+  }
+  return $user_roles;
+}
+
+/**
+ * Fetch info messages.
+ */
+function ulf_fetch_info_messages() {
+  $query = db_select('variable', 'v');
+  $query->fields('v', array('name', 'value'));
+  $query->condition('v.name', 'ulf_user_infobox_form_text%', 'LIKE');
+  $result = $query->execute();
+  $info_messages = [];
+  foreach ($result as $value) {
+    $info_messages[str_replace('ulf_user_infobox_form_text_', '', $value->name)] = [
+      'role_id' => str_replace('ulf_user_infobox_form_text_', '', $value->name),
+      'text' => unserialize($value->value)['value']
+    ];
+  }
+  krsort($info_messages);
+  return $info_messages;
+}
+
+/**
+ * Page callback: User Infobox settings
+ *
+ * @see ulf_user_infobox_menu()
+ */
+function ulf_user_infobox_form($form, &$form_state) {
+  $form['description'] = array(
+    '#markup' => t('Here you can add an infobox for a specific user role, that will show up when they log in to the website.'),
+  );
+  foreach(ulf_fetch_user_roles() as $value) {
+    $fieldset_element = 'ulf_user_infobox_form_fieldset_' . $value->rid;
+    $input_element = 'ulf_user_infobox_form_text_' . $value->rid;
+    if (empty(variable_get($input_element)['value'])) {
+      $collapsed = true;
+    } else {
+      $collapsed = false;
+    }
+
+    $form[$fieldset_element] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Infobox for @role_name', array('@role_name' => ucfirst($value->name))),
+      '#weight' => $value->weight,
+      '#collapsible' => true,
+      '#collapsed' => $collapsed,
+    );
+
+    $form[$fieldset_element][$input_element] = array(
+      '#type' => 'text_format',
+      '#default_value' => !empty(variable_get($input_element)['value']) ? check_markup(variable_get($input_element)['value'], variable_get($input_element)['format']) : null,
+      '#required' => false,
+    );
+  }
+  return system_settings_form($form);
+}
+
+function ulf_user_infobox_preprocess_page($variables) {
+  $path = drupal_get_path('module', 'ulf_user_infobox');
+
+  // Add style for user infobox.
+  drupal_add_css($path . '/css/ulf_user_infobox.css', array(
+    'type' => 'file',
+    'group' => 'CSS_THEME',
+  ));
+
+  // Add js for user infobox.
+  drupal_add_js($path . '/js/ulf_user_infobox.js', array(
+    'type' => 'file',
+    'scope' => 'footer',
+    'weight' => 7,
+  ));
+
+}
+
+function ulf_user_infobox_ajax_get(){
+  global $user;
+  $infobox = '';
+
+  foreach (ulf_fetch_info_messages() as $value) {
+    if ($user->uid && array_key_exists($value['role_id'], $user->roles) && !empty($value['text'])) {
+      $infobox = '<div class="infobox-wrapper"><div class="header--inner">' . $value['text'] . '</div></div>';
+    }
+  }
+
+  print drupal_json_output($infobox);
+  drupal_exit();
+
+}

@@ -1,0 +1,9 @@
+name = Ulf - Evaluate Content
+description = Provides comment field and rating
+package = Ulf Addons
+core = 7.x
+dependencies[] = comment
+dependencies[] = fivestar
+dependencies[] = votingapi
+
+version = "7.x-2.0"

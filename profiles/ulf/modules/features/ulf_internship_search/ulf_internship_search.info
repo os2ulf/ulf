@@ -1,0 +1,12 @@
+name = Ulf Internship Search
+core = 7.x
+package = Ulf Addons
+dependencies[] = ctools
+dependencies[] = entity
+dependencies[] = page_manager
+dependencies[] = search_api
+features[ctools][] = page_manager:pages_default:1
+features[features_api][] = api:2
+features[page_manager_pages][] = search_internships
+features[search_api_index][] = internships
+project path = profiles/ulf/modules/features

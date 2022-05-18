@@ -13,6 +13,11 @@ angular.module('searchResultApp').filter('trimWordBoundary', function () {
       return;
     }
 
+    // Redefine variable if str is an array
+    if (str[0]['value'] !== undefined) {
+      str = str[0]['value'];
+    }
+
     // Clean out headlines.
     str = str.replace(/(<h\d>).+(<\/h\d>)/gi, '');
 

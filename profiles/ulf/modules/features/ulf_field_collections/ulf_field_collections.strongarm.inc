@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * ulf_field_collections.strongarm.inc
