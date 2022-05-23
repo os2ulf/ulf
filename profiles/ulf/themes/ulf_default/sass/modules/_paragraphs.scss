@@ -241,7 +241,7 @@
     &__text {
       box-sizing: border-box;
       padding: 30px;
-      display: inline;
+      display: flex;
       flex-wrap: wrap;
       align-items: center;
     }
