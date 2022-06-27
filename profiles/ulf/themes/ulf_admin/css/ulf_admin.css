@@ -34,3 +34,10 @@
 .feed-icon a {
   margin-right: 5px;
 }
+
+/* Fixing bug in theme https://novicell.atlassian.net/browse/OS2ULF-595 */
+fieldset .fieldset-legend,
+fieldset.collapsible .fieldset-legend legend {
+  font-weight: bold;
+  z-index: 1 !important;
+}
