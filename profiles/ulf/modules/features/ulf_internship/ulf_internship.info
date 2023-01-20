@@ -51,7 +51,6 @@ dependencies[] = ulf_business_type
 dependencies[] = ulf_course_providers
 dependencies[] = ulf_field_bases
 dependencies[] = ulf_field_collections
-dependencies[] = ulf_hjoerring_settings
 dependencies[] = ulf_pretix
 dependencies[] = user
 dependencies[] = video_embed_field
