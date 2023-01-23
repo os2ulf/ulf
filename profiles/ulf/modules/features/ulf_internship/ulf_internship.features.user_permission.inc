@@ -768,6 +768,7 @@ function ulf_internship_user_default_permissions() {
     'roles' => array(
       'company' => 'company',
       'company consultant' => 'company consultant',
+      'course provider' => 'course provider',
       'developer' => 'developer',
       'editor' => 'editor',
     ),

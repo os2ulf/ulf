@@ -51,7 +51,7 @@ function ulf_internship_strongarm() {
         'custom_settings' => FALSE,
       ),
       'print' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'token' => array(
         'custom_settings' => FALSE,
@@ -66,13 +66,13 @@ function ulf_internship_strongarm() {
           'weight' => '1',
         ),
         'path' => array(
-          'weight' => '10',
+          'weight' => '8',
         ),
         'redirect' => array(
-          'weight' => '11',
+          'weight' => '9',
         ),
         'metatags' => array(
-          'weight' => '13',
+          'weight' => '12',
         ),
       ),
       'display' => array(),
