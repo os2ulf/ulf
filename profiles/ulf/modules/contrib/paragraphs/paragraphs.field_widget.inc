@@ -37,9 +37,10 @@ function paragraphs_field_widget_form(&$form, &$form_state, $field, $instance, $
     case 'paragraphs_hidden':
       return $element;
 
+      break;
     case 'paragraphs_embed':
       return paragraphs_field_multiple_value_form($field, $instance, $langcode, $items, $form, $form_state, $delta, $element);
-
+      break;
   }
 }
 
@@ -49,7 +50,7 @@ function paragraphs_field_widget_form(&$form, &$form_state, $field, $instance, $
  * Handles generic features for multiple fields:
  * - number of widgets
  * - AHAH-'add more' button
- * - drag-n-drop value reordering.
+ * - drag-n-drop value reordering
  */
 function paragraphs_field_multiple_value_form($field, $instance, $langcode, $items, &$form, &$form_state, $delta, $original_element) {
   $field_name = $field['field_name'];
@@ -81,13 +82,11 @@ function paragraphs_field_multiple_value_form($field, $instance, $langcode, $ite
         '#language' => $langcode,
         '#field_parents' => $parents,
         '#columns' => array_keys($field['columns']),
-        // For multiple fields, title and description are handled by the
-        // wrapping table.
+        // For multiple fields, title and description are handled by the wrapping table.
         '#title' => $multiple ? '' : $title,
         '#description' => $multiple ? '' : $description,
         '#delta' => $delta,
         '#weight' => $delta,
-        '#wrapper_id' => $wrapper_id,
       );
       if ($element = $function($form, $form_state, $field, $instance, $langcode, $items, $delta, $element)) {
         // Input field for the delta (drag-n-drop reordering).
@@ -105,8 +104,7 @@ function paragraphs_field_multiple_value_form($field, $instance, $langcode, $ite
           );
         }
 
-        // Because our deleted elements are still in the form, only the first
-        // shown element is required.
+        // Because our deleted elements are still in the form, only the first showed element is required.
         if (!$had_first && (!isset($element['#access']) || $element['#access'])) {
           $had_first = TRUE;
           $element['#required'] = $instance['required'];
@@ -146,7 +144,6 @@ function paragraphs_field_multiple_value_form($field, $instance, $langcode, $ite
       '#suffix' => '</div>',
       '#max_delta' => $max,
       '#instance' => $instance,
-      '#element_validate' => array('_paragraphs_multiple_field_validate'),
     );
 
     // Add 'add more' button, if not working with a programmed form.
@@ -159,13 +156,13 @@ function paragraphs_field_multiple_value_form($field, $instance, $langcode, $ite
       $explicitly_enabled = FALSE;
       foreach ($instance['settings']['allowed_bundles'] as $allowed_bundle_key => $allowed_bundle_value) {
         if ($allowed_bundle_key === $allowed_bundle_value && isset($available_bundles[$allowed_bundle_key])) {
-          $select_bundles[$available_bundles[$allowed_bundle_key]->bundle] = $available_bundles[$allowed_bundle_key]->label;
+          $select_bundles[$available_bundles[$allowed_bundle_key]->bundle] = $available_bundles[$allowed_bundle_key]->name;
 
           // If an item has been explicitly selected, raise our flag.
           $explicitly_enabled = TRUE;
         }
         elseif (isset($available_bundles[$allowed_bundle_key]->bundle)) {
-          $select_bundles_weighted[$available_bundles[$allowed_bundle_key]->bundle] = $available_bundles[$allowed_bundle_key]->label;
+          $select_bundles_weighted[$available_bundles[$allowed_bundle_key]->bundle] = $available_bundles[$allowed_bundle_key]->name;
         }
       }
 
@@ -174,7 +171,7 @@ function paragraphs_field_multiple_value_form($field, $instance, $langcode, $ite
         $select_bundles = $select_bundles_weighted;
         foreach ($available_bundles as $bundle) {
           if (!isset($select_bundles[$bundle->bundle])) {
-            $select_bundles[$bundle->bundle] = $bundle->label;
+            $select_bundles[$bundle->bundle] = $bundle->name;
           }
         }
       }
@@ -189,6 +186,7 @@ function paragraphs_field_multiple_value_form($field, $instance, $langcode, $ite
           'weight' => $weight,
         );
 
+
         /* @var $entity_shell ParagraphsItemEntity */
         $entity_shell = entity_create('paragraphs_item', array('bundle' => $machine_name, 'field_name' => $field_name));
         $entity_shell->setHostEntity($original_element['#entity_type'], $original_element['#entity'], $langcode, FALSE);
@@ -198,13 +196,12 @@ function paragraphs_field_multiple_value_form($field, $instance, $langcode, $ite
           $removed_a_bundle = TRUE;
         }
         elseif (isset($instance['settings']['bundle_weights'][$machine_name])) {
-          $select_bundles[$machine_name]['weight'] = $instance['settings']['bundle_weights'][$machine_name];
+            $select_bundles[$machine_name]['weight'] = $instance['settings']['bundle_weights'][$machine_name];
         }
         $weight++;
       }
 
-      $field_elements['#select_bundles'] = $select_bundles;
-      if ($removed_a_bundle && count($select_bundles) === 0) {
+      if($removed_a_bundle && count($select_bundles) === 0) {
         $field_elements['add_more'] = array(
           '#type' => 'container',
           '#tree' => TRUE,
@@ -222,7 +219,6 @@ function paragraphs_field_multiple_value_form($field, $instance, $langcode, $ite
           if (!isset($instance['settings']['title'])) {
             $instance['settings']['title'] = PARAGRAPHS_DEFAULT_TITLE;
           }
-          $instance_title = t($instance['settings']['title']);
 
           $field_elements['add_more'] = array(
             '#type' => 'container',
@@ -265,7 +261,7 @@ function paragraphs_field_multiple_value_form($field, $instance, $langcode, $ite
             $field_elements['add_more']['type'] = array(
               '#type' => 'select',
               '#name' => strtr($id_prefix, '-', '_') . '_add_more_type',
-              '#title' => t('!title type', array('!title' => $instance_title)),
+              '#title' => t('!title type', array('!title' => t($instance['settings']['title']))),
               '#options' => $select_list,
               '#attributes' => array('class' => array('field-add-more-type')),
               '#limit_validation_errors' => array(array_merge($parents, array($field_name, $langcode))),
@@ -282,15 +278,15 @@ function paragraphs_field_multiple_value_form($field, $instance, $langcode, $ite
               $field_elements['add_more']['type']['#default_value'] = $form_state['input'][strtr($id_prefix, '-', '_') . '_add_more_type'];
             }
 
-            $text = t('Add new !title', array('!title' => $instance_title));
+            $text = 'Add new !title';
             if ($max >= 0) {
-              $text = t('Add another !title', array('!title' => $instance_title));
+              $text = 'Add another !title';
             }
 
             $field_elements['add_more']['add_more'] = array(
               '#type' => 'submit',
               '#name' => strtr($id_prefix, '-', '_') . '_add_more_add_more',
-              '#value' => $text,
+              '#value' => t($text, array('!title' => t($instance['settings']['title']))),
               '#attributes' => array('class' => array('field-add-more-submit', 'paragraphs-add-more-submit')),
               '#limit_validation_errors' => array(),
               '#submit' => array('paragraphs_add_more_submit'),
@@ -316,11 +312,7 @@ function paragraphs_field_multiple_value_form($field, $instance, $langcode, $ite
     // file.js triggers uploads when the main Submit button is clicked.
     $field_elements['#attached']['js'] = array(
       drupal_get_path('module', 'file') . '/file.js',
-      array(
-        'data' => drupal_get_path('module', 'paragraphs') . '/paragraphs.js',
-        'type' => 'file',
-        'weight' => 9999,
-      ),
+      array('data' => drupal_get_path('module', 'paragraphs') . '/paragraphs.js', 'type' => 'file', 'weight' => 9999),
     );
     $form_state['has_file_element'] = TRUE;
   }
@@ -331,40 +323,29 @@ function paragraphs_field_multiple_value_form($field, $instance, $langcode, $ite
 /**
  * Widget form implementation for paragraphs.
  *
- * @param array $form
- *   The form structure where widgets are being attached to. This might be a
- *   full form structure, or a sub-element of a larger form.
- * @param array $form_state
- *   An associative array containing the current state of the form.
- * @param array $field
- *   The field structure.
- * @param array $instance
- *   The field instance.
- * @param string $langcode
- *   The language associated with $items.
- * @param array $items
- *   Array of default values for this field.
- * @param int $delta
- *   The order of this item in the array of subelements (0, 1, 2, etc).
- * @param array $element
- *   A form element array containing basic properties for the widget.
+ * @param $form
+ * @param $form_state
+ * @param $field
+ * @param $instance
+ * @param $langcode
+ * @param $items
+ * @param $delta
+ * @param $element
  *
  * @return array
- *   The form elements for a single widget for this field.
  */
-function paragraphs_field_widget_form_build(array &$form, array &$form_state, array $field, array $instance, $langcode, array $items, $delta, array $element) {
+function paragraphs_field_widget_form_build(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {
   static $recursion = 0;
 
   if (!isset($instance['settings']['title'])) {
     $instance['settings']['title'] = PARAGRAPHS_DEFAULT_TITLE;
   }
-  $instance_title = t($instance['settings']['title']);
 
   if (!isset($instance['settings']['title_multiple'])) {
     $instance['settings']['title_multiple'] = PARAGRAPHS_DEFAULT_TITLE_MULTIPLE;
   }
 
-  // If the paragraphs item form contains another paragraph,
+  // If the paragraph item form contains another paragraph,
   // we might ran into a recursive loop. Prevent that.
   if ($recursion++ > PARAGRAPHS_RECURSION_LIMIT) {
     drupal_set_message(t('The paragraphs item form has not been embedded to avoid recursive loops.'), 'error');
@@ -374,12 +355,6 @@ function paragraphs_field_widget_form_build(array &$form, array &$form_state, ar
   $field_parents = $element['#field_parents'];
   $field_name = $element['#field_name'];
   $language = $element['#language'];
-
-  // Set host entity data since field_attach_form() overrides the $element
-  // values with the values for the paragraphs item.
-  $element['#host_entity_type'] = $element['#entity_type'];
-  $element['#host_entity'] = $element['#entity'];
-  $element['#host_bundle'] = $element['#bundle'];
 
   $bundle = FALSE;
   $id_prefix = implode('-', array_merge($field_parents, array($field_name)));
@@ -410,10 +385,11 @@ function paragraphs_field_widget_form_build(array &$form, array &$form_state, ar
   $is_new_paragraph = FALSE;
 
   $default_edit_mode = isset($instance['settings']['default_edit_mode']) ? $instance['settings']['default_edit_mode'] : PARAGRAPHS_DEFAULT_EDIT_MODE;
-  $default_edit_mode_override = isset($instance['settings']['default_edit_mode_override']) ? $instance['settings']['default_edit_mode_override'] : PARAGRAPHS_DEFAULT_EDIT_MODE_OVERRIDE;
-  $force_open = (!empty($instance['widget']['paragraphs_edit_mode_open']) || count($items) < $default_edit_mode_override);
 
-  $being_edited_paragraph = ($default_edit_mode === 'open');
+  $being_edited_paragraph = TRUE;
+  if ($default_edit_mode === 'closed' || $default_edit_mode === 'preview') {
+    $being_edited_paragraph = FALSE;
+  }
 
   if (isset($field_state['entity'][$delta])) {
     if (isset($field_state['entity'][$delta]->removed) && $field_state['entity'][$delta]->removed) {
@@ -431,7 +407,7 @@ function paragraphs_field_widget_form_build(array &$form, array &$form_state, ar
 
     /* @var $paragraph_item ParagraphsItemEntity */
     $paragraph_item = $field_state['entity'][$delta];
-    $paragraph_item->setHostEntity($element['#host_entity_type'], $element['#host_entity'], $langcode, FALSE);
+    $paragraph_item->setHostEntity($field_state['instance']['entity_type'], $element['#entity'], $langcode, FALSE);
   }
   else {
     if (isset($items[$delta])) {
@@ -450,12 +426,7 @@ function paragraphs_field_widget_form_build(array &$form, array &$form_state, ar
 
     if (!empty($paragraph_item)) {
       /* @var $paragraph_item ParagraphsItemEntity */
-      $paragraph_item->setHostEntity($element['#host_entity_type'], $element['#host_entity'], $langcode, FALSE);
-
-      if ($force_open) {
-        $paragraph_item->being_edited = TRUE;
-        $being_edited_paragraph = TRUE;
-      }
+      $paragraph_item->setHostEntity($element['#entity_type'], $element['#entity'], $langcode, FALSE);
 
       // Put our entity in the form state, so FAPI callbacks can access it.
       $field_state['entity'][$delta] = $paragraph_item;
@@ -472,7 +443,7 @@ function paragraphs_field_widget_form_build(array &$form, array &$form_state, ar
         '#weight' => -100,
       );
       $element['paragraph_bundle_title']['info'] = array(
-        '#markup' => t('@title type: %bundle', array('@title' => $instance_title, '%bundle' => $bundle_info->label)),
+        '#markup' => t('@title type: %bundle', array('@title' => t($instance['settings']['title']), '%bundle' => $bundle_info->name)),
       );
     }
 
@@ -497,7 +468,7 @@ function paragraphs_field_widget_form_build(array &$form, array &$form_state, ar
           );
           $element['access_info']['info'] = array(
             '#type' => 'markup',
-            '#markup' => '<em>' . t('You are not allowed to edit this @title item.', array('@title' => $instance_title)) . '</em>',
+            '#markup' => '<em>' . t('You are not allowed to edit this @title item.', array('@title' => t($instance['settings']['title']))) . '</em>',
           );
         }
         else {
@@ -514,11 +485,10 @@ function paragraphs_field_widget_form_build(array &$form, array &$form_state, ar
             '#value' => t('Collapse'),
             '#validate' => array(),
             '#submit' => array('paragraphs_collapse_submit'),
-            '#limit_validation_errors' => array($parents),
+            '#limit_validation_errors' => array(),
             '#ajax' => array(
-              'callback' => '_paragraphs_ajax_update_callback',
+              'path' => 'paragraphs/collapse/ajax',
               'effect' => 'fade',
-              'wrapper' => $element['#wrapper_id'],
             ),
             '#access' => entity_access('update', 'paragraphs_item', $paragraph_item),
             '#weight' => 999,
@@ -526,11 +496,11 @@ function paragraphs_field_widget_form_build(array &$form, array &$form_state, ar
         }
       }
       else {
-        if ($default_edit_mode === 'preview' && entity_access('view', 'paragraphs_item', $paragraph_item)) {
+        if($default_edit_mode === 'preview' && entity_access('view', 'paragraphs_item', $paragraph_item)) {
           $element['paragraph_bundle_preview'] = array(
             '#type' => 'container',
           );
-          $preview = $paragraph_item->view('paragraphs_editor_preview', $langcode);
+          $preview = $paragraph_item->view('paragraphs_editor_preview');
           $element['paragraph_bundle_preview']['preview'] = $preview;
         }
 
@@ -546,7 +516,7 @@ function paragraphs_field_widget_form_build(array &$form, array &$form_state, ar
 
         if (isset($field_state['entity'][$delta]->must_be_saved) && $field_state['entity'][$delta]->must_be_saved) {
           $element['actions']['must_be_saved'] = array(
-            '#markup' => '<p><em>' . t('Warning: this content must be saved to reflect changes on this paragraphs item.') . '</em></p>',
+            '#markup' => '<p><em>' . t('Warning: this content must be saved to reflect changes on this paragraph item.') . '</em></p>',
             '#weight' => 998,
           );
         }
@@ -560,14 +530,14 @@ function paragraphs_field_widget_form_build(array &$form, array &$form_state, ar
           '#submit' => array('paragraphs_edit_submit'),
           '#limit_validation_errors' => array(),
           '#ajax' => array(
-            'callback' => '_paragraphs_ajax_update_callback',
+            'path' => 'paragraphs/edit/ajax',
             'effect' => 'fade',
-            'wrapper' => $element['#wrapper_id'],
           ),
           '#access' => entity_access('update', 'paragraphs_item', $paragraph_item),
           '#weight' => 999,
         );
       }
+
 
       if (isset($paragraph_item)) {
         $element['actions']['remove_button'] = array(
@@ -579,14 +549,14 @@ function paragraphs_field_widget_form_build(array &$form, array &$form_state, ar
           '#submit' => array('paragraphs_remove_submit'),
           '#limit_validation_errors' => array(),
           '#ajax' => array(
-            'callback' => '_paragraphs_ajax_update_callback',
+            'path' => 'paragraphs/remove/ajax',
             'effect' => 'fade',
-            'wrapper' => $element['#wrapper_id'],
           ),
           '#access' => entity_access('delete', 'paragraphs_item', $paragraph_item),
           '#weight' => 1000,
         );
       }
+
 
       if (isset($element['actions']['edit_button']) && !$element['actions']['edit_button']['#access']
           && isset($element['actions']['remove_button']) && !$element['actions']['remove_button']['#access']) {
@@ -596,7 +566,7 @@ function paragraphs_field_widget_form_build(array &$form, array &$form_state, ar
         );
         $element['access_info']['info'] = array(
           '#type' => 'markup',
-          '#markup' => '<em>' . t('You are not allowed to edit or remove this @title item.', array('@title' => $instance_title)) . '</em>',
+          '#markup' => '<em>' . t('You are not allowed to edit or remove this @title item.', array('@title' => t($instance['settings']['title']))) . '</em>',
         );
       }
       elseif (isset($element['actions']['edit_button']) && !$element['actions']['edit_button']['#access']) {
@@ -606,7 +576,7 @@ function paragraphs_field_widget_form_build(array &$form, array &$form_state, ar
         );
         $element['access_info']['info'] = array(
           '#type' => 'markup',
-          '#markup' => '<em>' . t('You are not allowed to edit this @title item.', array('@title' => $instance_title)) . '</em>',
+          '#markup' => '<em>' . t('You are not allowed to edit this @title item.', array('@title' => t($instance['settings']['title']))) . '</em>',
         );
       }
       elseif (isset($element['actions']['remove_button']) && !$element['actions']['remove_button']['#access']) {
@@ -616,7 +586,7 @@ function paragraphs_field_widget_form_build(array &$form, array &$form_state, ar
         );
         $element['access_info']['info'] = array(
           '#type' => 'markup',
-          '#markup' => '<em>' . t('You are not allowed to remove this @title item.', array('@title' => $instance_title)) . '</em>',
+          '#markup' => '<em>' . t('You are not allowed to remove this @title item.', array('@title' => t($instance['settings']['title']))) . '</em>',
         );
       }
     }
@@ -626,7 +596,7 @@ function paragraphs_field_widget_form_build(array &$form, array &$form_state, ar
         '#weight' => 9999,
       );
       $element['actions']['remove_button'] = array(
-        '#markup' => '<p>' . t('This @title has been removed, press the button below to restore.', array('@title' => $instance_title)) . ' </p><p><em>' . t('Warning: this @title will actually be deleted when you press "!confirm" or "!save"!', array('@title' => $instance_title, '!confirm' => t('Confirm Deletion'), '!save' => t('Save'))) . '</em></p>',
+        '#markup' => '<p>' . t('This @title has been removed, press the button below to restore.', array('@title' => t($instance['settings']['title']))) . ' </p><p><em>' . t('Warning: this @title will actually be deleted when you press "!confirm" or "!save"!', array('@title' => $instance['settings']['title'], '!confirm' => t('Confirm Deletion'), '!save' => t('Save'))) . '</em></p>',
       );
       $element['actions']['restore_button'] = array(
         '#delta' => $delta,
@@ -637,9 +607,8 @@ function paragraphs_field_widget_form_build(array &$form, array &$form_state, ar
         '#submit' => array('paragraphs_restore_submit'),
         '#limit_validation_errors' => array(),
         '#ajax' => array(
-          'callback' => '_paragraphs_ajax_update_callback',
+          'path' => 'paragraphs/restore/ajax',
           'effect' => 'fade',
-          'wrapper' => $element['#wrapper_id'],
         ),
         '#weight' => 1000,
       );
@@ -652,9 +621,8 @@ function paragraphs_field_widget_form_build(array &$form, array &$form_state, ar
         '#submit' => array('paragraphs_deleteconfirm_submit'),
         '#limit_validation_errors' => array(),
         '#ajax' => array(
-          'callback' => '_paragraphs_ajax_update_callback',
+          'path' => 'paragraphs/deleteconfirm/ajax',
           'effect' => 'fade',
-          'wrapper' => $element['#wrapper_id'],
         ),
         '#weight' => 1001,
       );
@@ -670,32 +638,14 @@ function paragraphs_field_widget_form_build(array &$form, array &$form_state, ar
   return $element;
 }
 
-/**
- * FAPI #ajax callback to update a paragraphs item.
- */
-function _paragraphs_ajax_update_callback($form, $form_state) {
-  // Get the information on what we're updating.
-  $button = $form_state['triggering_element'];
-
-  // Go three levels up in the form, to the whole widget.
-  $element = drupal_array_get_nested_value($form, array_slice($button['#array_parents'], 0, -3));
-
-  // Send back the rendered element and let Drupal wrap it in an AJAX command.
-  return drupal_render($element);
-}
 
 /**
- * After-build callback to validate an individual paragraphs element.
- *
- * @param array $element
- *   A form element array containing basic properties of the paragraphs element.
- * @param array $form_state
- *   An associative array containing the current state of the form.
+ * FAPI #after_build of an individual paragraph element to delay the validation of #required.
  */
-function paragraphs_field_widget_embed_delay_required_validation(array &$element, array &$form_state) {
+function paragraphs_field_widget_embed_delay_required_validation(&$element, &$form_state) {
   // If the process_input flag is set, the form and its input is going to be
   // validated. Prevent #required (sub)fields from throwing errors while
-  // their non-#required paragraphs item is empty.
+  // their non-#required paragraph item is empty.
   if ($form_state['process_input']) {
     _paragraphs_collect_required_elements($element, $element['#paragraphs_required_elements']);
   }
@@ -705,12 +655,10 @@ function paragraphs_field_widget_embed_delay_required_validation(array &$element
 /**
  * Collects all embedded required fields.
  *
- * @param array $element
- *   A form element array containing basic properties of the paragraphs element.
- * @param array|null $required_elements
- *   An array containing required paragraphs elements.
+ * @param $element
+ * @param $required_elements
  */
-function _paragraphs_collect_required_elements(array &$element, &$required_elements = array()) {
+function _paragraphs_collect_required_elements(&$element, &$required_elements) {
   // Recurse through all children.
   foreach (element_children($element) as $key) {
     if (isset($element[$key]) && $element[$key]) {
@@ -725,7 +673,7 @@ function _paragraphs_collect_required_elements(array &$element, &$required_eleme
 }
 
 /**
- * Pre-render callback that ensures the element is rendered as being required.
+ * #pre_render callback that ensures the element is rendered as being required.
  */
 function paragraphs_field_widget_render_required($element) {
   $element['#required'] = TRUE;
@@ -733,16 +681,11 @@ function paragraphs_field_widget_render_required($element) {
 }
 
 /**
- * FAPI validation of an individual paragraphs element.
- *
- * @param array $element
- *   A form element array containing basic properties of the paragraphs element.
- * @param array $form_state
- *   An associative array containing the current state of the form.
- * @param array $complete_form
- *   The form structure array.
+ * FAPI validation of an individual paragraph element.
  */
-function paragraphs_field_widget_embed_validate(array $element, array &$form_state, array $complete_form) {
+function paragraphs_field_widget_embed_validate($element, &$form_state, $complete_form) {
+  $instance = field_widget_instance($element, $form_state);
+  $field = field_widget_field($element, $form_state);
   $field_parents = $element['#field_parents'];
   $field_name = $element['#field_name'];
   $language = $element['#language'];
@@ -782,52 +725,34 @@ function paragraphs_field_widget_embed_validate(array $element, array &$form_sta
 
     // Only if the form is being submitted, finish the collection entity and
     // prepare it for saving.
-    if ($form_state['submitted']) {
-      $errors = form_get_errors();
-      if (module_exists('conditional_fields') && isset($form_state['conditional_fields_untriggered_dependents'])) {
-        // Conditional_fields will remove errors which occurred on "untriggered
-        // fields" and only remove them via the form-level validation handlers.
-        foreach ($form_state['conditional_fields_untriggered_dependents'] as $conditional_error) {
-          if (isset($conditional_error['errors'])) {
-            foreach ($conditional_error['errors'] as $key => $error) {
-              unset($errors[$key]);
-            }
-          }
-        }
+    if ($form_state['submitted'] && !form_get_errors()) {
+
+      field_attach_submit('paragraphs_item', $paragraph_item, $element, $form_state);
+
+      // Load initial form values into $item, so any other form values below the
+      // same parents are kept.
+      $item = drupal_array_get_nested_value($form_state['values'], $element['#parents']);
+
+      // Set the _weight if it is a multiple field.
+      if (isset($element['_weight'])) {
+        $item['_weight'] = $element['_weight']['#value'];
       }
 
-      if (!$errors) {
-        field_attach_submit('paragraphs_item', $paragraph_item, $element, $form_state);
-
-        // Load initial form values into $item, so any other form values below
-        // the same parents are kept.
-        $item = drupal_array_get_nested_value($form_state['values'], $element['#parents']);
-
-        // Set the _weight if it is a multiple field.
-        if (isset($element['_weight'])) {
-          $item['_weight'] = $element['_weight']['#value'];
-        }
-
-        // Put the paragraphs item in $item['entity'], so it is saved with
-        // the host entity via hook_field_presave() if it is not empty.
-        // @see paragraph_field_presave()
-        $item['entity'] = $paragraph_item;
-        form_set_value($element, $item, $form_state);
-      }
-
+      // Put the paragraph item in $item['entity'], so it is saved with
+      // the host entity via hook_field_presave() / field API if it is not empty.
+      // @see paragraph_field_presave()
+      $item['entity'] = $paragraph_item;
+      form_set_value($element, $item, $form_state);
     }
   }
 }
 
 /**
  * Submit function to add another paragraph.
- *
- * @param array $form
- *   The form structure array.
- * @param array $form_state
- *   An associative array containing the current state of the form.
+ * @param $form
+ * @param $form_state
  */
-function paragraphs_add_more_submit(array $form, array &$form_state) {
+function paragraphs_add_more_submit($form, &$form_state) {
   $button = $form_state['triggering_element'];
 
   // Go one level up in the form, to the widgets container.
@@ -851,77 +776,25 @@ function paragraphs_add_more_submit(array $form, array &$form_state) {
 }
 
 /**
- * Form Validation for submitting a node with required paragraphs fields.
- */
-function _paragraphs_multiple_field_validate($elements, &$form_state) {
-  // Check child fields of required paragraphs.
-  if (!empty($elements['#required'])) {
-    $field_values = array();
-    $field_state = field_form_get_state($elements['#field_parents'], $elements['#field_name'], $elements['#language'], $form_state);
-    $field_info = field_info_field($elements['#field_name']);
-
-    if (empty($elements['#parents'])) {
-      // Try top level structure if there are no parents.
-      if (!empty($form_state['values'][$elements['#field_name']][LANGUAGE_NONE])) {
-        $field_values = $form_state['values'][$elements['#field_name']][LANGUAGE_NONE];
-      }
-    }
-    else {
-      // Extract field values.
-      $key_exists = NULL;
-      $field_values_found = drupal_array_get_nested_value($form_state['values'], $elements['#parents'], $key_exists);
-      if ($key_exists) {
-        $field_values = $field_values_found;
-      }
-    }
-
-    if ($field_values) {
-      foreach (array_keys($field_values) as $item_key) {
-        if (!is_numeric($item_key)) {
-          // Remove non field item deltas.
-          unset($field_values[$item_key]);
-        }
-        elseif (isset($field_state['entity'][$item_key])) {
-          // Handle field item entity forms that build new objects in the field
-          // state. Examples: field_collection_item, paragraphs_item.
-          // If this is not set, then the field_is_empty check in
-          // _field_filter_items() fails.
-          $field_values[$item_key] = array(
-            'entity' => $field_state['entity'][$item_key],
-          );
-        }
-      }
-
-      // Get non-empty items.
-      $field_values = _field_filter_items($field_info, $field_values);
-    }
-
-    if (count($field_values) < 1) {
-      form_error($elements, t('The "!name" field is required', array(
-        '!name' => $elements['#title'],
-      )));
-    }
-  }
-}
-
-/**
  * Ajax callback in response to a new empty widget being added to the form.
  *
  * This returns the new page content to replace the page content made obsolete
  * by the form submission.
  *
- * @param array $form
- *   The form structure array.
- * @param array $form_state
- *   An associative array containing the current state of the form.
- *
  * @see field_add_more_submit()
  */
-function paragraphs_add_more_js(array $form, array $form_state) {
+function paragraphs_add_more_js($form, $form_state) {
   $button = $form_state['triggering_element'];
 
   // Go one level up in the form, to the widgets container.
   $element = drupal_array_get_nested_value($form, array_slice($button['#array_parents'], 0, -2));
+  $field_name = $element['#field_name'];
+  $langcode = $element['#language'];
+  $parents = $element['#field_parents'];
+
+  $field_state = field_form_get_state($parents, $field_name, $langcode, $form_state);
+
+  $field = $field_state['field'];
 
   // Add a DIV around the delta receiving the Ajax effect.
   $delta = $element['#max_delta'];
@@ -930,6 +803,7 @@ function paragraphs_add_more_js(array $form, array $form_state) {
 
   return $element;
 }
+
 
 /**
  * Submit callback to remove an item from the field UI multiple wrapper.
@@ -940,13 +814,8 @@ function paragraphs_add_more_js(array $form, array $form_state) {
  * we *also* need to move all the deltas around in the $form_state['values']
  * and $form_state['input'] so that user changed values follow. This is a bit
  * of a complicated process.
- *
- * @param array $form
- *   The form structure array.
- * @param array $form_state
- *   An associative array containing the current state of the form.
  */
-function paragraphs_remove_submit(array $form, array &$form_state) {
+function paragraphs_remove_submit($form, &$form_state) {
   $button = $form_state['triggering_element'];
   $delta = $button['#delta'];
 
@@ -976,7 +845,7 @@ function paragraphs_remove_submit(array $form, array &$form_state) {
   // the user had selected.
   $input = drupal_array_get_nested_value($form_state['input'], $address);
   // Sort by weight,
-  // but first remove garbage values to ensure proper '_weight' sorting.
+  // but first remove garbage values to ensure proper '_weight' sorting
   unset($input['add_more']);
   uasort($input, '_field_sort_items_helper');
 
@@ -1003,13 +872,8 @@ function paragraphs_remove_submit(array $form, array &$form_state) {
  * we *also* need to move all the deltas around in the $form_state['values']
  * and $form_state['input'] so that user changed values follow. This is a bit
  * of a complicated process.
- *
- * @param array $form
- *   The form structure array.
- * @param array $form_state
- *   An associative array containing the current state of the form.
  */
-function paragraphs_edit_submit(array $form, array &$form_state) {
+function paragraphs_edit_submit($form, &$form_state) {
   $button = $form_state['triggering_element'];
   $delta = $button['#delta'];
 
@@ -1039,7 +903,7 @@ function paragraphs_edit_submit(array $form, array &$form_state) {
   // the user had selected.
   $input = drupal_array_get_nested_value($form_state['input'], $address);
   // Sort by weight,
-  // but first remove garbage values to ensure proper '_weight' sorting.
+  // but first remove garbage values to ensure proper '_weight' sorting
   unset($input['add_more']);
   uasort($input, '_field_sort_items_helper');
 
@@ -1066,13 +930,8 @@ function paragraphs_edit_submit(array $form, array &$form_state) {
  * we *also* need to move all the deltas around in the $form_state['values']
  * and $form_state['input'] so that user changed values follow. This is a bit
  * of a complicated process.
- *
- * @param array $form
- *   The form structure array.
- * @param array $form_state
- *   An associative array containing the current state of the form.
  */
-function paragraphs_collapse_submit(array $form, array &$form_state) {
+function paragraphs_collapse_submit($form, &$form_state) {
   $button = $form_state['triggering_element'];
   $delta = $button['#delta'];
 
@@ -1103,7 +962,7 @@ function paragraphs_collapse_submit(array $form, array &$form_state) {
   // the user had selected.
   $input = drupal_array_get_nested_value($form_state['input'], $address);
   // Sort by weight,
-  // but first remove garbage values to ensure proper '_weight' sorting.
+  // but first remove garbage values to ensure proper '_weight' sorting
   unset($input['add_more']);
   uasort($input, '_field_sort_items_helper');
 
@@ -1130,13 +989,8 @@ function paragraphs_collapse_submit(array $form, array &$form_state) {
  * we *also* need to move all the deltas around in the $form_state['values']
  * and $form_state['input'] so that user changed values follow. This is a bit
  * of a complicated process.
- *
- * @param array $form
- *   The form structure array.
- * @param array $form_state
- *   An associative array containing the current state of the form.
  */
-function paragraphs_deleteconfirm_submit(array $form, array &$form_state) {
+function paragraphs_deleteconfirm_submit($form, &$form_state) {
   $button = $form_state['triggering_element'];
   $delta = $button['#delta'];
 
@@ -1167,7 +1021,7 @@ function paragraphs_deleteconfirm_submit(array $form, array &$form_state) {
   // the user had selected.
   $input = drupal_array_get_nested_value($form_state['input'], $address);
   // Sort by weight,
-  // but first remove garbage values to ensure proper '_weight' sorting.
+  // but first remove garbage values to ensure proper '_weight' sorting
   unset($input['add_more']);
   uasort($input, '_field_sort_items_helper');
 
@@ -1186,14 +1040,11 @@ function paragraphs_deleteconfirm_submit(array $form, array &$form_state) {
 }
 
 /**
- * Submit function to restore a paragraphs item that was deleted.
- *
- * @param array $form
- *   The form structure array.
- * @param array $form_state
- *   An associative array containing the current state of the form.
+ * Submit function to restore a paragraph that was deleted.
+ * @param $form
+ * @param $form_state
  */
-function paragraphs_restore_submit(array $form, array &$form_state) {
+function paragraphs_restore_submit($form, &$form_state) {
   $button = $form_state['triggering_element'];
   $delta = $button['#delta'];
 
@@ -1208,9 +1059,11 @@ function paragraphs_restore_submit(array $form, array &$form_state) {
 
   $field_state = field_form_get_state($parents, $field_name, $langcode, $form_state);
 
+
   if (isset($field_state['entity'][$delta])) {
     $field_state['entity'][$delta]->removed = 0;
   }
+
 
   // Fix the weights. Field UI lets the weights be in a range of
   // (-1 * item_count) to (item_count). This means that when we remove one,
@@ -1223,7 +1076,7 @@ function paragraphs_restore_submit(array $form, array &$form_state) {
   // the user had selected.
   $input = drupal_array_get_nested_value($form_state['input'], $address);
   // Sort by weight,
-  // but first remove garbage values to ensure proper '_weight' sorting.
+  // but first remove garbage values to ensure proper '_weight' sorting
   unset($input['add_more']);
   uasort($input, '_field_sort_items_helper');
 
