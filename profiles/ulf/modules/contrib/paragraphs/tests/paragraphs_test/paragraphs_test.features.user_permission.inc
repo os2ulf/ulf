@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * paragraphs_test.features.user_permission.inc

@@ -1,7 +1,12 @@
 <?php
 
 /**
+ * @file
  * Provides basic class for importing Paragraphs via Migrate API.
+ */
+
+/**
+ * Destination class implementing migration into field_collection.
  */
 class MigrateDestinationParagraphsItem extends MigrateDestinationEntity {
 
@@ -11,18 +16,11 @@ class MigrateDestinationParagraphsItem extends MigrateDestinationEntity {
    * @var string
    */
   protected $field_name;
-
-  /**
-   * {@inheritdoc}
-   */
   public function getFieldName() {
     return $this->field_name;
   }
 
-  /**
-   * {@inheritdoc}
-   */
-  public static function getKeySchema() {
+  static public function getKeySchema() {
     return array(
       'item_id' => array(
         'type' => 'int',
@@ -36,8 +34,6 @@ class MigrateDestinationParagraphsItem extends MigrateDestinationEntity {
   /**
    * Basic initialization.
    *
-   * @param object $bundle
-   *   A bundle.
    * @param array $options
    *   (optional) Options applied to collections.
    */
@@ -51,28 +47,25 @@ class MigrateDestinationParagraphsItem extends MigrateDestinationEntity {
    * Return an options array for node destinations.
    *
    * @param string $language
-   *   Default language for nodes created via this destination class.
+   *  Default language for nodes created via this destination class.
    * @param string $text_format
-   *   Default text format for nodes created via this destination class.
-   *
-   * @return array
-   *   An array of options.
+   *  Default text format for nodes created via this destination class.
    */
-  public static function options($language, $text_format) {
+  static public function options($language, $text_format) {
     return compact('language', 'text_format');
   }
+
 
   /**
    * Returns a list of fields available to be mapped for the node type (bundle)
    *
    * @param Migration $migration
-   *   Optionally, the migration containing this destination.
-   *
+   *  Optionally, the migration containing this destination.
    * @return array
-   *   Keys: machine names of the fields (to be passed to addFieldMapping)
-   *   Values: Human-friendly descriptions of the fields.
+   *  Keys: machine names of the fields (to be passed to addFieldMapping)
+   *  Values: Human-friendly descriptions of the fields.
    */
-  public function fields(Migration $migration = NULL) {
+  public function fields($migration = NULL) {
     $fields = array();
 
     $fields['field_name'] = t('Field name');
@@ -87,8 +80,8 @@ class MigrateDestinationParagraphsItem extends MigrateDestinationEntity {
   /**
    * Delete a batch of nodes at once.
    *
-   * @param array $item_ids
-   *   Array of node IDs to be deleted.
+   * @param $nids
+   *  Array of node IDs to be deleted.
    */
   public function bulkRollback(array $item_ids) {
     migrate_instrument_start('paragraphs_item_delete_multiple');
@@ -101,18 +94,15 @@ class MigrateDestinationParagraphsItem extends MigrateDestinationEntity {
   /**
    * Import a single node.
    *
-   * @param object $paragraphs_item
-   *   Node object to build Prefilled with any fields mapped in the Migration.
-   * @param object $row
-   *   Raw source data object - passed through to prepare/complete handlers.
-   *
-   * @return array|bool
-   *   Array of key fields (nid only in this case) of the node that was saved if
-   *   successful. FALSE on failure.
-   *
-   * @throws MigrateException
+   * @param $node
+   *  Node object to build. Prefilled with any fields mapped in the Migration.
+   * @param $row
+   *  Raw source data object - passed through to prepare/complete handlers.
+   * @return array
+   *  Array of key fields (nid only in this case) of the node that was saved if
+   *  successful. FALSE on failure.
    */
-  public function import(object $paragraphs_item, object $row) {
+  public function import(stdClass $paragraphs_item, stdClass $row) {
     $migration = Migration::currentMigration();
 
     // Updating previously-migrated content?
@@ -158,7 +148,7 @@ class MigrateDestinationParagraphsItem extends MigrateDestinationEntity {
           array('!item_id' => $paragraphs_item->item_id)));
       }
     }
-    // Provide defaults for SOURCE d.
+    // Provide defaults for SOURCE d
     else {
       // Set some default properties.
       $defaults = array(
@@ -187,6 +177,7 @@ class MigrateDestinationParagraphsItem extends MigrateDestinationEntity {
       $entity = entity_create('paragraphs_item', (array) $paragraphs_item);
     }
 
+
     if (isset($entity->item_id) && $entity->item_id) {
       $updating = TRUE;
     }
@@ -213,5 +204,4 @@ class MigrateDestinationParagraphsItem extends MigrateDestinationEntity {
     }
     return $return;
   }
-
 }

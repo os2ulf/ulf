@@ -1,16 +1,18 @@
 <?php
+/**
+ * @file
+ * Entity metadata implementation for the paragraphs entity.
+ */
 
 /**
- * Entity metadata implementation for the paragraphs entity.
+ * Class ParagraphsItemMetadataController
  */
 class ParagraphsItemMetadataController extends EntityDefaultMetadataController {
 
-  /**
-   * Generate basic metadata for a paragraphs item.
-   */
   public function entityPropertyInfo() {
     $info = parent::entityPropertyInfo();
-    $properties = &$info['paragraphs_item']['properties'];
+    $properties = &$info['paragraphs']['properties'];
+
 
     $properties['field_name']['label'] = t('Field name');
     $properties['field_name']['description'] = t('The machine-readable name of the paragraphs field containing this item.');

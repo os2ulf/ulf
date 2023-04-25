@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * paragraphs_test.strongarm.inc

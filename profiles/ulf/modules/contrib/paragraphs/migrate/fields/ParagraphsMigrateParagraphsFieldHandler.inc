@@ -1,12 +1,14 @@
 <?php
 
 /**
+ * Class ParagraphsMigrateParagraphsFieldHandler
+ *
  * Provides migrate field handler for paragraphs field.
  */
 class ParagraphsMigrateParagraphsFieldHandler extends MigrateSimpleFieldHandler {
 
   /**
-   * {@inheritdoc}
+   * @inheritdoc
    */
   public function __construct() {
     parent::__construct(array(
@@ -17,7 +19,13 @@ class ParagraphsMigrateParagraphsFieldHandler extends MigrateSimpleFieldHandler 
   }
 
   /**
-   * {@inheritdoc}
+   * Provide additional fields for migration.
+   *
+   * @param $type
+   * @param $instance
+   * @param null $migration
+   *
+   * @return array
    */
   public function fields($type, $instance, $migration = NULL) {
     return array(
@@ -26,14 +34,14 @@ class ParagraphsMigrateParagraphsFieldHandler extends MigrateSimpleFieldHandler 
   }
 
   /**
-   * {@inheritdoc}
+   * @inheritdoc
    */
   protected function notNull($value) {
     return !is_null($value) && $value !== FALSE;
   }
 
   /**
-   * {@inheritdoc}
+   * @inheritdoc
    */
   public function prepare($entity, array $field_info, array $instance, array $values) {
     $arguments = array();
@@ -75,8 +83,11 @@ class ParagraphsMigrateParagraphsFieldHandler extends MigrateSimpleFieldHandler 
 
   /**
    * Helper to get set of revision ids for import.
+   *
+   * @param $values
+   * @param $arguments
    */
-  protected function getRevisionIds(array $values, array $arguments) {
+  protected function getRevisionIds($values, $arguments) {
     $return = array();
 
     if (!isset($arguments['revision_id'])) {
@@ -105,5 +116,4 @@ class ParagraphsMigrateParagraphsFieldHandler extends MigrateSimpleFieldHandler 
 
     return $return;
   }
-
 }
