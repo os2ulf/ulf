@@ -17,7 +17,6 @@ files[] = includes/destinations.db.mysql.inc
 files[] = includes/destinations.email.inc
 files[] = includes/destinations.file.inc
 files[] = includes/destinations.ftp.inc
-files[] = includes/destinations.nodesquirrel.inc
 files[] = includes/destinations.s3.inc
 files[] = includes/files.inc
 files[] = includes/filters.inc
@@ -35,13 +34,23 @@ files[] = includes/sources.db.inc
 files[] = includes/sources.db.mysql.inc
 files[] = includes/sources.filesource.inc
 
+; Test dependencies.
+test_dependencies[] = ctools
+; This is required because of a test dependency in the CTools module's tests,
+; which testbot/drupalci will auto-discover after downloading CTools; it is not
+; actually used by Backup Migrate.
+test_dependencies[] = views
+
 ; Test suite.
 files[] = tests/BmTestBase.test
 files[] = tests/BmTestBasics.test
 files[] = tests/BmTestProfiles.test
+files[] = tests/BmTestEmail.test
+files[] = tests/BmTestCtools.test
+files[] = tests/BmTestUpdate7310.test
 
-; Information added by Drupal.org packaging script on 2018-12-16
-version = "7.x-3.6"
+; Information added by Drupal.org packaging script on 2022-01-09
+version = "7.x-3.10"
 core = "7.x"
 project = "backup_migrate"
-datestamp = "1544925486"
+datestamp = "1641732924"
