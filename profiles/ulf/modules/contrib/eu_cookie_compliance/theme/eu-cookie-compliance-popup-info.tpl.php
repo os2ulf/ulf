@@ -27,7 +27,6 @@
  *   agreed or disagreed to separately.
  * - $save_preferences_button_label: Label text for a button to save the consent
  *   preferences.
- * - $fix_first_cookie_category: Boolean value to indicate that the first
  *   consent category cannot be unchecked.
  * - $privacy_settings_tab_label: Label text for the Privacy settings tab.
  * - $withdraw_button_on_info_popup: Show the withdraw button on this popup.
@@ -44,6 +43,9 @@
 ); ?>
 <div class="<?php print implode(' ', $classes); ?>">
   <div class="popup-content info">
+    <?php if ($close_button_enabled) : ?>
+      <button class='eu-cookie-compliance-close-button'>Close</button>
+    <?php endif; ?>
     <div id="popup-text">
       <?php print $message ?>
       <?php if ($disagree_button) : ?>
@@ -52,23 +54,20 @@
     </div>
     <?php if ($cookie_categories) : ?>
       <div id="eu-cookie-compliance-categories" class="eu-cookie-compliance-categories">
-        <?php
-          $first_loop = TRUE;
-          foreach ($cookie_categories as $key => $category) {
-        ?>
+        <?php foreach ($cookie_categories as $key => $category) { ?>
           <div class="eu-cookie-compliance-category">
             <div>
-              <input type="checkbox" name="cookie-categories" id="cookie-category-<?php print $key; ?>"
-                     value="<?php print $key; ?>" <?php if ($fix_first_cookie_category && $first_loop) : ?>checked disabled<?php endif; ?>>
-              <label for="cookie-category-<?php print $key; ?>"><?php print $category['label']; ?></label>
+              <input type="checkbox" name="cookie-categories" id="cookie-category-<?php print drupal_html_class($key); ?>"
+                     value="<?php print $key; ?>"
+                     <?php if (in_array($category['checkbox_default_state'], array('checked', 'required'))) : ?>checked<?php endif; ?>
+                     <?php if ($category['checkbox_default_state'] === 'required') : ?>disabled<?php endif; ?> >
+              <label for="cookie-category-<?php print drupal_html_class($key); ?>"><?php print filter_xss($category['label']); ?></label>
             </div>
           <?php if (isset($category['description'])) : ?>
-            <div class="eu-cookie-compliance-category-description"><?php print $category['description'] ?></div>
+            <div class="eu-cookie-compliance-category-description"><?php print filter_xss($category['description']) ?></div>
           <?php endif; ?>
         </div>
-        <?php
-          $first_loop = FALSE;
-          } //end for ?>
+        <?php } //end for ?>
         <?php if ($save_preferences_button_label) : ?>
           <div class="eu-cookie-compliance-categories-buttons">
             <button type="button"
@@ -79,6 +78,11 @@
     <?php endif; ?>
 
     <div id="popup-buttons" class="<?php if ($cookie_categories) : ?>eu-cookie-compliance-has-categories<?php endif; ?>">
+      <?php if ($tertiary_button_label) : ?>
+      <button type='button' class='<?php print $tertiary_button_class ?>'><?php print
+        $tertiary_button_label ?>
+      </button>
+      <?php endif; ?>
       <button type="button" class="<?php print $primary_button_class; ?>"><?php print $agree_button; ?></button>
       <?php if ($secondary_button_label) : ?>
         <button type="button" class="<?php print $secondary_button_class; ?>" ><?php print $secondary_button_label; ?></button>

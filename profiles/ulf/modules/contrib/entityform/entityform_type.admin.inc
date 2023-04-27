@@ -1,4 +1,9 @@
 <?php
+
+/**
+ * @file
+ */
+
 define('ENTITYFORM_TYPE_DEFAULT_PROP_TEXT', 'Leave this field blank to use default setting. Use &lt;none&gt; to show no text');
 /**
  * @file
@@ -34,6 +39,7 @@ class EntityformTypeUIController extends EntityDefaultUIController {
     $render['#header'][] = t('Submit Link');
     return $render;
   }
+
 }
 
 /**
@@ -42,10 +48,6 @@ class EntityformTypeUIController extends EntityDefaultUIController {
 function entityform_type_form($form, &$form_state, $entityform_type, $op = 'edit') {
   $labels = $entityform_type->getLabelsForTranslation();
   if ($op == 'clone') {
-    // Set the original entity type. Unfortunately we can access this
-    // information just by args as it is removed everywhere else.
-    $form['#entityform_type_original'] = arg(4);
-    $form_state['#entityform_type_original'] = arg(4);
     $entityform_type->label .= ' (cloned)';
     $entityform_type->type = '';
   }
@@ -82,43 +84,6 @@ function entityform_type_form($form, &$form_state, $entityform_type, $op = 'edit
     // Don't allow changing machine name.
     '#access' => empty($entityform_type->type),
   );
-
-  if ($op == 'clone') {
-    $form['clone'] = array(
-      '#tree' => TRUE,
-      '#type' => 'fieldset',
-      '#title' => t('Clone settings'),
-      '#weight' => -48,
-    );
-    $form['clone']['field'] = array(
-      '#title' => t('Clone field configuration'),
-      '#type' => 'checkbox',
-      '#default_value' => TRUE,
-      '#description' => t('If checked the field configuration will be duplicated also.'),
-    );
-    // Check for module integrations.
-    $module_integrations = array(
-      'field_group' => t('Field Group'),
-      'conditional_fields' => t('Conditional Fields'),
-      'field_validation' => t('Field Validation'),
-      'ds' => t('Display Suite'),
-    );
-    foreach ($module_integrations as $module => $module_name) {
-      if (module_exists($module)) {
-        $form['clone'][$module] = array(
-          '#title' => t('Clone settings of module %module', array('%module' => $module_name)),
-          '#type' => 'checkbox',
-          '#default_value' => TRUE,
-          '#states' => array(
-            'invisible' => array(
-              'input[name="clone[fields]"]' => array('checked' => FALSE),
-            ),
-          ),
-        );
-      }
-    }
-  }
-
   $form['data']['#tree'] = TRUE;
 
   $form['data']['redirect_path'] = array(
@@ -136,7 +101,7 @@ function entityform_type_form($form, &$form_state, $entityform_type, $op = 'edit
     '#description' => t('These user instructions will appear at the top of every page within this form.'),
   );
   if (module_exists('menu')) {
-    // Menu Settings
+    // Menu Settings.
     $link = $entityform_type->menu;
 
     $form['menu'] = array(
@@ -170,18 +135,18 @@ function entityform_type_form($form, &$form_state, $entityform_type, $op = 'edit
 
     // Populate the element with the link data.
     foreach (array(
-               'mlid',
-               'module',
-               'hidden',
-               'has_children',
-               'customized',
-               'options',
-               'expanded',
-               'hidden'
-             ) as $key) {
+      'mlid',
+      'module',
+      'hidden',
+      'has_children',
+      'customized',
+      'options',
+      'expanded',
+      'hidden',
+    ) as $key) {
       $form['menu']['link'][$key] = array(
         '#type' => 'value',
-        '#value' => $link[$key]
+        '#value' => $link[$key],
       );
     }
 
@@ -279,7 +244,7 @@ function entityform_type_form($form, &$form_state, $entityform_type, $op = 'edit
   }
   else {
     $form['tokens'] = array(
-      '#markup' => '<p>' . t('Enable the <a href="@drupal-token">Token module</a> to view the available token browser.', array('@drupal-token' => 'http://drupal.org/project/token')) . '</p>',
+      '#markup' => '<p>' . t('Enable the <a href="@drupal-token">Token module</a> to view the available token browser.', array('@drupal-token' => 'https://drupal.org/project/token')) . '</p>',
     );
   }
 
@@ -288,6 +253,7 @@ function entityform_type_form($form, &$form_state, $entityform_type, $op = 'edit
 
 /**
  * Prepare Entityform Type to be edited.
+ *
  * @param EntityformType $entityform_type
  */
 function entityform_type_prepare_edit(&$entityform_type) {
@@ -301,29 +267,31 @@ function entityform_type_prepare_edit(&$entityform_type) {
     }
     // Set default values.
     $entityform_type->menu = $item + array(
-        'link_title' => '',
-        'mlid' => 0,
-        'plid' => 0,
-        'menu_name' => '',
-        'weight' => 0,
-        'options' => array(),
-        'module' => 'entityform',
-        'expanded' => 0,
-        'hidden' => 0,
-        'has_children' => 0,
-        'customized' => 0,
-      );
+      'link_title' => '',
+      'mlid' => 0,
+      'plid' => 0,
+      'menu_name' => '',
+      'weight' => 0,
+      'options' => array(),
+      'module' => 'entityform',
+      'expanded' => 0,
+      'hidden' => 0,
+      'has_children' => 0,
+      'customized' => 0,
+    );
   }
 }
 
 /**
- * Entityform global setting form
+ * Entityform global setting form.
+ *
  * @param array $form
  * @param array $form_state
+ *
  * @return array
  */
 function entityform_settings($form, &$form_state) {
-  //choose the default View for viewing for submissions
+  // Choose the default View for viewing for submissions.
   $defaults = entity_get_controller('entityform_type')->create(array(), TRUE);
   $form = _entityform_type_settings_elements($defaults, 'defaults');
   $form['#entityform_type'] = $defaults;
@@ -345,7 +313,7 @@ function entityform_settings($form, &$form_state) {
     'entityform_type_defaults',
     'data',
   );
-  //collaspe all fieldsets
+  // Collaspe all fieldsets.
   foreach (element_children($form['entityform_type_defaults']['data']) as $key) {
     if (isset($form['entityform_type_defaults']['data'][$key]['#type']) && $form['entityform_type_defaults']['data'][$key]['#type'] == 'fieldset') {
       $form['entityform_type_defaults']['data'][$key]['#collapsed'] = TRUE;
@@ -357,8 +325,10 @@ function entityform_settings($form, &$form_state) {
 /**
  * Create Form elements that are shared between EntityformType add/edit form and EntityformType default settings form
  * This allows default settings to set for most form settings.
+ *
  * @param $entityform_type
  * @param $op
+ *
  * @return array
  *   Form elements
  */
@@ -500,7 +470,7 @@ function _entityform_type_settings_elements($entityform_type, $op) {
   $parts = explode(':', $submission_view);
   $submission_view = $parts[0];
   if ($op == 'defaults') {
-    //If selected Views are no longer available select defaults.
+    // If selected Views are no longer available select defaults.
     if (!array_key_exists($submission_view, $view_options)) {
       $submission_view = 'entityforms';
     }
@@ -604,10 +574,10 @@ function _entityform_paths_form_element_validate($element, &$form_state, $comple
 
 }
 
-/*
+/**
  * Email form validate function.
  *
- * Should contain either no value or emails separated by commas
+ * Should contain either no value or emails separated by commas.
  */
 function _entityform_form_email_list_validate($element, &$form_state, $form) {
   $emails = explode(', ', $element['#value']);
@@ -619,7 +589,6 @@ function _entityform_form_email_list_validate($element, &$form_state, $form) {
     }
   }
 }
-
 
 /**
  * Form API submit callback for the type form.
@@ -634,107 +603,11 @@ function entityform_type_form_submit(&$form, &$form_state) {
     $form_state['redirect'] = "admin/structure/entityform_types/manage/{$entityform_type->type}/fields";
   }
   $entityform_type->save();
-
-  // Additional handling for the clone operation.
-  if ($form_state['op'] == 'clone') {
-    entityform_type_clone($entityform_type, $form_state);
-  }
 }
-
 
 /**
  * Form API submit callback for the delete button.
  */
 function entityform_type_form_submit_delete(&$form, &$form_state) {
   $form_state['redirect'] = 'admin/structure/entityform_types/manage/' . $form_state['entityform_type']->type . '/delete';
-}
-
-
-function entityform_type_clone($entityform_type, $form_state) {
-
-  $entityform_type_original = $form_state['#entityform_type_original'];
-  $clone_selection = $form_state['values']['clone'];
-
-  // Clone fields.
-  if (!empty($clone_selection['field']) && module_exists('field')) {
-    $instances = field_info_instances('entityform', $entityform_type_original);
-    foreach ($instances as $instance) {
-      $instance['bundle'] = $entityform_type->type;
-      field_create_instance($instance);
-    }
-  }
-
-  // Field group integration.
-  if (!empty($clone_selection['field_group']) && module_exists('field_group')) {
-    $source_groups = field_group_read_groups(array(
-      'bundle' => $entityform_type_original,
-      'entity_type' => 'entityform',
-    ));
-    if (!empty($source_groups['entityform'][$entityform_type_original])) {
-      ctools_include('export');
-      foreach ($source_groups['entityform'][$entityform_type_original] as $mode => $groups) {
-        foreach ($groups as $source_group) {
-          // Recreate the identifier and reset the id.
-          $source_group->id = NULL;
-          $source_group->bundle = $entityform_type->type;
-          $source_group->identifier = $source_group->group_name . '|' . $source_group->entity_type . '|' . $source_group->bundle . '|' . $source_group->mode;
-          unset($source_group->export_type, $source_group->type, $source_group->table);
-
-          // Save it in ctools.
-          ctools_export_crud_save('field_group', $source_group);
-        }
-      }
-    }
-  }
-
-  // Field Validation integration.
-  if (!empty($clone_selection['field_validation']) && module_exists('field_validation')) {
-    $rules = ctools_export_load_object('field_validation_rule', 'conditions', array(
-      'entity_type' => 'entityform',
-      'bundle' => $entityform_type_original,
-    ));
-    foreach ($rules as $rule) {
-      unset($rule->ruleid);
-      $rule->bundle = $entityform_type->type;
-      unset($rule->export_type, $rule->type, $rule->in_code_only, $rule->table);
-      drupal_write_record('field_validation_rule', $rule);
-    }
-  }
-
-  // Conditional fields integration.
-  if (!empty($clone_selection['conditional_fields']) && module_exists('conditional_fields')) {
-    $conditions = conditional_fields_load_dependencies('entityform', $entityform_type_original);
-    if (!empty($conditions['dependents'])) {
-      foreach ($conditions['dependents'] as $dependent => $dependent_conditions) {
-        $dependent_instance = field_info_instance('entityform', $dependent, $entityform_type->type);
-        foreach ($dependent_conditions as $condition) {
-          $dependee_instance = field_info_instance('entityform', $condition['dependee'], $entityform_type->type);
-          conditional_fields_dependency_insert($dependee_instance['id'], $dependent_instance['id'], $condition['options']);
-        }
-      }
-    }
-  }
-
-  // Display Suite settings
-  if (!empty($clone_selection['ds']) && module_exists('ds')) {
-    $old_bundle = $entityform_type_original;
-    $new_bundle = $entityform_type->type;
-
-    // Duplicate the checkbox selection under the "Custom display settings"
-    // vertical tab on admin/structure/entityform_types/manage/[bundle]/display
-    $checkbox_selection = field_bundle_settings('entityform', $old_bundle);
-    field_bundle_settings('entityform', $new_bundle, $checkbox_selection);
-
-    foreach (array('ds_layout', 'ds_field') as $area) {
-      $table = $area . '_settings';
-      foreach (ctools_export_crud_load_all($table) as $ds_setting) {
-        if ($ds_setting->entity_type == 'entityform' && $ds_setting->bundle == $old_bundle) {
-          $ds_setting->bundle = $new_bundle;
-          $ds_setting->id = "entityform|$new_bundle|$ds_setting->view_mode";
-          drupal_write_record($table, $ds_setting);
-        }
-      }
-    }
-    cache_clear_all('ds_field_settings', 'cache');
-  }
 }
