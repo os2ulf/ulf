@@ -1,17 +1,17 @@
 -----------------------------------------------------------------------------
 CURRENT FEATURES
 -----------------------------------------------------------------------------
-Formatter
+Formater
 
   Plain text HEX code (#FFFFFF)
   Css Declaration (color/background-color)
-  Color Swatch
 
 Widget
 
-  Plain Text
-  Pre-selected Color Boxes
-  Simple Query Color (http://recursive-design.com/projects/jquery-simple-color/)
+  Plain text
+  Pre-selected color boxes
+  Simple jquery color
+  (http://recursive-design.com/projects/jquery-simple-color/)
 
 -----------------------------------------------------------------------------
 ROAD MAP
@@ -48,16 +48,6 @@ Field
 1. Add the field to an node/entity
 2. Select the 'Color Field' field type
 3. Select the 'Color' widget you want
-
------------------------------------------------------------------------------
-DRUSH - Download the latest color libraries under /sites/all/libraries
------------------------------------------------------------------------------
-    drush color-field-spectrum
-
------------------------------------------------------------------------------
-Spectrum Color Picker plugin - http://bgrins.github.com/spectrum
------------------------------------------------------------------------------
-The latest version of Spectrum Color (1.7.1) require at least jquery 1.7.2.
 
 -----------------------------------------------------------------------------
 CREDIT
