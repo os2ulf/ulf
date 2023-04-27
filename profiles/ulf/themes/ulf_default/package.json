@@ -4,7 +4,7 @@
   "description": "Frontend-boilerplate ==========",
   "main": "gulpfile.js",
   "dependencies": {
-    "browser-sync": "^2.24.7",
+    "browser-sync": "^2.29.1",
     "compass-mixins": "^0.12.10",
     "gulp": "^4.0.0",
     "gulp-compass": "^2.1.0",
