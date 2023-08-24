@@ -80,17 +80,9 @@ function metatag_views_tests_views_default_views() {
           'nofollow' => 0,
           'noarchive' => 0,
           'nosnippet' => 0,
-          'noodp' => 0,
-          'noydir' => 0,
           'noimageindex' => 0,
           'notranslate' => 0,
         ),
-      ),
-      'news_keywords' => array(
-        'value' => '',
-      ),
-      'standout' => array(
-        'value' => '',
       ),
       'rating' => array(
         'value' => '',
@@ -111,9 +103,6 @@ function metatag_views_tests_views_default_views() {
       'shortlink' => array(
         'value' => '[current-page:url:unaliased]',
         'default' => '[current-page:url:unaliased]',
-      ),
-      'publisher' => array(
-        'value' => '',
       ),
       'author' => array(
         'value' => '',
@@ -147,19 +136,6 @@ function metatag_views_tests_views_default_views() {
         'value' => '',
       ),
       'refresh' => array(
-        'value' => '',
-      ),
-      'itemtype' => array(
-        'value' => '',
-      ),
-      'itemprop:name' => array(
-        'value' => '[current-page:title]',
-        'default' => '[current-page:title]',
-      ),
-      'itemprop:description' => array(
-        'value' => '',
-      ),
-      'itemprop:image' => array(
         'value' => '',
       ),
       'theme-color' => array(

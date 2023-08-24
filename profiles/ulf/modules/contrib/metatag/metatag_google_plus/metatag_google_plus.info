@@ -1,17 +1,10 @@
 name = Metatag: Google+
-description = "Provides support for Google+ 'itemscope' and 'publisher' meta tags."
-package = SEO
+description = "Removed in Metatag v2 as Google+ was shot down years ago. These files will be removed later."
 core = 7.x
+hidden = true
 
-dependencies[] = metatag:metatag
-
-files[] = metatag_google_plus.inc
-
-; Tests.
-files[] = tests/MetatagGooglePlusTagsTest.test
-
-; Information added by Drupal.org packaging script on 2022-07-27
-version = "7.x-1.30"
+; Information added by Drupal.org packaging script on 2023-06-30
+version = "7.x-2.1"
 core = "7.x"
 project = "metatag"
-datestamp = "1658935898"
+datestamp = "1688147287"

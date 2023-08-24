@@ -2,6 +2,7 @@ name = Metatag
 description = "Adds support and an API to implement meta tags."
 package = SEO
 core = 7.x
+php = 7.0
 
 ; This requires Drupal 7.40 because of the project:module dependency structure.
 dependencies[] = drupal:system (>= 7.40)
@@ -39,6 +40,9 @@ files[] = tests/MetatagTestBase.test
 ; Basic configuration handling.
 files[] = tests/MetatagCoreUnitTest.test
 
+; Update script tests for v2.
+files[] = tests/MetatagV2Updates.test
+
 ; Basic tag testing.
 files[] = tests/MetatagTagsTestBase.test
 files[] = tests/MetatagTagsTest.test
@@ -57,6 +61,7 @@ files[] = tests/MetatagBulkRevertTest.test
 ; String handling.
 files[] = tests/MetatagCoreStringHandlingTest.test
 files[] = tests/MetatagCoreStringHandlingWithI18nTest.test
+files[] = tests/MetatagCoreCustomSeparatorTest.test
 
 ; XSS testing.
 files[] = tests/MetatagCoreXSSTest.test
@@ -111,8 +116,8 @@ files[] = tests/MetatagCoreWithWorkbenchModerationTest.test
 ; Test dependencies used by submodules, left here to make it easier to find.
 test_dependencies[] = context:context
 
-; Information added by Drupal.org packaging script on 2022-07-27
-version = "7.x-1.30"
+; Information added by Drupal.org packaging script on 2023-06-30
+version = "7.x-2.1"
 core = "7.x"
 project = "metatag"
-datestamp = "1658935898"
+datestamp = "1688147287"

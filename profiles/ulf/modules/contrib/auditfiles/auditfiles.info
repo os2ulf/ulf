@@ -3,9 +3,8 @@ description = Allows for comparing and correcting files and file references in t
 core = 7.x
 configure = admin/config/system/auditfiles
 
-; Information added by Drupal.org packaging script on 2016-04-19
-version = "7.x-3.0"
+; Information added by Drupal.org packaging script on 2020-07-27
+version = "7.x-3.1"
 core = "7.x"
 project = "auditfiles"
-datestamp = "1461070442"
-
+datestamp = "1595872186"

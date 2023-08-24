@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * This is where the administrative settings configuration is.
@@ -23,7 +24,7 @@ function auditfiles_admin_settings($form, &$form_state) {
   }
   $form['auditfiles_file_system_paths']['auditfiles_file_system_path'] = array(
     '#type' => 'select',
-    '#title' => 'File system path',
+    '#title' => t('File system path'),
     '#default_value' => variable_get('auditfiles_file_system_path', 'public'),
     '#options' => $options,
     '#description' => t('Select the file system path to use when searching for
@@ -92,7 +93,7 @@ function auditfiles_admin_settings($form, &$form_state) {
   }
   $form['auditfiles_report_options']['auditfiles_report_options_date_format'] = array(
     '#type' => 'select',
-    '#title' => 'Date format',
+    '#title' => t('Date format'),
     '#default_value' => variable_get('auditfiles_report_options_date_format', ''),
     '#options' => $options,
     '#description' => t('Select the date format to use when displaying file
