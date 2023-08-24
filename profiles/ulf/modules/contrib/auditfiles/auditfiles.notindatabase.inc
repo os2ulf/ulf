@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Generates a report showing files on the server, but not in the database.
@@ -66,7 +67,7 @@ function auditfiles_not_in_database_form(array $form, array &$form_state) {
     );
   }
   else {
-    $form_count = 'Found no files on the server that are not in the database.';
+    $form_count = t('Found no files on the server that are not in the database.');
   }
 
   // Add the button to reset the record selection.
@@ -583,7 +584,7 @@ function _auditfiles_not_in_database_batch_add_process_file($filepathname) {
   $file->timestamp = REQUEST_TIME;
 
   // Make sure the file is not already in the database.
-  $query = 'SELECT fid FROM file_managed WHERE uri = :uri';
+  $query = 'SELECT fid FROM {file_managed} WHERE uri = :uri';
   $existing_file = db_query($query, array(':uri' => $file->uri))->fetchAll();
   if (empty($existing_file)) {
     // The file is not already in the database, so add it.
@@ -686,11 +687,6 @@ function _auditfiles_not_in_database_batch_delete_process_file($filename) {
 /**
  * Recurse directories and add files to an array.
  *
- * @param string $directory
- *   The directory in which to look for files.
- * @param bool $recursive
- *   Whether or not to recurse into subdirectories.
- *
  * @return array
  *   The list of file names to display.
  */
@@ -735,6 +731,14 @@ function _auditfiles_not_in_database_get_reports_files() {
   return $reported_files;
 }
 
+/**
+ * Updates a list of files with files found in the specified path.
+ *
+ * @param string $path
+ *   The filepath to read the files from.
+ * @param array $report_files
+ *   The list of files to update.
+ */
 function _auditfiles_not_in_database_get_files_for_report($path, array &$report_files) {
   // Get the static paths necessary for processing the files.
   $file_system_stream = variable_get('auditfiles_file_system_path', 'public');
@@ -840,7 +844,7 @@ function _auditfiles_not_in_database_get_files($path) {
  *   The list of files and directories that are not to be included in the list
  *   of files to check.
  *
- * @return boolean
+ * @return bool
  *   Returns TRUE, if the path or file is being included, or FALSE, if the path
  *   or file has been excluded.
  *
@@ -877,7 +881,7 @@ function _auditfiles_not_in_database_include_file($path, $file, $exclusions) {
  * @return array
  *   The merged file arrays.
  */
-function _auditfiles_not_in_database_report_processing_merge_file_lists($dest_files, $source_files, $real_path, $new_files_path, $exclusions) {
+function _auditfiles_not_in_database_report_processing_merge_file_lists(array $dest_files, array $source_files, $real_path, $new_files_path, $exclusions) {
   foreach ($source_files as $source_file) {
     $include = _auditfiles_not_in_database_include_file(
       $real_path,
@@ -943,7 +947,7 @@ function _auditfiles_not_in_database_is_file_in_database($filepathname) {
  * @return array
  *   The file data, formatted for adding to a table row.
  */
-function _auditfiles_not_in_database_format_row_data($file, $real_path, $date_format) {
+function _auditfiles_not_in_database_format_row_data(array $file, $real_path, $date_format) {
   $filename = $file['file_name'];
   $filepath = $file['path_from_files_root'];
   if (empty($filepath)) {
@@ -1038,13 +1042,19 @@ function _auditfiles_not_in_database_get_header() {
  *   The excluions.
  */
 function _auditfiles_get_exclusions() {
+  // Get the static paths necessary for processing the files.
+  $file_system_stream = variable_get('auditfiles_file_system_path', 'public');
+  // The full file system path to the Drupal root directory.
+  $real_files_path = drupal_realpath($file_system_stream . '://');
+  $user_data['real_files_path'] = $real_files_path;
   $exclusions_array = array();
 
   // Create the list of requested file exclusions.
   $files = trim(variable_get('auditfiles_exclude_files', '.htaccess'));
   if ($files) {
     $exclude_files = explode(';', $files);
-    array_walk($exclude_files, '_auditfiles_make_preg', FALSE);
+    $user_data['make_file_path'] = FALSE;
+    array_walk($exclude_files, '_auditfiles_make_preg', $user_data);
     $exclusions_array = array_merge($exclusions_array, $exclude_files);
   }
 
@@ -1052,11 +1062,12 @@ function _auditfiles_get_exclusions() {
   $paths = trim(variable_get('auditfiles_exclude_paths', 'color;css;ctools;js'));
   if ($paths) {
     $exclude_paths = explode(';', $paths);
-    array_walk($exclude_paths, '_auditfiles_make_preg', TRUE);
+    $user_data['make_file_path'] = TRUE;
+    array_walk($exclude_paths, '_auditfiles_make_preg', $user_data);
     $exclusions_array = array_merge($exclusions_array, $exclude_paths);
   }
 
-  // Exclude other file streams that may be deinfed and in use.
+  // Exclude other file streams that may be defined and in use.
   $exclude_streams = array();
   $auditfiles_file_system_path = variable_get('auditfiles_file_system_path', 'public');
   $file_system_paths = file_get_stream_wrappers();
@@ -1068,7 +1079,8 @@ function _auditfiles_get_exclusions() {
       }
     }
   }
-  array_walk($exclude_streams, '_auditfiles_make_preg', FALSE);
+  $user_data['make_file_path'] = FALSE;
+  array_walk($exclude_streams, '_auditfiles_make_preg', $user_data);
   $exclusions_array = array_merge($exclusions_array, $exclude_streams);
 
   // Create the list of requested extension exclusions. (This is a little more
@@ -1076,7 +1088,8 @@ function _auditfiles_get_exclusions() {
   $extensions = trim(variable_get('auditfiles_exclude_extensions', ''));
   if ($extensions) {
     $exclude_extensions = explode(';', $extensions);
-    array_walk($exclude_extensions, '_auditfiles_make_preg', FALSE);
+    $user_data['make_file_path'] = FALSE;
+    array_walk($exclude_extensions, '_auditfiles_make_preg', $user_data);
 
     $extensions = implode('|', $exclude_extensions);
     // Add grouping around string & end marker and append to exlusions_array.
@@ -1084,6 +1097,8 @@ function _auditfiles_get_exclusions() {
     $exclusions_array[] = $extensions;
   }
 
+  // Filter out any empty exclusions.
+  $exclusions_array = array_filter($exclusions_array);
   // Implode exclusions array to a string.
   $exclusions = implode('|', $exclusions_array);
 
@@ -1098,12 +1113,17 @@ function _auditfiles_get_exclusions() {
  *   The string to escape.
  * @param mixed $key
  *   The key or index for the array item passed into $element.
- * @param bool $makefilepath
- *   Set to TRUE to change elements to file paths at the same time.
+ * @param array $user_data
+ *   Data to operate on the specified file name with. Currently, this array
+ *   consists of two elements:
+ *   - real_files_path: A string with the path to the file, as specified in the
+ *     "File system path" setting on the administrative configuration page.
+ *   - make_file_path: A boolean value, indeicating whether to change elements
+ *     to file paths.
  */
-function _auditfiles_make_preg(&$element, $key, $makefilepath = FALSE) {
-  if ($makefilepath) {
-    $realpath = drupal_realpath(file_build_uri($element));
+function _auditfiles_make_preg(&$element, $key, array $user_data) {
+  if ($user_data['make_file_path']) {
+    $realpath = $user_data['real_files_path'] . '/' . $element;
     if ($realpath) {
       $element = $realpath;
     }

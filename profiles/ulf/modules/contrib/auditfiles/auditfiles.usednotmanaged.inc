@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Generates a report showing files in file_usage, but not in file_managed.
@@ -72,7 +73,7 @@ function auditfiles_used_not_managed_form(array $form, array &$form_state) {
     );
   }
   else {
-    $form_count = 'Found no files in the file_usage table that are not in the file_managed table.';
+    $form_count = t('Found no files in the file_usage table that are not in the file_managed table.');
   }
 
   // Add the button to reset the record selection.
@@ -334,7 +335,7 @@ function _auditfiles_used_not_managed_batch_display_process_files(array &$contex
     $file_list = array_slice($context['results']['file_list'], 0, 20, TRUE);
 
     $query = 'SELECT fid, module, type, id, count
-      FROM file_usage
+      FROM {file_usage}
       WHERE fid IN (:file_list)';
     $files_list = db_query($query, array(':file_list' => $file_list))->fetchAll();
 

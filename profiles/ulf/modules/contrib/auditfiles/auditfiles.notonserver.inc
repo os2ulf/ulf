@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Generates a report showing files in the database, but not on the server.
@@ -76,7 +77,7 @@ function auditfiles_not_on_server_form(array $form, array &$form_state) {
     );
   }
   else {
-    $form_count = 'Found no files in the database that are not on the server.';
+    $form_count = t('Found no files in the database that are not on the server.');
   }
 
   // Add the button to reset the record selection.
@@ -352,7 +353,7 @@ function _auditfiles_not_on_server_batch_display_process_files($date_format, arr
     $file_list = array_slice($context['results']['file_list'], 0, 20, TRUE);
 
     $query = 'SELECT fid, uid, filename, uri, filemime, filesize, timestamp, status
-      FROM file_managed
+      FROM {file_managed}
       WHERE fid IN (:file_list)';
     $files_list = db_query($query, array(':file_list' => $file_list))->fetchAll();
 
