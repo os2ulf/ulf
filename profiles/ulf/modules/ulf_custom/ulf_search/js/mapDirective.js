@@ -132,6 +132,7 @@ angular.module('searchResultApp').directive('searchMap', [ '$timeout', '$templat
 
               // Clean out resolved markers as some are without lat/lon and is
               // undefined in the array.
+              console.log(data);
               var hitCount = 0;
               for (var i = 0; i < data.length; i++) {
                 if (data[i] !== undefined) {
