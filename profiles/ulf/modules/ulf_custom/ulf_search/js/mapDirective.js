@@ -49,6 +49,8 @@ angular.module('searchResultApp').directive('searchMap', [ '$timeout', '$templat
     function addMarker(data, scope) {
       return $q(function(resolve, reject) {
         var location = data.field_location;
+        console.log(data);
+        console.log(location);
 
         if (location !== null && location.lat !== null && location.lon !== null) {
           if (location.lat > 0 && location.lon > 0) {
