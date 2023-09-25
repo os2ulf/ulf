@@ -50,32 +50,34 @@ angular.module('searchResultApp').directive('searchMap', [ '$timeout', '$templat
       return $q(function(resolve, reject) {
         var location = data.field_location;
 
-        if (location !== null) {
-          var marker = L.marker([location.lat, location.lon]);
+        if (location !== null && location.lat !== null && location.lon !== null) {
+          if (location.lat > 0 && location.lon > 0) {
+            var marker = L.marker([location.lat, location.lon]);
 
-          $q.when(loadTemplate(CONFIG.templates.popup)).then(function (template) {
-            $templateCache.put(CONFIG.templates.popup, template);
+            $q.when(loadTemplate(CONFIG.templates.popup)).then(function (template) {
+              $templateCache.put(CONFIG.templates.popup, template);
 
-            var div = L.DomUtil.create('div', 'leaflet-popup-container');
-            var $content = angular.element(div);
+              var div = L.DomUtil.create('div', 'leaflet-popup-container');
+              var $content = angular.element(div);
 
-            // Create new scope for the popup content.
-            var $scope = scope.$new(true);
-            $scope.hit = data;
+              // Create new scope for the popup content.
+              var $scope = scope.$new(true);
+              $scope.hit = data;
 
-            // Attach the angular template to the dom and render the
-            // content.
-            $content.html(template);
-            $content.hide();
-            $timeout(function () {
-              $compile($content)($scope);
-              $content.fadeIn();
+              // Attach the angular template to the dom and render the
+              // content.
+              $content.html(template);
+              $content.hide();
+              $timeout(function () {
+                $compile($content)($scope);
+                $content.fadeIn();
+              });
+
+              // Add marker to the map.
+              marker.bindPopup(div);
+              resolve(marker);
             });
-
-            // Add marker to the map.
-            marker.bindPopup(div);
-            resolve(marker);
-          });
+          }
         }
         else {
           resolve()
