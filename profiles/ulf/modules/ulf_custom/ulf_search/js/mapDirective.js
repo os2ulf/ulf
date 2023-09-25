@@ -49,10 +49,10 @@ angular.module('searchResultApp').directive('searchMap', [ '$timeout', '$templat
     function addMarker(data, scope) {
       return $q(function(resolve, reject) {
         var location = data.field_location;
+        console.log('data', data);
+        console.log('location', location);
 
         if (location !== null && location.lat !== null && location.lon !== null) {
-          console.log('data', data);
-          console.log('location', location);
           if (location.lat > 0 && location.lon > 0) {
             var marker = L.marker([location.lat, location.lon]);
 
@@ -133,15 +133,12 @@ angular.module('searchResultApp').directive('searchMap', [ '$timeout', '$templat
               // Clean out resolved markers as some are without lat/lon and is
               // undefined in the array.
               var hitCount = 0;
-              console.log('cluster before loop', cluster);
               for (var i = 0; i < data.length; i++) {
                 if (data[i] !== undefined) {
-                  console.log('data[i]', data[i]);
                   hitCount++;
                   cluster.addLayer(data[i]);
                 }
               }
-              console.log('cluster after loop', cluster);
 
               // Update hit counter.
               scope.hitCount = hitCount;
