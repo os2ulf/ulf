@@ -112,6 +112,7 @@ angular.module('searchResultApp').directive('searchMap', [ '$timeout', '$templat
         // Watch for changes in hits
         communicatorService.$on('mapSearchHits', function onMapHits(event, hits) {
           scope.mapHits = hits;
+          console.log(hits);
 
           // Add all results to the map.
           var promises = [];
@@ -132,9 +133,9 @@ angular.module('searchResultApp').directive('searchMap', [ '$timeout', '$templat
 
               // Clean out resolved markers as some are without lat/lon and is
               // undefined in the array.
-              console.log(data);
               var hitCount = 0;
               for (var i = 0; i < data.length; i++) {
+                console.log(data[i]);
                 if (data[i] !== undefined) {
                   hitCount++;
                   cluster.addLayer(data[i]);
