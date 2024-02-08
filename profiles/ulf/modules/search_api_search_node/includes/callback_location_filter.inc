@@ -39,6 +39,27 @@ class SearchNodeLocationFilter extends SearchApiAbstractAlterCallback {
           'lon' => $location['longitude'],
         );
       }
+      else if (isset($item->field_map_placement)) {
+        $user = user_load($item->uid);
+        $show_provider_placement =
+          isset($item->field_map_placement['und'][0]['value'])
+          && $item->field_map_placement['und'][0]['value'] === 'provider';
+        if ($user && count($user->locations) > 0 && $show_provider_placement) {
+          $location = reset($user->locations);
+          // Check if location is valid.
+          if ($location && $location['latitude'] == '0.000000' && $location['longitude'] == '0.000000') {
+            // This is normally because geo-encoding have failed. So just go to
+            // the next one.
+            continue;
+          }
+
+          $name = $this->options['field_name'];
+          $item->$name = [
+            'lat' => $location['latitude'],
+            'lon' => $location['longitude'],
+          ];
+        }
+      }
     }
   }
 
