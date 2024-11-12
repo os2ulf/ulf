@@ -12,3 +12,4 @@ $sites['ungegarantien.test'] = 'ungegarantien.dk';
 $sites['laeringsportalenskive.test'] = 'laeringsportalenskive.dk';
 $sites['udoglaer.vejle.test'] = 'udoglaer.vejle.dk';
 $sites['udsynmodarbejdsliv.test'] = 'udsynmodarbejdsliv.dk';
+$sites['old.ulfiaarhus.dk'] = 'ulfiaarhus.dk';
